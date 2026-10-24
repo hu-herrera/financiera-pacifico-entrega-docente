@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 23 de octubre de 2026 - C5 A/B
+**Corte:** 24 de octubre de 2026 - C5 A/B, revisión WAN-2
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -48,3 +48,5 @@ La grabación se incorporará en la carpeta [Video/](Video/README.md).
 [Acceso al simulador del proyecto](https://hu-herrera.github.io/fin/).
 
 Este repositorio contiene únicamente documentación académica de revisión y sus anexos técnicos. Los documentos distinguen la ficha oficial, los supuestos adoptados y los resultados del prototipo. El informe incluye correspondencia con las observaciones de la primera entrega. Los estados previos de la bitácora son históricos y no sustituyen el cierre vigente.
+
+La [revisión WAN-2](Anexos/Revision_WAN_24_oct_2026.md) cierra la sustitución de distribuidores también en A. Ambas opciones usan 45 hEX E50UG y un CRS310; el PPT, inventario y presupuesto reflejan el cambio.

@@ -1,6 +1,6 @@
 # Inventario, IPAM y puertos — C5 A/B
 
-Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas Wi-Fi se activan al elegir ese camino. Los nombres de puertos son la especificación educativa, con roles de fabricante donde corresponde.
+Corte 24-10-2026, revisión WAN-2. Tablas de las fichas JSON que usa el simulador. Las reservas Wi-Fi se activan al elegir ese camino. Los nombres de puertos son la especificación educativa, con roles de fabricante donde corresponde.
 
 ## Alternativa A
 
@@ -13,7 +13,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 2 × CISCO2911-SEC/K9 | Routing en el par de firewalls |
 | Switches | 2 × C9200L-48P-4X-E | C9200L-48P-4X-E + C9200L-48P-4X-E |
 | Firewall | 1 × ASA5512-K9 | 2 × PAN-PA-1410 |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8MGP-2X; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: CRS310-8G+2S+IN; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -44,15 +44,15 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN_2_5G_REQUIRED | wanA | mGig1 | WAN_ACCESS | 201 | 2500 | — |
-| cpe:leo | LAN_1G_REQUIRED | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| fwA | ethernet1/9 | wanA | mGig2 | WAN_ACCESS | 201 | 2500 | — |
-| fwA | ethernet1/1 | wanB | GE2 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:starlink | LAN_2_5G_REQUIRED | wanA | ether1 | WAN_ACCESS | 201 | 2500 | — |
+| cpe:leo | LAN_1G_REQUIRED | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| fwA | ethernet1/9 | wanA | ether2 | WAN_ACCESS | 201 | 2500 | — |
+| fwA | ethernet1/1 | wanB | ether2 | WAN_ACCESS | 202 | 1000 | — |
 | fwA | ethernet1/19 | sw1 | Te1/1/1 | LAN_AGGREGATE | 50, 131 | 10000 | port_channel: Po21; firewall_aggregate: ae1 |
 | fwA | ethernet1/20 | sw2 | Te2/1/1 | LAN_AGGREGATE | 50, 131 | 10000 | port_channel: Po21; firewall_aggregate: ae1 |
 | fwA | MGT | sw1 | Gi1/0/41 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| fwB | ethernet1/9 | wanA | mGig3 | WAN_ACCESS | 201 | 2500 | — |
-| fwB | ethernet1/1 | wanB | GE3 | WAN_ACCESS | 202 | 1000 | — |
+| fwB | ethernet1/9 | wanA | ether3 | WAN_ACCESS | 201 | 2500 | — |
+| fwB | ethernet1/1 | wanB | ether3 | WAN_ACCESS | 202 | 1000 | — |
 | fwB | ethernet1/19 | sw1 | Te1/1/2 | LAN_AGGREGATE | 50, 131 | 10000 | port_channel: Po22; firewall_aggregate: ae1 |
 | fwB | ethernet1/20 | sw2 | Te2/1/2 | LAN_AGGREGATE | 50, 131 | 10000 | port_channel: Po22; firewall_aggregate: ae1 |
 | fwB | MGT | sw2 | Gi2/0/41 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -60,10 +60,10 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | fwA | HA1-B | fwB | HA1-B | HA1_BACKUP | — | 1000 | — |
 | fwA | HSCI | fwB | HSCI | HA2 | — | 10000 | — |
 | fwA | ethernet1/8 | fwB | ethernet1/8 | HA2_BACKUP | — | 1000 | — |
-| wanA | MGMT_ACCESS | sw1 | Gi1/0/42 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| wanA | ether4 | sw1 | Gi1/0/42 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | ap1 | LAN | sw1 | Gi1/0/47 | AP_TRUNK | 40, 110, 120, 130 | 1000 | — |
 | ap2 | LAN | sw1 | Gi1/0/48 | AP_TRUNK | 40, 110, 120, 130 | 1000 | — |
-| wanB | MGMT_ACCESS | sw2 | Gi2/0/42 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| wanB | ether4 | sw2 | Gi2/0/42 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | ap3 | LAN | sw2 | Gi2/0/47 | AP_TRUNK | 40, 110, 120, 130 | 1000 | — |
 | ap4 | LAN | sw2 | Gi2/0/48 | AP_TRUNK | 40, 110, 120, 130 | 1000 | — |
 | dc1 | NIC1 | sw1 | Gi1/0/43 | SERVER_TRUNK | 50, 130 | 1000 | — |
@@ -184,7 +184,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × CISCO1921-SEC/K9 | 2 × C1121X-8P |
 | Switches | 1 × WS-C2960S-48LPS-L | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -211,16 +211,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.1.0/30 | 1000 | router_ip: 172.31.1.1; stack_ip: 172.31.1.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.1.4/30 | 1000 | router_ip: 172.31.1.5; stack_ip: 172.31.1.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -385,7 +385,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -412,16 +412,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.2.0/30 | 1000 | router_ip: 172.31.2.1; stack_ip: 172.31.2.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.2.4/30 | 1000 | router_ip: 172.31.2.5; stack_ip: 172.31.2.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -586,7 +586,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × CISCO1921-SEC/K9 | 2 × C1121X-8P |
 | Switches | 1 × WS-C2960S-48LPS-L | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -613,16 +613,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.3.0/30 | 1000 | router_ip: 172.31.3.1; stack_ip: 172.31.3.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.3.4/30 | 1000 | router_ip: 172.31.3.5; stack_ip: 172.31.3.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -787,7 +787,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -814,16 +814,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.4.0/30 | 1000 | router_ip: 172.31.4.1; stack_ip: 172.31.4.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.4.4/30 | 1000 | router_ip: 172.31.4.5; stack_ip: 172.31.4.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -988,7 +988,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -1015,16 +1015,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.5.0/30 | 1000 | router_ip: 172.31.5.1; stack_ip: 172.31.5.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.5.4/30 | 1000 | router_ip: 172.31.5.5; stack_ip: 172.31.5.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -1189,7 +1189,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -1216,16 +1216,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.6.0/30 | 1000 | router_ip: 172.31.6.1; stack_ip: 172.31.6.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.6.4/30 | 1000 | router_ip: 172.31.6.5; stack_ip: 172.31.6.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -1388,7 +1388,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -1415,16 +1415,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.7.0/30 | 1000 | router_ip: 172.31.7.1; stack_ip: 172.31.7.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.7.4/30 | 1000 | router_ip: 172.31.7.5; stack_ip: 172.31.7.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -1587,7 +1587,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -1614,16 +1614,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.8.0/30 | 1000 | router_ip: 172.31.8.1; stack_ip: 172.31.8.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.8.4/30 | 1000 | router_ip: 172.31.8.5; stack_ip: 172.31.8.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -1786,7 +1786,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -1813,16 +1813,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.9.0/30 | 1000 | router_ip: 172.31.9.1; stack_ip: 172.31.9.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.9.4/30 | 1000 | router_ip: 172.31.9.5; stack_ip: 172.31.9.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -1985,7 +1985,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -2012,16 +2012,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.10.0/30 | 1000 | router_ip: 172.31.10.1; stack_ip: 172.31.10.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.10.4/30 | 1000 | router_ip: 172.31.10.5; stack_ip: 172.31.10.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -2184,7 +2184,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × CISCO1921-SEC/K9 | 2 × C1121X-8P |
 | Switches | 1 × WS-C2960S-48LPS-L | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -2211,16 +2211,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.11.0/30 | 1000 | router_ip: 172.31.11.1; stack_ip: 172.31.11.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.11.4/30 | 1000 | router_ip: 172.31.11.5; stack_ip: 172.31.11.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -2383,7 +2383,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × CISCO1921-SEC/K9 | 2 × C1121X-8P |
 | Switches | 1 × WS-C2960S-48LPS-L | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -2410,16 +2410,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.12.0/30 | 1000 | router_ip: 172.31.12.1; stack_ip: 172.31.12.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.12.4/30 | 1000 | router_ip: 172.31.12.5; stack_ip: 172.31.12.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -2582,7 +2582,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -2609,16 +2609,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.13.0/30 | 1000 | router_ip: 172.31.13.1; stack_ip: 172.31.13.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.13.4/30 | 1000 | router_ip: 172.31.13.5; stack_ip: 172.31.13.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -2781,7 +2781,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -2808,16 +2808,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.14.0/30 | 1000 | router_ip: 172.31.14.1; stack_ip: 172.31.14.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.14.4/30 | 1000 | router_ip: 172.31.14.5; stack_ip: 172.31.14.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -2980,7 +2980,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × CISCO1921-SEC/K9 | 2 × C1121X-8P |
 | Switches | 1 × WS-C2960S-48LPS-L | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -3007,16 +3007,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.15.0/30 | 1000 | router_ip: 172.31.15.1; stack_ip: 172.31.15.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.15.4/30 | 1000 | router_ip: 172.31.15.5; stack_ip: 172.31.15.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -3179,7 +3179,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -3206,16 +3206,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.16.0/30 | 1000 | router_ip: 172.31.16.1; stack_ip: 172.31.16.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.16.4/30 | 1000 | router_ip: 172.31.16.5; stack_ip: 172.31.16.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -3378,7 +3378,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -3405,16 +3405,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.17.0/30 | 1000 | router_ip: 172.31.17.1; stack_ip: 172.31.17.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.17.4/30 | 1000 | router_ip: 172.31.17.5; stack_ip: 172.31.17.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -3577,7 +3577,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × ISR4321/K9 | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -3604,16 +3604,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.18.0/30 | 1000 | router_ip: 172.31.18.1; stack_ip: 172.31.18.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.18.4/30 | 1000 | router_ip: 172.31.18.5; stack_ip: 172.31.18.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -3776,7 +3776,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -3803,16 +3803,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.19.0/30 | 1000 | router_ip: 172.31.19.1; stack_ip: 172.31.19.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.19.4/30 | 1000 | router_ip: 172.31.19.5; stack_ip: 172.31.19.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -3975,7 +3975,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-48P-4G-E | C9200L-48P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -4002,16 +4002,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.20.0/30 | 1000 | router_ip: 172.31.20.1; stack_ip: 172.31.20.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.20.4/30 | 1000 | router_ip: 172.31.20.5; stack_ip: 172.31.20.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -4174,7 +4174,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-24P-4G-E | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -4201,16 +4201,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.21.0/30 | 1000 | router_ip: 172.31.21.1; stack_ip: 172.31.21.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.21.4/30 | 1000 | router_ip: 172.31.21.5; stack_ip: 172.31.21.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
@@ -4362,7 +4362,7 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 | Routers | 1 × C1121X-8P | 2 × C1121X-8P |
 | Switches | 1 × C9200L-24P-4G-E | C9200L-24P-4G-E + C9200L-24P-4G-E |
 | Firewall | Sin equipo dedicado | Sin appliance remoto; seguridad central |
-| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: C1300-8T-E-2G; wanB: C1300-8T-E-2G |
+| Distribución WAN | MPLS y accesos ISP del escenario base | wanA: E50UG; wanB: E50UG |
 
 
 | Red | VLAN | Subred | Gateway / roles |
@@ -4389,16 +4389,16 @@ Corte 23-10-2026. Tablas de las fichas JSON que usa el simulador. Las reservas W
 
 | Origen | Puerto | Destino | Puerto | Función | VLAN/red | Mbps | IP / agregado lógico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| cpe:starlink | LAN | wanA | GE1 | WAN_ACCESS | 201 | 1000 | — |
-| cpe:entel5g | LAN | wanA | GE2 | WAN_ACCESS | 203 | 1000 | — |
-| r1 | GigabitEthernet0/0/0 | wanA | GE3 | WAN_TRUNK | 201, 203 | 1000 | — |
-| r2 | GigabitEthernet0/0/0 | wanA | GE4 | WAN_TRUNK | 201, 203 | 1000 | — |
-| wanA | GE5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
-| cpe:leo | LAN | wanB | GE1 | WAN_ACCESS | 202 | 1000 | — |
-| cpe:wom4g | LAN | wanB | GE2 | WAN_ACCESS | 204 | 1000 | — |
-| r1 | GigabitEthernet0/0/1 | wanB | GE3 | WAN_TRUNK | 202, 204 | 1000 | — |
-| r2 | GigabitEthernet0/0/1 | wanB | GE4 | WAN_TRUNK | 202, 204 | 1000 | — |
-| wanB | GE5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:starlink | LAN | wanA | ether1 | WAN_ACCESS | 201 | 1000 | — |
+| cpe:entel5g | LAN | wanA | ether2 | WAN_ACCESS | 203 | 1000 | — |
+| r1 | GigabitEthernet0/0/0 | wanA | ether3 | WAN_TRUNK | 201, 203 | 1000 | — |
+| r2 | GigabitEthernet0/0/0 | wanA | ether4 | WAN_TRUNK | 201, 203 | 1000 | — |
+| wanA | ether5 | sw1 | Gi1/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
+| cpe:leo | LAN | wanB | ether1 | WAN_ACCESS | 202 | 1000 | — |
+| cpe:wom4g | LAN | wanB | ether2 | WAN_ACCESS | 204 | 1000 | — |
+| r1 | GigabitEthernet0/0/1 | wanB | ether3 | WAN_TRUNK | 202, 204 | 1000 | — |
+| r2 | GigabitEthernet0/0/1 | wanB | ether4 | WAN_TRUNK | 202, 204 | 1000 | — |
+| wanB | ether5 | sw2 | Gi2/0/22 | MANAGEMENT_ACCESS | 130 | 1000 | — |
 | r1 | GigabitEthernet0/1/0 | sw1 | Gi1/0/19 | LAN_ROUTED | 172.31.22.0/30 | 1000 | router_ip: 172.31.22.1; stack_ip: 172.31.22.2 |
 | r1 | GigabitEthernet0/1/1 | sw2 | Gi2/0/19 | LAN_ROUTED | 172.31.22.4/30 | 1000 | router_ip: 172.31.22.5; stack_ip: 172.31.22.6 |
 | r1 | GigabitEthernet0/1/2 | sw1 | Gi1/0/21 | MANAGEMENT_ACCESS | 130 | 1000 | — |
