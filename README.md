@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 25 de octubre de 2026 - C5 A/B, revisión WAN-2
+**Corte:** 25 de octubre de 2026 - C5 A/B, revisión WAN-3
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -52,3 +52,5 @@ Este repositorio contiene únicamente documentación académica de revisión y s
 La [revisión WAN-2](Anexos/Revision_WAN_24_oct_2026.md) cierra la sustitución de distribuidores también en A. Ambas opciones usan 45 hEX E50UG y un CRS310; el PPT, inventario y presupuesto reflejan el cambio.
 
 [Cierre vigente del 25 de octubre: capacidad y evidencia posterior de E6/E7](Anexos/Cierre_25_oct_2026.md).
+
+**Revisión WAN-3 vigente:** [cuatro accesos también en Casa Matriz y costos conciliados](Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).

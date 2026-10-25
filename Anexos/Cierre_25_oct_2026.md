@@ -28,3 +28,5 @@ RTO/RPO y disponibilidad son objetivos del diseño académico. Los resultados de
 El hito del 30/10 requiere grabar, revisar audio/legibilidad y enviar video y PowerPoint por AVA. El trabajo implementado se presenta como avance realizado; no se inventan actividades técnicas pendientes para aparentar trabajo incompleto.
 
 [Simulador vigente](https://hu-herrera.github.io/fina/).
+
+[Revisión WAN-3 vigente: cuatro accesos en central y costos conciliados](Continuidad_Cuatro_WAN_25_oct_2026.md).
