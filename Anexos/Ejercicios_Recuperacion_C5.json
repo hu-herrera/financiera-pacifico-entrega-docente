@@ -1,0 +1,1628 @@
+{
+  "revision": "C5-RECUPERACION-1",
+  "asOf": "2026-10-26",
+  "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+  "newHardware": 0,
+  "budgetChanged": false,
+  "bankingApplicationDeployed": false,
+  "physicalRecoveryTested": false,
+  "power": "Infraestructura existente de la financiera; autonomía y mantenimiento bajo su responsabilidad.",
+  "variants": [
+    {
+      "variant": "A",
+      "platform": "Proxmox VE / ZFS replication",
+      "hosts": [
+        "dc1",
+        "dc2"
+      ],
+      "witness": "backup",
+      "rtoTargetSeconds": 300,
+      "rpoTargetSeconds": 60,
+      "scenarios": [
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "host",
+          "faults": [
+            "dc1"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": true,
+          "applicationHost": "dc2",
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": true
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "stale",
+          "faults": [
+            "dc1",
+            "storage:stale"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 0,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 120,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": false,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": false
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            },
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "quorum",
+          "faults": [
+            "dc1",
+            "backup"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 1,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": false
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "fencing",
+          "faults": [
+            "dc1",
+            "cluster:fencing"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": false
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "corrupt",
+          "faults": [
+            "dc1",
+            "storage:inconsistent"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": false,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": false
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": false,
+          "inReplica": [],
+          "reconcile": [],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "application",
+          "faults": [
+            "dc1",
+            "vm:application"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "both",
+          "faults": [
+            "dc1",
+            "dc2"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 1,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": false
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": false
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "platform": "Proxmox VE / ZFS replication",
+      "hosts": [
+        "dc1",
+        "dc2"
+      ],
+      "witness": "backup",
+      "rtoTargetSeconds": 300,
+      "rpoTargetSeconds": 60,
+      "scenarios": [
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "host",
+          "faults": [
+            "dc1"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": true,
+          "applicationHost": "dc2",
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": true
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "stale",
+          "faults": [
+            "dc1",
+            "storage:stale"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 0,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 120,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": false,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": false
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            },
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "quorum",
+          "faults": [
+            "dc1",
+            "backup"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 1,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": false
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "fencing",
+          "faults": [
+            "dc1",
+            "cluster:fencing"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": false
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "corrupt",
+          "faults": [
+            "dc1",
+            "storage:inconsistent"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": false,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": false
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": false,
+          "inReplica": [],
+          "reconcile": [],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "application",
+          "faults": [
+            "dc1",
+            "vm:application"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 2,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": true
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": true
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        },
+        {
+          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scenario": "both",
+          "faults": [
+            "dc1",
+            "dc2"
+          ],
+          "failureSecond": 120,
+          "selectedReplica": {
+            "second": 90,
+            "status": "complete",
+            "integrity": true,
+            "applicationConsistent": true
+          },
+          "replicaAgeSeconds": 30,
+          "rpoTargetSeconds": 60,
+          "rpoWithinTarget": true,
+          "eligible": false,
+          "applicationHost": null,
+          "networkAvailable": true,
+          "votes": 1,
+          "checks": [
+            {
+              "id": "host",
+              "label": "Host alternativo y red disponibles",
+              "ok": false
+            },
+            {
+              "id": "quorum",
+              "label": "Mayoría de votos disponible",
+              "ok": false
+            },
+            {
+              "id": "fencing",
+              "label": "Aislamiento del host fallado confirmado",
+              "ok": true
+            },
+            {
+              "id": "replica",
+              "label": "Última réplica completada dentro del objetivo",
+              "ok": true
+            },
+            {
+              "id": "integrity",
+              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "ok": true
+            },
+            {
+              "id": "application",
+              "label": "Aplicación disponible en el host alternativo",
+              "ok": false
+            }
+          ],
+          "dataStateKnown": true,
+          "inReplica": [
+            {
+              "id": "DEMO-001",
+              "second": 0
+            },
+            {
+              "id": "DEMO-002",
+              "second": 10
+            },
+            {
+              "id": "DEMO-003",
+              "second": 20
+            },
+            {
+              "id": "DEMO-004",
+              "second": 30
+            },
+            {
+              "id": "DEMO-005",
+              "second": 40
+            },
+            {
+              "id": "DEMO-006",
+              "second": 50
+            },
+            {
+              "id": "DEMO-007",
+              "second": 60
+            },
+            {
+              "id": "DEMO-008",
+              "second": 70
+            },
+            {
+              "id": "DEMO-009",
+              "second": 80
+            },
+            {
+              "id": "DEMO-010",
+              "second": 90
+            }
+          ],
+          "reconcile": [
+            {
+              "id": "DEMO-011",
+              "second": 100
+            },
+            {
+              "id": "DEMO-012",
+              "second": 110
+            }
+          ],
+          "servedOperations": [],
+          "operationCount": 12,
+          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "backupRestoreExecuted": false,
+          "rtoMeasuredSeconds": null,
+          "rpoMeasuredSeconds": null,
+          "sessionsPreserved": false,
+          "hardwareVerified": false
+        }
+      ]
+    }
+  ]
+}

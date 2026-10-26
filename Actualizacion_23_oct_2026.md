@@ -41,3 +41,7 @@ Las fechas intermedias son una planificación propuesta. El plazo final correspo
 [Cierre vigente del 25 de octubre: capacidad y evidencia posterior de E6/E7](Anexos/Cierre_25_oct_2026.md).
 
 **Revisión WAN-3 vigente:** [cuatro accesos también en Casa Matriz y costos conciliados](Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).
+
+## Complemento cerrado el 26 de octubre: recuperación C5
+
+Se concreta la recuperación local sobre los dos hosts y BKP-01 del perfil vigente. El simulador muestra una réplica completada, una tarea fallida, registros presentes y operaciones por conciliar. También bloquea el reinicio con copia antigua o inconsistente. La [guía de operación y responsabilidades](Anexos/Operacion_Recuperacion_Datacenter_C5.md) y su PDF se añaden como anexos. No modifica las compras ni los importes WAN-3. La grabación y entrega por AVA continúan pendientes.

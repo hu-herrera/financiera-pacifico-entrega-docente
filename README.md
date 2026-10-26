@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 25 de octubre de 2026 - C5 A/B, revisión WAN-3
+**Corte:** 26 de octubre de 2026 - C5 A/B, WAN-3 y C5-RECUPERACION-1
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -54,3 +54,13 @@ La [revisión WAN-2](Anexos/Revision_WAN_24_oct_2026.md) cierra la sustitución 
 [Cierre vigente del 25 de octubre: capacidad y evidencia posterior de E6/E7](Anexos/Cierre_25_oct_2026.md).
 
 **Revisión WAN-3 vigente:** [cuatro accesos también en Casa Matriz y costos conciliados](Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).
+
+## Recuperación del datacenter y entrega técnica - 26 de octubre
+
+La escena 10 de la presentación integrada muestra qué datos recupera el host alternativo, qué operaciones requieren conciliación y cuándo se bloquea un reinicio por falta de condiciones. El complemento utiliza los dos hosts y BKP-01 existentes, sin nuevas compras ni cambios de presupuesto.
+
+- [Guía de operación y recuperación en PDF](Anexos/Operacion_Recuperacion_Datacenter_C5.pdf).
+- [Procedimiento consultable](Anexos/Operacion_Recuperacion_Datacenter_C5.md).
+- [Resultados reproducibles A/B con operaciones ficticias](Anexos/Ejercicios_Recuperacion_C5.json).
+
+Se entrega preparación técnica y procedimiento; la financiera opera, mantiene, valida los datos y autoriza la reapertura. Electricidad y climatización se consideran infraestructura existente a su cargo. No se declara implantación de una aplicación bancaria ni medición física de RTO/RPO.
