@@ -4,7 +4,7 @@
 
 ## Problema y objetivo
 
-El diseño anterior tenía cuatro transportes en cada sucursal y solo Starlink/Leo en Casa Matriz. Al caer ambos satelitales, los móviles remotos no alcanzaban central. Esto incumplía la intención del autor de conservar conectividad cuando aún queda un proveedor utilizable. El escenario E6 describía correctamente esa limitación, pero el diseño necesitaba corregirse.
+El diseño anterior tenía cuatro transportes en cada sucursal y solo Starlink/Leo en Casa Matriz. Al caer ambos satelitales, los móviles remotos no alcanzaban central. Esto dejaba sin cumplir el objetivo de continuidad ante fallos parciales de proveedores, incluso cuando permanecía algún acceso operativo. El escenario E6 describía correctamente esa limitación, pero el diseño necesitaba corregirse.
 
 Casa Matriz y las 22 sucursales ahora tienen Starlink, Leo, Entel 5G y WOM 4G. Una nueva comunicación conserva camino si queda un acceso utilizable en cada extremo, con sus equipos, políticas, VPN y servicios disponibles. Los proveedores de ambos extremos pueden ser distintos. Se comprueban también fallos de CPE, distribuidor y puertos; no se cuenta una interfaz de gestión como camino de datos.
 
