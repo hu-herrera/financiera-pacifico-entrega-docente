@@ -5,7 +5,7 @@
 
 ## Nuevo hito solicitado por el docente
 
-La entrega del **viernes 30 de octubre de 2026** comprende un **video y una presentación en PowerPoint**, ambos a través de **AVA**. El objetivo es revisar avances reales y dificultades. El aviso no exige que todo el proyecto esté terminado.
+La entrega del **viernes 30 de octubre de 2026** comprende un **video y una presentación en PowerPoint**, ambos a través de **AVA**. El objetivo de este hito es presentar los avances técnicos, las dificultades encontradas y la planificación de las siguientes actividades.
 
 | Contenido solicitado | Evidencia disponible |
 |---|---|
@@ -24,7 +24,7 @@ La entrega del **viernes 30 de octubre de 2026** comprende un **video y una pres
 - Las condiciones de Leo, cobertura extrema, caudales y descuentos son supuestos del caso ficticio. No corresponden a contratos obtenidos.
 - El video todavía no se ha grabado. Tampoco se ha realizado el envío de video/PPT por AVA.
 
-Los importes y planos de los PDF corresponden al corte C5 A/B indicado en cada documento. La revisión posterior WAN-2 queda identificada en cada salida actualizada. La homologación de equipos físicos queda fuera del alcance académico ficticio y no se agrega como una tarea de esta entrega.
+Los importes y planos de los PDF corresponden al corte C5 A/B indicado en cada documento. La revisión posterior WAN-2 queda identificada en cada salida actualizada. La homologación física de equipos no forma parte del alcance del prototipo académico; los resultados disponibles corresponden a validaciones del modelo y la documentación.
 
 ## Plan propuesto hasta la entrega
 
@@ -44,4 +44,4 @@ Las fechas intermedias son una planificación propuesta. El plazo final correspo
 
 ## Complemento cerrado el 26 de octubre: recuperación C5
 
-Se concreta la recuperación local sobre los dos hosts y BKP-01 del perfil vigente. El simulador muestra una réplica completada, una tarea fallida, registros presentes y operaciones por conciliar. También bloquea el reinicio con copia antigua o inconsistente. La [guía de operación y responsabilidades](Anexos/Operacion_Recuperacion_Datacenter_C5.md) y su PDF se añaden como anexos. No modifica las compras ni los importes WAN-3. La grabación y entrega por AVA continúan pendientes.
+Se concreta la recuperación local sobre los dos hosts y BKP-01 del perfil vigente. El simulador muestra una réplica completada, una tarea fallida, registros presentes y operaciones por conciliar. También bloquea el reinicio con copia antigua o inconsistente. La [guía de operación y responsabilidades](Anexos/Operacion_Recuperacion_Datacenter_C5.md) y su PDF se añaden como anexos. No modifica las compras ni los importes WAN-3. El registro de avance mantiene la presentación audiovisual como actividad programada para el hito del 30 de octubre.
