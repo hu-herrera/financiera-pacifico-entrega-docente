@@ -4,7 +4,7 @@
 
 ## Problema y corrección
 
-B ya utilizaba MikroTik, mientras A conservaba C1300, pese a la instrucción de usar otra marca en ambas opciones. Se reemplazan también en A los 45 distribuidores gigabit por hEX E50UG y el distribuidor multigigabit central por CRS310-8G+2S+IN. No cambia el ANTES ni la cantidad de transportes, routers, switches de acceso o firewalls.
+La revisión de la arquitectura identificó una diferencia de fabricantes entre las opciones: B utilizaba distribuidores MikroTik mientras A conservaba C1300. Para unificar el criterio de selección y facilitar la comparación técnica y económica, ambas alternativas adoptan distribuidores MikroTik. Se reemplazan también en A los 45 distribuidores gigabit por hEX E50UG y el distribuidor multigigabit central por CRS310-8G+2S+IN. No cambia el ANTES ni la cantidad de transportes, routers, switches de acceso o firewalls.
 
 Los distribuidores trabajan en L2 con VLAN de operador aisladas, sin NAT, DHCP ni VPN. En sucursal: ether1/2 CPE, ether3/4 routers y ether5 gestión. En central: ether1 CPE, ether2/3 firewalls y ether4 gestión. Los tres enlaces de datos de WAN-A central son 2,5G. Se conservan dos dominios WAN independientes y no se habilitan rutas de negocio por gestión.
 
@@ -34,8 +34,8 @@ Los unitarios adoptados son CLP 77.048 por hEX y 281.459 por CRS310, iguales en 
 
 La primera pasada de navegador encontró una expectativa de prueba con el importe anterior de A. El simulador ya mostraba CLP 792,6 millones. Se corrigió la expectativa y el recorrido completo A/B pasó al repetirse. No se presenta una expectativa obsoleta como un fallo de conectividad.
 
-Ejecución local: Playwright con Chromium 153, compilación de @sparticuz/chromium, por indisponibilidad del descargador habitual. Los workflows mantienen su Chromium de CI. Las pruebas verifican el modelo web, no firmware ni SLAs físicos.
+Las pruebas de navegador se ejecutaron con Chromium y Playwright. Su alcance corresponde al comportamiento del modelo web; no constituye una prueba de firmware, homologación física ni de SLA de los operadores.
 
 ## Concordancia
 
-Se actualizan fichas, puertos de topología, vistas de dispositivo, modelo del navegador, presupuesto y congelación económica, presentación integrada, IPAM, PDF de revisión, planilla y PPT docente. El guion personal retira el pendiente condicional. El archivo C5-ECO-1 se conserva como histórico identificado.
+La revisión quedó incorporada en las fichas de equipamiento, asignación de puertos, topologías, presupuesto, IPAM y material de presentación. El escenario económico C5-ECO-1 se conserva como antecedente histórico para comparar la evolución de costos.
