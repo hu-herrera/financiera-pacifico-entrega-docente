@@ -4,7 +4,7 @@ Cierre documental: 27 de octubre de 2026. Este registro separa los resultados hi
 
 ## Corte actual
 
-- Simulador: `hu-herrera/fina`, commit `9b5139e3a9004961590e9844cbffac31fb879942`.
+- Simulador: `hu-herrera/fina`, commit `bb47152bb74b8dfee9e728e74a2e6e2c26e05412`.
 - Alcance publicado: 30 pruebas Node del modelo y 16 casos de interfaz con Chromium/Playwright 1.62.1.
 - Las 30 pruebas de modelo aprobaron localmente. Incluyen 9.900 combinaciones WAN como comprobaciones internas, 14 ejercicios de recuperación A/B y ocho escenarios HA por alternativa.
 - El conjunto completo de desarrollo aprobó 109 pruebas Node localmente. Su código permanece privado y este resultado no se presenta como una ejecución pública de CI.
@@ -41,3 +41,7 @@ SIMULATOR_DIR=../fina Verificacion/node_modules/.bin/playwright test --config Ve
 ## Límites y material consultable
 
 RTO/RPO siguen como objetivos; los tiempos físicos, sesiones, capacidad contratada y certificación de hardware no se deducen de estas pruebas. Las fuentes académicas Markdown están en `Fuentes/`, junto con sus PDF. Presupuesto A/B, política, ACL y admisión de video se publican en `Anexos/`; no se necesita acceso al repositorio de trabajo privado para consultar esas referencias.
+
+## Trazabilidad de la primera ejecución pública
+
+[40601870797](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40601870797), sobre fina `9b5139e`: manifiesto, ZIP, Excel y 30 pruebas de modelo aprobados; 14 casos E1–E7 aprobados y dos casos de recuperación detenidos por una discrepancia del título visible. Se corrige la sustitución del título en el renderizador, se conserva la expectativa y se repite el conjunto sobre el nuevo SHA. El fallo no se registra como una aprobación de la escena 10.
