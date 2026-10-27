@@ -25,7 +25,7 @@ Los conteos tienen alcances y fechas distintos. No se suman las pasadas como cas
 
 RTO/RPO y disponibilidad son objetivos del diseño académico. Los resultados del prototipo son simulados. Certificados operativos, homologación de equipos y mediciones físicas quedan fuera de esta entrega y no son pendientes para grabar.
 
-El hito del 30/10 requiere grabar, revisar audio/legibilidad y enviar video y PowerPoint por AVA. El trabajo implementado se presenta como avance realizado; no se inventan actividades técnicas pendientes para aparentar trabajo incompleto.
+Para el hito del 30 de octubre se contempla la presentación audiovisual de los avances y resultados obtenidos. Las actividades técnicas concluidas se distinguen de las tareas de exposición y de las verificaciones físicas que quedan fuera del alcance del prototipo.
 
 [Simulador vigente](https://hu-herrera.github.io/fina/).
 
