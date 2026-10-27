@@ -15,7 +15,7 @@ El docente solicita **video y PowerPoint por AVA** a más tardar el **viernes 30
 - [Presentación de avance en PowerPoint](Presentacion/Avance_Financiera_Pacifico_30_oct_2026.pptx).
 - [Actualización del alcance, pendientes y planificación](Actualizacion_23_oct_2026.md).
 
-La grabación y el envío por AVA están pendientes. El paquete refleja avances del proyecto académico y resultados del simulador.
+El paquete presenta el estado del proyecto al corte indicado, con resultados del simulador y documentación técnica de respaldo.
 
 ## Orden de lectura
 
@@ -35,7 +35,7 @@ La grabación y el envío por AVA están pendientes. El paquete refleja avances 
 
 ## Video de demostración
 
-La grabación se incorporará en la carpeta [Video/](Video/README.md).
+La demostración audiovisual corresponde al hito académico del 30 de octubre; el material técnico de apoyo está descrito en la [actualización de avance](Actualizacion_23_oct_2026.md).
 
 ## Anexos técnicos de los entregables
 
