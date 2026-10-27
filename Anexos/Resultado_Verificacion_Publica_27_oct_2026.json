@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-27",
+  "scope": "PROTOTIPO_ACADEMICO",
+  "repository": "hu-herrera/financiera-pacifico-entrega-docente",
+  "delivery_commit_tested": "adec14224cc37db6dbcaa5592436db6ce1620dcd",
+  "simulator_commit": "bb47152bb74b8dfee9e728e74a2e6e2c26e05412",
+  "workflow_run": 40602232862,
+  "workflow_url": "https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40602232862",
+  "conclusion": "success",
+  "node": {
+    "tests": 30,
+    "passed": 30,
+    "failed": 0,
+    "wan_combinations_included": 9900,
+    "recovery_exercises_included": 14
+  },
+  "browser": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "duration_seconds_reported": 34.7,
+    "engine": "Chromium",
+    "playwright_version": "1.62.1",
+    "coverage": "E1–E7 y escena 10 en A/B"
+  },
+  "documents": {
+    "manifest": "PASS",
+    "archive": "PASS",
+    "workbook": "PASS",
+    "annual_economics": "PASS"
+  },
+  "artifact": {
+    "id": 12778379158,
+    "sha256": "3ed888b48026fca05bdedad75879c5a8c2ee12000d0843453a19447ac3f44e16",
+    "expires_at": "2027-01-25T23:27:15Z"
+  },
+  "historical_71_161_verified": false,
+  "hardware_verified": false,
+  "rto_measured_seconds": null,
+  "rpo_measured_seconds": null
+}

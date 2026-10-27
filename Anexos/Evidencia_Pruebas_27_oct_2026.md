@@ -8,7 +8,7 @@ Cierre documental: 27 de octubre de 2026. Este registro separa los resultados hi
 - Alcance publicado: 30 pruebas Node del modelo y 16 casos de interfaz con Chromium/Playwright 1.62.1.
 - Las 30 pruebas de modelo aprobaron localmente. Incluyen 9.900 combinaciones WAN como comprobaciones internas, 14 ejercicios de recuperación A/B y ocho escenarios HA por alternativa.
 - El conjunto completo de desarrollo aprobó 109 pruebas Node localmente. Su código permanece privado y este resultado no se presenta como una ejecución pública de CI.
-- La ejecución pública de navegador se consulta en el workflow enlazado. Mientras no exista una ejecución terminada con éxito, los 16 casos publicados no se declaran aprobados.
+- La ejecución pública [40602232862](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40602232862), sobre la entrega `adec142` y fina `bb47152`, aprobó los 30 casos de modelo y los 16 casos de navegador. También aprobaron manifiesto, ZIP, Excel y flujo anual. El resultado es verificable en sus logs y artefactos.
 
 [Workflow público y ejecuciones](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/workflows/verificacion-publica.yml). Cada ejecución identifica el commit de la entrega y obtiene el SHA del simulador desde `Verificacion/corte.json`. Sus artefactos conservan TAP, reporte JSON y capturas; una ejecución de Pages no sustituye estos resultados.
 
@@ -45,3 +45,16 @@ RTO/RPO siguen como objetivos; los tiempos físicos, sesiones, capacidad contrat
 ## Trazabilidad de la primera ejecución pública
 
 [40601870797](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40601870797), sobre fina `9b5139e`: manifiesto, ZIP, Excel y 30 pruebas de modelo aprobados; 14 casos E1–E7 aprobados y dos casos de recuperación detenidos por una discrepancia del título visible. Se corrige la sustitución del título en el renderizador, se conserva la expectativa y se repite el conjunto sobre el nuevo SHA. El fallo no se registra como una aprobación de la escena 10.
+
+
+## Resultado público confirmado
+
+| Ejecución | Corte del simulador | Comprobación | Resultado |
+|---|---|---|---|
+| 40602232862 | bb47152bb74b8dfee9e728e74a2e6e2c26e05412 | Manifiesto, ZIP, Excel y flujo anual | PASS |
+| 40602232862 | bb47152bb74b8dfee9e728e74a2e6e2c26e05412 | 30 pruebas Node públicas | 30 PASS / 0 FAIL |
+| 40602232862 | bb47152bb74b8dfee9e728e74a2e6e2c26e05412 | 16 casos Chromium: E1–E7 y escena 10, A/B | 16 PASS / 0 FAIL |
+
+[Logs y artefactos de la ejecución](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40602232862). La matriz de 9.900 combinaciones y los 14 ejercicios de recuperación están incluidos en las 30 pruebas Node; no son 9.914 pruebas adicionales. El reporte de navegador y sus capturas se conservan junto al TAP del modelo. El registro 71/161 de 5779eeb sigue sin verificarse públicamente y no se sustituye por estos conteos.
+
+[Resumen verificable en JSON](Resultado_Verificacion_Publica_27_oct_2026.json). Los artefactos de Actions tienen retención temporal; el resumen y los identificadores de ejecución quedan versionados en esta entrega.
