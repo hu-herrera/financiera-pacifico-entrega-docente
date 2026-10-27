@@ -25,4 +25,14 @@ assert 418315954+4*(annual+5000000)==966801858
 for p in (R/'Fuentes').glob('*.md'):
  text=p.read_text();assert 'github.io/fin/' not in text,p
  assert 'https://github.com/hu-herrera/financiera-pacifico-trabajo-privado/' not in text,p
+summary=json.loads((R/'Anexos/Resultado_Verificacion_Publica_27_oct_2026.json').read_text())
+report=json.loads((R/'Anexos/Evidencia_Publica_27_oct_2026/interfaz.json').read_text())
+cut=json.loads((R/'Verificacion/corte.json').read_text())
+assert summary['simulator_commit']==cut['simulator_commit']
+assert report['stats']['expected']==summary['browser']['passed']==16
+assert report['stats']['unexpected']==summary['browser']['failed']==0
+assert report['stats']['skipped']==0 and report['stats']['flaky']==0
+tap=(R/'Anexos/Evidencia_Publica_27_oct_2026/modelo.tap').read_text()
+for line in ['# tests 30','# pass 30','# fail 0']:assert line in tap,line
+assert summary['node']['passed']==30 and summary['node']['failed']==0
 print(json.dumps({'scope':'DOCUMENTOS_Y_PAQUETE','manifest_entries':len(rows),'archive':'PASS','workbook':'PASS','annual_economics':'PASS','public_links':'PASS'},ensure_ascii=False))

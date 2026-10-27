@@ -1,0 +1,190 @@
+TAP version 13
+# Subtest: A: alcance e inventario vigente
+ok 1 - A: alcance e inventario vigente
+  ---
+  duration_ms: 1.377398
+  type: 'test'
+  ...
+# Subtest: A: presupuesto de presentación conciliado con el JSON público
+ok 2 - A: presupuesto de presentación conciliado con el JSON público
+  ---
+  duration_ms: 1.499946
+  type: 'test'
+  ...
+# Subtest: A: IPAM conserva direcciones de todos los puestos
+ok 3 - A: IPAM conserva direcciones de todos los puestos
+  ---
+  duration_ms: 150.769803
+  type: 'test'
+  ...
+# Subtest: A: 4950 combinaciones WAN no vacías conservan overlay candidato
+ok 4 - A: 4950 combinaciones WAN no vacías conservan overlay candidato
+  ---
+  duration_ms: 216.428779
+  type: 'test'
+  ...
+# Subtest: A: sin acceso utilizable no se anuncia overlay
+ok 5 - A: sin acceso utilizable no se anuncia overlay
+  ---
+  duration_ms: 1.293682
+  type: 'test'
+  ...
+# Subtest: A: sin candidato coincidente se rechaza el camino
+ok 6 - A: sin candidato coincidente se rechaza el camino
+  ---
+  duration_ms: 1.553607
+  type: 'test'
+  ...
+# Subtest: A: caída de sitio elimina LAN, equipos y aplicación remota
+ok 7 - A: caída de sitio elimina LAN, equipos y aplicación remota
+  ---
+  duration_ms: 0.715313
+  type: 'test'
+  ...
+# Subtest: A: ocho comprobaciones HA aisladas cumplen su resultado esperado
+ok 8 - A: ocho comprobaciones HA aisladas cumplen su resultado esperado
+  ---
+  duration_ms: 0.75086
+  type: 'test'
+  ...
+# Subtest: A: recuperación host coincide con el anexo publicado
+ok 9 - A: recuperación host coincide con el anexo publicado
+  ---
+  duration_ms: 0.943078
+  type: 'test'
+  ...
+# Subtest: A: recuperación stale coincide con el anexo publicado
+ok 10 - A: recuperación stale coincide con el anexo publicado
+  ---
+  duration_ms: 0.591643
+  type: 'test'
+  ...
+# Subtest: A: recuperación quorum coincide con el anexo publicado
+ok 11 - A: recuperación quorum coincide con el anexo publicado
+  ---
+  duration_ms: 0.328823
+  type: 'test'
+  ...
+# Subtest: A: recuperación fencing coincide con el anexo publicado
+ok 12 - A: recuperación fencing coincide con el anexo publicado
+  ---
+  duration_ms: 0.207888
+  type: 'test'
+  ...
+# Subtest: A: recuperación corrupt coincide con el anexo publicado
+ok 13 - A: recuperación corrupt coincide con el anexo publicado
+  ---
+  duration_ms: 0.190605
+  type: 'test'
+  ...
+# Subtest: A: recuperación application coincide con el anexo publicado
+ok 14 - A: recuperación application coincide con el anexo publicado
+  ---
+  duration_ms: 0.186287
+  type: 'test'
+  ...
+# Subtest: A: recuperación both coincide con el anexo publicado
+ok 15 - A: recuperación both coincide con el anexo publicado
+  ---
+  duration_ms: 0.18256
+  type: 'test'
+  ...
+# Subtest: B: alcance e inventario vigente
+ok 16 - B: alcance e inventario vigente
+  ---
+  duration_ms: 0.090699
+  type: 'test'
+  ...
+# Subtest: B: presupuesto de presentación conciliado con el JSON público
+ok 17 - B: presupuesto de presentación conciliado con el JSON público
+  ---
+  duration_ms: 0.505843
+  type: 'test'
+  ...
+# Subtest: B: IPAM conserva direcciones de todos los puestos
+ok 18 - B: IPAM conserva direcciones de todos los puestos
+  ---
+  duration_ms: 149.395812
+  type: 'test'
+  ...
+# Subtest: B: 4950 combinaciones WAN no vacías conservan overlay candidato
+ok 19 - B: 4950 combinaciones WAN no vacías conservan overlay candidato
+  ---
+  duration_ms: 226.137856
+  type: 'test'
+  ...
+# Subtest: B: sin acceso utilizable no se anuncia overlay
+ok 20 - B: sin acceso utilizable no se anuncia overlay
+  ---
+  duration_ms: 0.154798
+  type: 'test'
+  ...
+# Subtest: B: sin candidato coincidente se rechaza el camino
+ok 21 - B: sin candidato coincidente se rechaza el camino
+  ---
+  duration_ms: 0.425323
+  type: 'test'
+  ...
+# Subtest: B: caída de sitio elimina LAN, equipos y aplicación remota
+ok 22 - B: caída de sitio elimina LAN, equipos y aplicación remota
+  ---
+  duration_ms: 0.183862
+  type: 'test'
+  ...
+# Subtest: B: ocho comprobaciones HA aisladas cumplen su resultado esperado
+ok 23 - B: ocho comprobaciones HA aisladas cumplen su resultado esperado
+  ---
+  duration_ms: 0.40282
+  type: 'test'
+  ...
+# Subtest: B: recuperación host coincide con el anexo publicado
+ok 24 - B: recuperación host coincide con el anexo publicado
+  ---
+  duration_ms: 0.208709
+  type: 'test'
+  ...
+# Subtest: B: recuperación stale coincide con el anexo publicado
+ok 25 - B: recuperación stale coincide con el anexo publicado
+  ---
+  duration_ms: 0.2953
+  type: 'test'
+  ...
+# Subtest: B: recuperación quorum coincide con el anexo publicado
+ok 26 - B: recuperación quorum coincide con el anexo publicado
+  ---
+  duration_ms: 0.218407
+  type: 'test'
+  ...
+# Subtest: B: recuperación fencing coincide con el anexo publicado
+ok 27 - B: recuperación fencing coincide con el anexo publicado
+  ---
+  duration_ms: 0.160148
+  type: 'test'
+  ...
+# Subtest: B: recuperación corrupt coincide con el anexo publicado
+ok 28 - B: recuperación corrupt coincide con el anexo publicado
+  ---
+  duration_ms: 0.142576
+  type: 'test'
+  ...
+# Subtest: B: recuperación application coincide con el anexo publicado
+ok 29 - B: recuperación application coincide con el anexo publicado
+  ---
+  duration_ms: 0.147155
+  type: 'test'
+  ...
+# Subtest: B: recuperación both coincide con el anexo publicado
+ok 30 - B: recuperación both coincide con el anexo publicado
+  ---
+  duration_ms: 0.164808
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 904.455908

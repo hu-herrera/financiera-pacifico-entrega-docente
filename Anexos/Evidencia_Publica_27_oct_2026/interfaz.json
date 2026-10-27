@@ -1,0 +1,675 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+      "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/entrega/Verificacion/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "entrega/Verificacion/playwright.config.cjs"
+    ],
+    "configFile": "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/entrega/Verificacion/playwright.config.cjs",
+    "rootDir": "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/entrega/Verificacion",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/hu-herrera/financiera-pacifico-entrega-docente/commit/adec14224cc37db6dbcaa5592436db6ce1620dcd",
+        "commitHash": "adec14224cc37db6dbcaa5592436db6ce1620dcd",
+        "buildHref": "https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40602232862"
+      },
+      "gitCommit": {
+        "shortHash": "adec142",
+        "hash": "adec14224cc37db6dbcaa5592436db6ce1620dcd",
+        "subject": "Repetir la verificación pública con el título de recuperación corregido",
+        "body": "Repetir la verificación pública con el título de recuperación corregido\n\nConserva las expectativas de la escena 10, fija fina bb47152 y guarda reportes/capturas en el directorio publicado por CI. Registra la primera pasada sin convertir los dos fallos de título en resultados aprobados. Regenera paquete y huellas.",
+        "author": {
+          "name": "Hugo Herrera",
+          "email": "144923973+hu-herrera@users.noreply.github.com",
+          "time": 1793143631000
+        },
+        "committer": {
+          "name": "Hugo Herrera",
+          "email": "144923973+hu-herrera@users.noreply.github.com",
+          "time": 1793143631000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/resultados/interfaz",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/hu-herrera/financiera-pacifico-entrega-docente/commit/adec14224cc37db6dbcaa5592436db6ce1620dcd",
+            "commitHash": "adec14224cc37db6dbcaa5592436db6ce1620dcd",
+            "buildHref": "https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/runs/40602232862"
+          },
+          "gitCommit": {
+            "shortHash": "adec142",
+            "hash": "adec14224cc37db6dbcaa5592436db6ce1620dcd",
+            "subject": "Repetir la verificación pública con el título de recuperación corregido",
+            "body": "Repetir la verificación pública con el título de recuperación corregido\n\nConserva las expectativas de la escena 10, fija fina bb47152 y guarda reportes/capturas en el directorio publicado por CI. Registra la primera pasada sin convertir los dos fallos de título en resultados aprobados. Regenera paquete y huellas.",
+            "author": {
+              "name": "Hugo Herrera",
+              "email": "144923973+hu-herrera@users.noreply.github.com",
+              "time": 1793143631000
+            },
+            "committer": {
+              "name": "Hugo Herrera",
+              "email": "144923973+hu-herrera@users.noreply.github.com",
+              "time": 1793143631000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/entrega/Verificacion",
+        "testIgnore": [],
+        "testMatch": [
+          "interfaz.spec.cjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/runner/work/financiera-pacifico-entrega-docente/financiera-pacifico-entrega-docente/resultados/interfaz.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "interfaz.spec.cjs",
+      "file": "interfaz.spec.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "A: E1 pierde Starlink remoto y conserva APP por Leo",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1194,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:09.558Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-0f5309accb32cceb7b4d",
+          "file": "interfaz.spec.cjs",
+          "line": 8,
+          "column": 2
+        },
+        {
+          "title": "A: E2 retira Leo/WOM de las tres sedes regionales",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 983,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:11.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-af9b9ec2ef35fc9c8e76",
+          "file": "interfaz.spec.cjs",
+          "line": 9,
+          "column": 2
+        },
+        {
+          "title": "A: E3 usa FW-B y mantiene aplicación autorizada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:12.022Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-71540d1def866f8c90f2",
+          "file": "interfaz.spec.cjs",
+          "line": 10,
+          "column": 2
+        },
+        {
+          "title": "A: E4 apaga S19 por completo y el reset la recupera",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1230,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:13.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-52bd8d34b02abfa636d1",
+          "file": "interfaz.spec.cjs",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "A: E5 retira Starlink en sucursales y central",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:14.302Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-b07d2f898b6447f78471",
+          "file": "interfaz.spec.cjs",
+          "line": 12,
+          "column": 2
+        },
+        {
+          "title": "A: E6 conserva APP y voz por móvil en ambos extremos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 964,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:15.294Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-563ef9f3fd18bf7efcf3",
+          "file": "interfaz.spec.cjs",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "A: E7 espera estabilidad didáctica antes de retornar",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:16.271Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-be1cef6d0fab3a774a9b",
+          "file": "interfaz.spec.cjs",
+          "line": 14,
+          "column": 2
+        },
+        {
+          "title": "A: escena 10 muestra conciliación, bloqueos y restaura el estado",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4112,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:23.084Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-74f300a850a96ac914fc",
+          "file": "interfaz.spec.cjs",
+          "line": 15,
+          "column": 2
+        },
+        {
+          "title": "B: E1 pierde Starlink remoto y conserva APP por Leo",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:27.214Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-cbf7a107f655d04a91b0",
+          "file": "interfaz.spec.cjs",
+          "line": 8,
+          "column": 2
+        },
+        {
+          "title": "B: E2 retira Leo/WOM de las tres sedes regionales",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 896,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:28.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-fcc4861660f9a52f3853",
+          "file": "interfaz.spec.cjs",
+          "line": 9,
+          "column": 2
+        },
+        {
+          "title": "B: E3 usa FW-B y mantiene aplicación autorizada",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 932,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:29.076Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-e22481de6d8d95782f98",
+          "file": "interfaz.spec.cjs",
+          "line": 10,
+          "column": 2
+        },
+        {
+          "title": "B: E4 apaga S19 por completo y el reset la recupera",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1263,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:30.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-e03630cb7247f2bb44ab",
+          "file": "interfaz.spec.cjs",
+          "line": 11,
+          "column": 2
+        },
+        {
+          "title": "B: E5 retira Starlink en sucursales y central",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 848,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:31.304Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-b2f2e6a9e1b885d74886",
+          "file": "interfaz.spec.cjs",
+          "line": 12,
+          "column": 2
+        },
+        {
+          "title": "B: E6 conserva APP y voz por móvil en ambos extremos",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 899,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:32.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-667a7ef6d457d80bd022",
+          "file": "interfaz.spec.cjs",
+          "line": 13,
+          "column": 2
+        },
+        {
+          "title": "B: E7 espera estabilidad didáctica antes de retornar",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6796,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:33.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-5f68dda83f511350751e",
+          "file": "interfaz.spec.cjs",
+          "line": 14,
+          "column": 2
+        },
+        {
+          "title": "B: escena 10 muestra conciliación, bloqueos y restaura el estado",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3764,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-27T23:28:39.884Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3560b2f10015f3b349ea-dec39d8911d641213fbe",
+          "file": "interfaz.spec.cjs",
+          "line": 15,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-27T23:28:09.020Z",
+    "duration": 34733.695,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
