@@ -1,0 +1,56 @@
+{
+  "as_of": "2026-10-25",
+  "scope": "23 sedes actuales; sin crecimiento ni copias simultáneas",
+  "unit": "Terminales con video, no número de reuniones",
+  "normal": {
+    "remote_endpoints": 30,
+    "central_endpoints": 3,
+    "up_target_mbps": 965.627,
+    "down_target_mbps": 759.142,
+    "capacity_each_direction_mbps": 1000,
+    "capacity_fits": true,
+    "admitted_by_design": true,
+    "contingency": false,
+    "measured": false,
+    "automatic_enforcement": false
+  },
+  "original_peak": {
+    "remote_endpoints": 42,
+    "central_endpoints": 3,
+    "up_target_mbps": 1088.199,
+    "down_target_mbps": 881.713,
+    "capacity_each_direction_mbps": 1000,
+    "capacity_fits": false,
+    "admitted_by_design": false,
+    "contingency": false,
+    "measured": false,
+    "automatic_enforcement": false
+  },
+  "boundary_fits": {
+    "remote_endpoints": 33,
+    "central_endpoints": 3,
+    "up_target_mbps": 996.27,
+    "down_target_mbps": 789.785,
+    "capacity_each_direction_mbps": 1000,
+    "capacity_fits": true,
+    "admitted_by_design": false,
+    "contingency": false,
+    "measured": false,
+    "automatic_enforcement": false
+  },
+  "boundary_exceeds": {
+    "remote_endpoints": 34,
+    "central_endpoints": 3,
+    "up_target_mbps": 1006.484,
+    "down_target_mbps": 799.999,
+    "capacity_each_direction_mbps": 1000,
+    "capacity_fits": false,
+    "admitted_by_design": false,
+    "contingency": false,
+    "measured": false,
+    "automatic_enforcement": false
+  },
+  "contingency_policy": "Cero terminales con video; priorizar APP, voz y servicios. Pausar copias/actualizaciones; réplica crítica limitada a capacidad sobrante.",
+  "future_sites": "Recalcular antes de aperturas o crecimiento",
+  "automatic_enforcement": false
+}

@@ -57,3 +57,6 @@ Estas referencias sustentan la separación por VLAN y el patrón de interfaces. 
 ## Resultado de cierre
 
 99 pruebas Node aprobadas. Pasada local de navegador C5/dispositivos/presentación: 44 casos aprobados. La matriz de 9.900 combinaciones está incluida en las pruebas Node, no son 9.900 pruebas de navegador. Excel recalculado y conciliado con ambos JSON. PowerPoint mantiene 14 láminas, tablas editables y nuevos importes. Los PDF numerados, IPAM y planos reflejan los cuatro accesos centrales.
+
+
+**Nota de trazabilidad del 27/10:** los conteos anteriores corresponden al corte fechado de este anexo. La evidencia verificable del cierre actual y los límites de los logs históricos están en [Evidencia de pruebas](Evidencia_Pruebas_27_oct_2026.md).

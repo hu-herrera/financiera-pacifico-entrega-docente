@@ -1,0 +1,239 @@
+{
+  "as_of": "2026-10-25",
+  "revision": "ALTERNATIVA-B-3",
+  "status": "SUPUESTO_ACADEMICO_COMPARATIVO_NO_COTIZACION",
+  "basis": "Se conserva el alcance WAN C5 y se sustituyen las partidas de routers, switches, licencias Cisco asociadas y firewalls centrales por equipos sin suscripcion obligatoria. No modifica presupuesto-c5.json ni supuesto-definitivo-c5.json.",
+  "quantities": {
+    "branch_routers": 44,
+    "ccr2004": 42,
+    "rb5009": 2,
+    "branch_switches": 44,
+    "central_firewalls": 2,
+    "wan_hex": 45,
+    "wan_crs310": 1
+  },
+  "assumptions": {
+    "usd_clp": 1000,
+    "eur_clp": 1100,
+    "vat_rate": 0.19,
+    "imported_hardware_uplift": 0.08,
+    "annual_internal_network_reserve_gross_clp": 5000000,
+    "recurring_router_switch_firewall_license": 0,
+    "wan_scope_inherited_from_c5": true,
+    "six_future_sites_excluded": true,
+    "current_cisco_wan_distributors_retained": false,
+    "physical_throughput_test": false,
+    "logical_simulator_validation": true
+  },
+  "rows": [
+    {
+      "id": "cpe_5g",
+      "label": "CPE móvil Entel 5G, comprado",
+      "quantity": 23,
+      "extended_gross_clp": 7885550,
+      "evidence": "PRECIO_PUBLICADO",
+      "source": "https://www.spdigital.cl/router-tp-link-archer-nx500-5g-ax3000-wi-fi-6-dual-band-467-gbps-5g-easymesh-y-plug-and-play/",
+      "note": "Un CPE por servicio y sede, incluida CM. Condiciones y precio del caso ficticio. Hub móvil exige entrega IP alcanzable/ruteada; CGNAT entrante sin mapeo no basta. No constituye oferta pública obtenida."
+    },
+    {
+      "id": "cpe_4g",
+      "label": "CPE móvil WOM 4G, comprado",
+      "quantity": 23,
+      "extended_gross_clp": 3652170,
+      "evidence": "PRECIO_PUBLICADO",
+      "source": "https://www.spdigital.cl/4g-cat6-ac1200-wireless-dual-band-gigabit-router/",
+      "note": "Un CPE por servicio y sede, incluida CM. Condiciones y precio del caso ficticio. Hub móvil exige entrega IP alcanzable/ruteada; CGNAT entrante sin mapeo no basta. No constituye oferta pública obtenida."
+    },
+    {
+      "id": "ap",
+      "label": "AP Wi-Fi de contingencia",
+      "quantity": 48,
+      "extended_gross_clp": 14400000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": "https://www.cisco.com/c/en/us/products/collateral/wireless/business-100-series-access-points/business-access-point-ds.html",
+      "note": "Precio reservado, no publicado por Cisco. 48 AP para diseño preliminar; cantidad y aceptación RF deben probarse. Fuente acredita variante para Chile, no estudio RF."
+    },
+    {
+      "id": "pc_wifi",
+      "label": "Reserva máxima Wi-Fi PCs existentes",
+      "quantity": 650,
+      "extended_gross_clp": 32500000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "650 adaptadores como techo; inventario académico presupone ninguno instalado. No recompra PC ni teléfono. Homologación de driver, EAP y reconexión pendiente."
+    },
+    {
+      "id": "lan_optics",
+      "label": "Transceptores LAN central 10G",
+      "quantity": 8,
+      "extended_gross_clp": 2400000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Cuatro enlaces ópticos, dos extremos cada uno. Dos marcas requieren homologación por extremo; no se atribuye compatibilidad automática."
+    },
+    {
+      "id": "fiber_patch",
+      "label": "Latiguillo óptico central",
+      "quantity": 4,
+      "extended_gross_clp": 200000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Cuatro enlaces entre los dos firewalls y los dos miembros de stack."
+    },
+    {
+      "id": "rack_patch",
+      "label": "Cat6, organización y accesorios de montaje",
+      "quantity": 23,
+      "extended_gross_clp": 18400000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Reutiliza cableado horizontal y racks existentes; cubre patch cords del plano, HA1/backup, etiquetado y montaje de equipos. No recompra brackets estándar ya incluidos."
+    },
+    {
+      "id": "rf_survey",
+      "label": "Diseño RF, instalación y aceptación Wi-Fi",
+      "quantity": 23,
+      "extended_gross_clp": 11500000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "No incluye compra de AP ni replica migración WAN."
+    },
+    {
+      "id": "deployment",
+      "label": "Implantación y migración de red por sede",
+      "quantity": 23,
+      "extended_gross_clp": 57500000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Instalación/configuración WAN, routers, switches y firewall donde corresponda; ventana, rollback y pruebas por sede. No instalación de gateways satelitales ya supuesta incluida por operador."
+    },
+    {
+      "id": "regional_logistics",
+      "label": "Traslados regionales y logística de implantación",
+      "quantity": 1,
+      "extended_gross_clp": 25000000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Traslados y logística insular/polar del equipo de implantación; no repite flete de importación aplicado al hardware USD. Sin tarifa de transporte adjudicada."
+    },
+    {
+      "id": "central_engineering",
+      "label": "Ingeniería común, laboratorio y documentación",
+      "quantity": 1,
+      "extended_gross_clp": 6550000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Reasignación de la reserva de 8000000: 6550000 para ingeniería común y 1450000 para RAM/discos de DC-02. Incluye configuración y pruebas del clúster. No se compran hosts nuevos ni se aumenta el subtotal."
+    },
+    {
+      "id": "ha_dc2_memory",
+      "label": "DC-02: ampliación de 32 a 64 GiB RAM",
+      "quantity": 1,
+      "extended_gross_clp": 250000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Reserva reasignada desde ingeniería central; módulo compatible con R740, no cotización."
+    },
+    {
+      "id": "ha_dc2_storage",
+      "label": "DC-02: par SSD empresarial 3,84 TB en espejo",
+      "quantity": 1,
+      "extended_gross_clp": 1200000,
+      "evidence": "RESERVA_INGENIERIA",
+      "source": null,
+      "note": "Reserva reasignada desde ingeniería central. Capacidad útil 3,84 TB; comprobar formato, controladora y firmware; no cotización."
+    },
+    {
+      "id": "b_lacp_dac",
+      "label": "DAC MikroTik XS+DA0001 1m · enlaces LACP interswitch",
+      "quantity": 44,
+      "unit_gross_clp": 37271,
+      "evidence": "PRECIO_FABRICANTE_USD_CONVERSION_PLANIFICACION",
+      "source": "https://mikrotik.com/product/xs_da0001",
+      "note": "Dos cables por pareja de CRS328, 22 sucursales; 10 Gbps por enlace. USD 29, CLP/USD 1000, importación 8 % e IVA 19 %. Sin reutilizar los cables propietarios StackWise. Sincronización OPNsense por Cat6 incluido en rack_patch; se retira HSCI.",
+      "extended_gross_clp": 1639924
+    },
+    {
+      "id": "b_wan_hex",
+      "label": "Distribuidor WAN MikroTik hEX E50UG · bridge VLAN",
+      "quantity": 45,
+      "unit_gross_clp": 77048,
+      "evidence": "PRECIO_FABRICANTE_USD_CONVERSION_PLANIFICACION",
+      "source": "https://mikrotik.com/product/hex_2024",
+      "note": "USD 59,95; CLP/USD 1000, importación 8 % e IVA 19 %. Cinco puertos GbE: dos CPE, dos routers y gestión en sucursal. En CM WAN-B: dos CPE, dos trunks a firewalls y gestión. RouterOS v7 en bridge VLAN con offload; no termina VPN. Fuente consultada 23-10-2026.",
+      "extended_gross_clp": 3467160
+    },
+    {
+      "id": "b_wan_crs310",
+      "label": "Distribuidor WAN-A central MikroTik CRS310-8G+2S+IN",
+      "quantity": 1,
+      "unit_gross_clp": 281459,
+      "evidence": "PRECIO_FABRICANTE_USD_CONVERSION_PLANIFICACION",
+      "source": "https://mikrotik.com/product/crs310_8g_2s_in",
+      "note": "USD 219; CLP/USD 1000, importación 8 % e IVA 19 %. Ocho puertos 2,5G y dos SFP+10G; Puertos ether1/2 para CPE, ether3/4 para trunks a firewalls y ether5 gestión. RouterOS v7, bridge VLAN; sin suscripción obligatoria. Fuente consultada 23-10-2026.",
+      "extended_gross_clp": 281459
+    },
+    {
+      "id": "b_router_ccr2004",
+      "label": "Router estándar MikroTik CCR2004-16G-2S+",
+      "quantity": 42,
+      "unit_gross_clp": 553350,
+      "evidence": "PRECIO_FABRICANTE_USD_CONVERSION_PLANIFICACION",
+      "source": "https://mikrotik.com/product/ccr2004_16g_2splus",
+      "note": "RouterOS nivel 6 incluido; USD 465 convertido a CLP 1000 y 19 % IVA. No incluye flete/importación adicional en esta fila porque el valor unitario ya está adoptado como precio de planificación local equivalente.",
+      "extended_gross_clp": 23240700
+    },
+    {
+      "id": "b_router_rb5009",
+      "label": "Router sede pequeña MikroTik RB5009UG+S+IN",
+      "quantity": 2,
+      "unit_gross_clp": 307466,
+      "evidence": "PRECIO_PUBLICADO_CHILE",
+      "source": "https://www.redcetus.cl/shop/mikrotik-rb5009ug-s-in-router-home-lab-4962",
+      "note": "RouterOS incluido; reservado a sedes pequeñas. Su rendimiento IPsec debe validarse antes de usarlo en una sede de mayor demanda.",
+      "extended_gross_clp": 614932
+    },
+    {
+      "id": "b_switch_crs328",
+      "label": "Switch PoE MikroTik CRS328-24P-4S+RM",
+      "quantity": 44,
+      "unit_gross_clp": 646990,
+      "evidence": "PRECIO_PUBLICADO_CHILE",
+      "source": "https://www.tecnomas.cl/productos/categorias/Switches?pagina=13",
+      "note": "24 puertos PoE+, cuatro uplinks 10G SFP+ y administración incluida. La redundancia se modelará con dos switches independientes, RSTP y LACP; no se declara StackWise.",
+      "extended_gross_clp": 28467560
+    },
+    {
+      "id": "b_firewall_dec3852",
+      "label": "Appliance OPNsense DEC3852",
+      "quantity": 2,
+      "unit_gross_clp": 2683741,
+      "evidence": "PRECIO_FABRICANTE_EUR_CONVERSION_PLANIFICACION",
+      "source": "https://shop.opnsense.com/product/dec3852-opnsense-rack-security-appliance/",
+      "note": "EUR 1898 por unidad, convertido a CLP 1100, con 8 % de importación y 19 % IVA. Publica 2,5 Gbps IPsec AES256GCM16; la capacidad con IDS/IPS y HA queda como prueba del simulador académico.",
+      "extended_gross_clp": 5367482
+    }
+  ],
+  "totals": {
+    "subtotal_gross_clp": 244516937,
+    "contingency_gross_clp": 36677541,
+    "initial_outlay_gross_clp": 281194478,
+    "wan_60_months_gross_clp": 660607380,
+    "five_year_internal_reserve_gross_clp": 25000000,
+    "scoped_cost_60_months_gross_clp": 966801858,
+    "c5_initial_reference_gross_clp": 793126897,
+    "c5_scoped_60_month_reference_gross_clp": 1503734277,
+    "initial_difference_vs_c5_gross_clp": -511932419,
+    "five_year_difference_vs_c5_gross_clp": -536932419
+  },
+  "acceptance": {
+    "same_logical_topology": true,
+    "same_wan_count": true,
+    "same_vlan_and_ipam_scope": true,
+    "same_redundancy_goal": true,
+    "vendor_interoperability_proven": false,
+    "simulator_tests_pending": true,
+    "simulator_variant_selector_implemented": true,
+    "formal_quotes": false
+  }
+}

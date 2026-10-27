@@ -1,0 +1,26 @@
+const {test,expect}=require('@playwright/test');
+const path=require('node:path'),{pathToFileURL}=require('node:url');
+const sim=path.resolve(process.env.SIMULATOR_DIR||path.join(__dirname,'../../fina'));
+const url=pathToFileURL(path.join(sim,'index.html')).href;
+async function setup(page,variant){await page.goto(url);await page.evaluate(v=>{if(ST.mode==='antes')toggleMode();C5App.setVariant(v);C5App.reset();},variant);}
+async function status(page,id){return page.evaluate(id=>{const z=C5App.status(id);return {available:z.siteAvailable,wan:z.activeWan,edge:z.activeEdge,gateway:z.gatewayAvailable,local:z.switchLocalL2,powered:z.poweredNodes};},id);}
+for(const variant of ['A','B']){
+ test(variant+': E1 pierde Starlink remoto y conserva APP por Leo',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e1()"]');expect((await status(page,'s08')).wan).toBe('leo');expect(await page.evaluate(()=>C5App.securityTest('s08','app').ok)).toBe(true);});
+ test(variant+': E2 retira Leo/WOM de las tres sedes regionales',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e2()"]');expect(await page.evaluate(()=>['s15','s16','s17'].every(id=>{const z=C5App.status(id);return !z.wanAvailable.includes('leo')&&!z.wanAvailable.includes('wom4g')&&C5App.securityTest(id,'app').ok;}))).toBe(true);});
+ test(variant+': E3 usa FW-B y mantiene aplicación autorizada',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e3()"]');expect((await status(page,'cm')).edge).toBe('fwB');expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(true);});
+ test(variant+': E4 apaga S19 por completo y el reset la recupera',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e4()"]');const z=await status(page,'s19');expect(z.available).toBe(false);expect(z.gateway).toBe(false);expect(z.wan).toBeNull();expect(Object.values(z.powered).every(v=>!v)).toBe(true);expect(await page.evaluate(()=>{const s=SEDES.find(s=>s.id==='s19');return C5App.access(s.id,getPCs(s)[0]).local;})).toBe(false);expect(await page.evaluate(()=>C5App.securityTest('s19','app').ok)).toBe(false);await page.evaluate(()=>C5App.reset('s19'));expect((await status(page,'s19')).available).toBe(true);expect(await page.evaluate(()=>C5App.securityTest('s19','app').ok)).toBe(true);});
+ test(variant+': E5 retira Starlink en sucursales y central',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e5()"]');expect(await page.evaluate(()=>C5Data.sites.every(s=>C5App.status(s.id).activeWan==='leo'))).toBe(true);expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(true);});
+ test(variant+': E6 conserva APP y voz por móvil en ambos extremos',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e6()"]');expect(await page.evaluate(()=>C5Data.sites.every(s=>['entel5g','wom4g'].includes(C5App.status(s.id).activeWan)))).toBe(true);expect(await page.evaluate(()=>[C5App.securityTest('s06','app').ok,C5App.securityTest('s06','voice').ok])).toEqual([true,true]);});
+ test(variant+': E7 espera estabilidad didáctica antes de retornar',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e1()"]');await page.click('[onclick="sc_e7()"]');expect((await status(page,'s08')).wan).toBe('leo');expect(await page.evaluate(()=>ST.links.s08.starlink)).toBe('recuperando');await expect.poll(async()=>(await status(page,'s08')).wan,{timeout:10000}).toBe('starlink');});
+ test(variant+': escena 10 muestra conciliación, bloqueos y restaura el estado',async({page})=>{
+  await setup(page,variant);const errors=[];page.on('pageerror',e=>errors.push(e.message));const before=await page.evaluate(()=>JSON.stringify(C5App.state('cm')));
+  await page.click('#presentation-launch');await page.uncheck('#story-autoplay');await page.evaluate(()=>ClientPresentation.go(9));await expect(page.locator('#stage-title')).toHaveText('Firewall y recuperación del datacenter');await page.click('#story-replay');await page.click('#story-pause');
+  async function advance(label){for(let i=0;i<16;i++){if((await page.locator('#story-phase').innerText()).includes(label))return;await page.click('#story-step');}throw Error('Etapa no alcanzada: '+label);}
+  await advance('Qué datos vuelven');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(2);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['DEMO-011','DEMO-012']);
+  await advance('Antes de reabrir');await expect(page.locator('.story-recovery-checks>li')).toHaveCount(6);
+  await advance('Réplica antigua');expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);
+  await advance('Copia inconsistente');expect(await page.evaluate(()=>ClientPresentation.report.recovery.dataStateKnown)).toBe(false);expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);
+  await advance('Límite del sitio');expect(await page.evaluate(()=>C5App.status('cm').dc.applicationHost)).toBe(false);
+  await page.screenshot({path:test.info().outputPath('escena10-'+variant+'.png'),fullPage:true});await page.click('#stage-close');expect(await page.evaluate(()=>JSON.stringify(C5App.state('cm')))).toBe(before);expect(errors).toEqual([]);
+ });
+}

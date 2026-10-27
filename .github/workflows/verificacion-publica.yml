@@ -1,0 +1,53 @@
+name: Verificación pública de entrega y simulador
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  entrega:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: entrega
+      - name: Leer corte público del simulador
+        id: corte
+        shell: bash
+        run: |
+          simulator_sha=$(node -p "require('./entrega/Verificacion/corte.json').simulator_commit")
+          echo "sha=$simulator_sha" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v5
+        with:
+          repository: hu-herrera/fina
+          ref: ${{ steps.corte.outputs.sha }}
+          path: simulador
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Comprobar manifiesto, ZIP, Excel y flujo anual
+        run: python entrega/Verificacion/documentos.py
+      - name: Verificar modelo, inventario y recuperación A/B
+        env:
+          SIMULATOR_DIR: ${{ github.workspace }}/simulador
+        run: |
+          mkdir -p resultados
+          node --test --test-reporter=tap entrega/Verificacion/modelo.test.cjs | tee resultados/modelo.tap
+      - name: Instalar Playwright y Chromium
+        run: |
+          npm install --prefix entrega/Verificacion --no-save @playwright/test@1.62.1
+          entrega/Verificacion/node_modules/.bin/playwright install --with-deps chromium
+      - name: Verificar interfaz E1–E7 y escena 10 en A/B
+        env:
+          SIMULATOR_DIR: ${{ github.workspace }}/simulador
+        run: entrega/Verificacion/node_modules/.bin/playwright test --config entrega/Verificacion/playwright.config.cjs
+      - name: Publicar resultados y diagnóstico
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: evidencia-publica-${{ steps.corte.outputs.sha }}
+          path: resultados/
+          if-no-files-found: warn

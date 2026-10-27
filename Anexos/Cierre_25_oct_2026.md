@@ -30,3 +30,6 @@ Para el hito del 30 de octubre se contempla la presentación audiovisual de los 
 [Simulador vigente](https://hu-herrera.github.io/fina/).
 
 [Revisión WAN-3 vigente: cuatro accesos en central y costos conciliados](Continuidad_Cuatro_WAN_25_oct_2026.md).
+
+
+**Nota de trazabilidad del 27/10:** los conteos anteriores corresponden al corte fechado de este anexo. La evidencia verificable del cierre actual y los límites de los logs históricos están en [Evidencia de pruebas](Evidencia_Pruebas_27_oct_2026.md).

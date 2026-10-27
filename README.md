@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 26 de octubre de 2026 - C5 A/B, WAN-3 y C5-RECUPERACION-1
+**Corte:** 27 de octubre de 2026 - C5 A/B, WAN-3 y C5-RECUPERACION-1; cierre documental y verificación pública
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -64,3 +64,13 @@ La escena 10 de la presentación integrada muestra qué datos recupera el host a
 - [Resultados reproducibles A/B con operaciones ficticias](Anexos/Ejercicios_Recuperacion_C5.json).
 
 Se entrega preparación técnica y procedimiento; la financiera opera, mantiene, valida los datos y autoriza la reapertura. Electricidad y climatización se consideran infraestructura existente a su cargo. No se declara implantación de una aplicación bancaria ni medición física de RTO/RPO.
+
+## Cierre documental del 27 de octubre
+
+Se concilian el flujo anual, los importes WAN del informe, el cierre de la bitácora y los escenarios E4/E6. La escena 10 distingue firewall, recuperación de servicios y conciliación. El inventario y los totales WAN-3 se conservan.
+
+- [Evidencia, cortes y reproducción pública](Anexos/Evidencia_Pruebas_27_oct_2026.md).
+- [Fuentes académicas editables](Fuentes/).
+- [Verificación pública automatizada](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/workflows/verificacion-publica.yml).
+
+El ZIP contiene los mismos archivos que el manifiesto publicado. El manifiesto se regenera después de cualquier modificación de los documentos o anexos.

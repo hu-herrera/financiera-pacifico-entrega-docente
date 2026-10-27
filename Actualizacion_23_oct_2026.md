@@ -45,3 +45,8 @@ Las fechas intermedias son una planificación propuesta. El plazo final correspo
 ## Complemento cerrado el 26 de octubre: recuperación C5
 
 Se concreta la recuperación local sobre los dos hosts y BKP-01 del perfil vigente. El simulador muestra una réplica completada, una tarea fallida, registros presentes y operaciones por conciliar. También bloquea el reinicio con copia antigua o inconsistente. La [guía de operación y responsabilidades](Anexos/Operacion_Recuperacion_Datacenter_C5.md) y su PDF se añaden como anexos. No modifica las compras ni los importes WAN-3. El registro de avance mantiene la presentación audiovisual como actividad programada para el hito del 30 de octubre.
+
+
+## Cierre documental del 27 de octubre
+
+Se concilian los documentos de presupuesto, bitácora y escenarios con WAN-3. Se publica reproducción por SHA, con resultados actuales separados de los registros históricos. [Evidencia y alcance](Anexos/Evidencia_Pruebas_27_oct_2026.md). La grabación y el envío por AVA continúan pendientes; no se registra una entrega aún no realizada.

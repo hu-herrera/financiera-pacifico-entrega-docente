@@ -1,0 +1,22 @@
+{
+  "revision": "C5-ECO-3-CM-CUATRO-WAN",
+  "as_of": "2026-10-25",
+  "status": "SUPUESTO_ACADEMICO_DEFINITIVO_NO_OFERTA",
+  "economic_inputs_sha256": "c6519dbd8e86ed2b39598624a240e48c2f5adab61d16250aa445c7472035efd1",
+  "totals": {
+    "initial_outlay_gross_clp": 793126897,
+    "monthly_wan_gross_clp": 11010123,
+    "annual_operating_reserve_gross_clp": 10000000,
+    "scoped_cost_60_months_gross_clp": 1503734277
+  },
+  "source_files": [
+    "entradas-diseno-c5.json",
+    "entradas-presupuesto-c5.json",
+    "base-infraestructura-antes.json",
+    "alcance-definitivo-y-expansion.json"
+  ],
+  "change_rule": "Una corrección que cambie alcance, cantidades, licencias, precios o reservas requiere una revisión identificada, con motivo y diferencia monetaria; no incorporar gastos silenciosamente.",
+  "prices_are_adopted_not_guaranteed": true,
+  "formal_quote": false,
+  "availability_or_hardware_certification": false
+}

@@ -39,3 +39,6 @@ Las pruebas de navegador se ejecutaron con Chromium y Playwright. Su alcance cor
 ## Concordancia
 
 La revisión quedó incorporada en las fichas de equipamiento, asignación de puertos, topologías, presupuesto, IPAM y material de presentación. El escenario económico C5-ECO-1 se conserva como antecedente histórico para comparar la evolución de costos.
+
+
+**Nota de trazabilidad del 27/10:** los conteos anteriores corresponden al corte fechado de este anexo. La evidencia verificable del cierre actual y los límites de los logs históricos están en [Evidencia de pruebas](Evidencia_Pruebas_27_oct_2026.md).

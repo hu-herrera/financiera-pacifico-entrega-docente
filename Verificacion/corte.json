@@ -1,0 +1,6 @@
+{
+  "date": "2026-10-27",
+  "simulator_repository": "hu-herrera/fina",
+  "simulator_commit": "9b5139e3a9004961590e9844cbffac31fb879942",
+  "scope": "Verificación pública del modelo, interfaz y paquete académico; no certifica hardware ni las pasadas históricas."
+}

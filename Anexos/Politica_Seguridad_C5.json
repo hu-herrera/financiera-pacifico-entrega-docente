@@ -1,0 +1,1066 @@
+{
+  "version": 1,
+  "profile": "C5 A/B",
+  "owner": "Equipo de diseño de Financiera Pacífico",
+  "services": {
+    "app": "10.70.200.10",
+    "database": "10.70.200.11",
+    "pbx": "10.70.200.20",
+    "dns": "10.70.200.30",
+    "aaa": "10.70.200.31",
+    "nms": "10.70.200.40",
+    "backup": "10.70.200.50",
+    "admin": "10.80.0.10"
+  },
+  "rules": [
+    {
+      "id": "ALLOW-CLUSTER-CONTROL",
+      "action": "allow",
+      "from": "Hosts 10.80.0.11 y 10.80.0.12",
+      "to": "El otro host del clúster",
+      "service": "UDP 5405–5412; TCP 22 y 60000–60050",
+      "control": "Firewall de hipervisores y gestión",
+      "reason": "Corosync, réplica ZFS y migración solo entre hosts autorizados."
+    },
+    {
+      "id": "ALLOW-CLUSTER-WITNESS",
+      "action": "allow",
+      "from": "Hosts 10.80.0.11 y 10.80.0.12",
+      "to": "BKP-01 10.70.200.50",
+      "service": "TCP 5403",
+      "control": "ACL de gestión, firewall central y host BKP",
+      "reason": "Voto qdevice del clúster de dos nodos."
+    },
+    {
+      "id": "ALLOW-CLUSTER-BACKUP",
+      "action": "allow",
+      "from": "Hosts 10.80.0.11 y 10.80.0.12",
+      "to": "BKP-01 10.70.200.50",
+      "service": "TCP 8007",
+      "control": "ACL de gestión, firewall central y host BKP",
+      "reason": "Copias al repositorio mediante su API autenticada."
+    },
+    {
+      "id": "ALLOW-NOC-HYPERVISOR",
+      "action": "allow",
+      "from": "10.80.0.10",
+      "to": "Hosts 10.80.0.11 y 10.80.0.12",
+      "service": "TCP 8006",
+      "control": "Firewall de hipervisores y gestión",
+      "reason": "Administración del clúster solo desde el bastión NOC."
+    },
+    {
+      "id": "ALLOW-LOCAL-ICMP",
+      "action": "allow",
+      "from": "Usuarios de la misma sede",
+      "to": "Usuarios de la misma sede",
+      "service": "ICMP",
+      "control": "Acceso local / ACL de SVI",
+      "reason": "Diagnóstico local entre puestos de la sede."
+    },
+    {
+      "id": "LAB-ICMP-HOST-PAIR",
+      "action": "allow",
+      "from": "Par de diagnóstico autorizado",
+      "to": "Host exacto autorizado",
+      "service": "ICMP",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Excepción temporal limitada a dos IP activas."
+    },
+    {
+      "id": "ALLOW-APP-DATABASE",
+      "action": "allow",
+      "from": "10.70.200.10",
+      "to": "10.70.200.11",
+      "service": "TCP 5432",
+      "control": "Firewall de los hosts APP y BD",
+      "reason": "Solo el servidor de aplicación consulta PostgreSQL."
+    },
+    {
+      "id": "ALLOW-USERS-APP",
+      "action": "allow",
+      "from": "Usuarios VLAN 10 y 110",
+      "to": "10.70.200.10",
+      "service": "TCP 443",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Acceso de los colaboradores a la aplicación financiera por HTTPS."
+    },
+    {
+      "id": "ALLOW-VOICE-PBX",
+      "action": "allow",
+      "from": "Voz VLAN 20 y 120",
+      "to": "10.70.200.20",
+      "service": "TCP 5061",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Señalización SIP sobre TLS hacia la central telefónica."
+    },
+    {
+      "id": "ALLOW-VOICE-RTP",
+      "action": "allow",
+      "from": "Voz VLAN 20 y 120",
+      "to": "10.70.200.20",
+      "service": "UDP 10000–20000",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Audio con medios anclados en la PBX, sin voz directa entre sedes."
+    },
+    {
+      "id": "ALLOW-PBX-RTP",
+      "action": "allow",
+      "from": "10.70.200.20",
+      "to": "Voz VLAN 20 y 120",
+      "service": "UDP 10000–20000",
+      "control": "Firewall central y ACL de voz",
+      "reason": "Audio desde la PBX hacia el rango de medios de los teléfonos."
+    },
+    {
+      "id": "ALLOW-CORP-DNS",
+      "action": "allow",
+      "from": "Usuarios, voz, gestión y servidores",
+      "to": "10.70.200.30",
+      "service": "UDP/TCP 53",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Resolución de nombres a través del DNS corporativo."
+    },
+    {
+      "id": "ALLOW-CORP-NTP",
+      "action": "allow",
+      "from": "Usuarios, voz, gestión y servidores",
+      "to": "10.70.200.30",
+      "service": "UDP 123",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Sincronización horaria con el servicio central."
+    },
+    {
+      "id": "ALLOW-MGMT-AAA",
+      "action": "allow",
+      "from": "Gestión VLAN 130",
+      "to": "10.70.200.31",
+      "service": "TCP 49 / UDP 1812–1813",
+      "control": "ACL de gestión y firewall central",
+      "reason": "TACACS+ de administración y RADIUS de acceso Wi-Fi desde los equipos de red."
+    },
+    {
+      "id": "ALLOW-ADMIN-MGMT",
+      "action": "allow",
+      "from": "10.80.0.10 (bastión NOC)",
+      "to": "Redes de gestión VLAN 130",
+      "service": "TCP 22/443 e ICMP",
+      "control": "ACL de gestión y firewall central",
+      "reason": "Administración remota desde el bastión autorizado del NOC."
+    },
+    {
+      "id": "ALLOW-NMS-MGMT",
+      "action": "allow",
+      "from": "10.70.200.40",
+      "to": "Redes de gestión VLAN 130",
+      "service": "UDP 161 e ICMP",
+      "control": "ACL de gestión y firewall central",
+      "reason": "Monitoreo de equipos desde NMS. SNMPv3 con autenticación y cifrado."
+    },
+    {
+      "id": "ALLOW-MGMT-LOGS",
+      "action": "allow",
+      "from": "Gestión VLAN 130",
+      "to": "10.70.200.40",
+      "service": "TCP 6514 / UDP 162",
+      "control": "ACL de gestión y firewall central",
+      "reason": "Syslog TLS y notificaciones SNMPv3 al colector central."
+    },
+    {
+      "id": "ALLOW-GUEST-DNS",
+      "action": "allow",
+      "from": "Invitados VLAN 40",
+      "to": "1.1.1.1 / 9.9.9.9",
+      "service": "UDP/TCP 53",
+      "control": "ACL de invitados y firewall central",
+      "reason": "DNS de invitados mediante resolutores públicos definidos."
+    },
+    {
+      "id": "DENY-GUEST-PRIVATE",
+      "action": "deny",
+      "from": "Invitados VLAN 40",
+      "to": "Redes privadas e internas",
+      "service": "Cualquiera",
+      "control": "ACL de invitados y firewall central",
+      "reason": "Los invitados no acceden a aplicaciones, voz, servidores ni gestión corporativa."
+    },
+    {
+      "id": "ALLOW-USERS-WEB",
+      "action": "allow",
+      "from": "Usuarios VLAN 10 y 110",
+      "to": "Internet público",
+      "service": "TCP 80/443",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Navegación mediante la salida central y sus controles de seguridad."
+    },
+    {
+      "id": "ALLOW-GUEST-WEB",
+      "action": "allow",
+      "from": "Invitados VLAN 40",
+      "to": "Internet público",
+      "service": "TCP 80/443",
+      "control": "ACL de invitados y firewall central",
+      "reason": "Navegación de invitados con salida central."
+    },
+    {
+      "id": "DENY-USERS-DATABASE",
+      "action": "deny",
+      "from": "Usuarios VLAN 10 y 110",
+      "to": "10.70.200.11",
+      "service": "Cualquiera",
+      "control": "ACL de acceso y firewall central",
+      "reason": "Los puestos utilizan la aplicación y no conectan directamente a la base de datos."
+    },
+    {
+      "id": "DENY-UNAUTHORIZED-MGMT",
+      "action": "deny",
+      "from": "Cualquier otro origen",
+      "to": "Gestión VLAN 130",
+      "service": "Cualquiera",
+      "control": "ACL de gestión y firewall central",
+      "reason": "Solo el puesto NOC y el NMS pueden iniciar los accesos de gestión definidos."
+    },
+    {
+      "id": "DENY-INTERSITE-ICMP",
+      "action": "deny",
+      "from": "Usuarios de otra sede",
+      "to": "Usuarios",
+      "service": "ICMP",
+      "control": "ACL de acceso y firewall central",
+      "reason": "El diagnóstico entre sedes requiere una excepción explícita."
+    },
+    {
+      "id": "DENY-DEFAULT",
+      "action": "deny",
+      "from": "Cualquiera",
+      "to": "Cualquiera",
+      "service": "No autorizado arriba",
+      "control": "ACL / firewall según recorrido",
+      "reason": "Todo flujo sin permiso explícito queda bloqueado y se registra."
+    }
+  ],
+  "sites": [
+    {
+      "id": "cm",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.0.0/25",
+          "gateway": "10.70.0.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.64.0/25",
+          "gateway": "10.70.64.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.96.0/26",
+          "gateway": "10.70.96.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.0.0/25",
+          "gateway": "10.81.0.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.0.0/25",
+          "gateway": "10.82.0.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.0.0/27",
+          "gateway": "10.80.0.1"
+        },
+        "servers": {
+          "vlan": 50,
+          "network": "10.70.200.0/24",
+          "gateway": "10.70.200.1"
+        },
+        "firewall_transit": {
+          "vlan": 131,
+          "network": "172.31.0.0/29",
+          "stack": "172.31.0.1",
+          "ha_firewall": "172.31.0.2"
+        }
+      }
+    },
+    {
+      "id": "s01",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.1.0/25",
+          "gateway": "10.70.1.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.65.0/25",
+          "gateway": "10.70.65.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.97.0/26",
+          "gateway": "10.70.97.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.1.0/25",
+          "gateway": "10.81.1.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.1.0/25",
+          "gateway": "10.82.1.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.1.0/27",
+          "gateway": "10.80.1.1"
+        }
+      }
+    },
+    {
+      "id": "s02",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.2.0/25",
+          "gateway": "10.70.2.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.66.0/25",
+          "gateway": "10.70.66.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.98.0/26",
+          "gateway": "10.70.98.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.2.0/25",
+          "gateway": "10.81.2.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.2.0/25",
+          "gateway": "10.82.2.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.2.0/27",
+          "gateway": "10.80.2.1"
+        }
+      }
+    },
+    {
+      "id": "s03",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.3.0/25",
+          "gateway": "10.70.3.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.67.0/25",
+          "gateway": "10.70.67.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.99.0/26",
+          "gateway": "10.70.99.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.3.0/25",
+          "gateway": "10.81.3.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.3.0/25",
+          "gateway": "10.82.3.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.3.0/27",
+          "gateway": "10.80.3.1"
+        }
+      }
+    },
+    {
+      "id": "s04",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.4.0/25",
+          "gateway": "10.70.4.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.68.0/25",
+          "gateway": "10.70.68.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.100.0/26",
+          "gateway": "10.70.100.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.4.0/25",
+          "gateway": "10.81.4.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.4.0/25",
+          "gateway": "10.82.4.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.4.0/27",
+          "gateway": "10.80.4.1"
+        }
+      }
+    },
+    {
+      "id": "s05",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.5.0/25",
+          "gateway": "10.70.5.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.69.0/25",
+          "gateway": "10.70.69.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.101.0/26",
+          "gateway": "10.70.101.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.5.0/25",
+          "gateway": "10.81.5.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.5.0/25",
+          "gateway": "10.82.5.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.5.0/27",
+          "gateway": "10.80.5.1"
+        }
+      }
+    },
+    {
+      "id": "s06",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.6.0/25",
+          "gateway": "10.70.6.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.70.0/25",
+          "gateway": "10.70.70.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.102.0/26",
+          "gateway": "10.70.102.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.6.0/25",
+          "gateway": "10.81.6.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.6.0/25",
+          "gateway": "10.82.6.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.6.0/27",
+          "gateway": "10.80.6.1"
+        }
+      }
+    },
+    {
+      "id": "s07",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.7.0/25",
+          "gateway": "10.70.7.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.71.0/25",
+          "gateway": "10.70.71.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.103.0/26",
+          "gateway": "10.70.103.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.7.0/25",
+          "gateway": "10.81.7.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.7.0/25",
+          "gateway": "10.82.7.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.7.0/27",
+          "gateway": "10.80.7.1"
+        }
+      }
+    },
+    {
+      "id": "s08",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.8.0/25",
+          "gateway": "10.70.8.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.72.0/25",
+          "gateway": "10.70.72.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.104.0/26",
+          "gateway": "10.70.104.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.8.0/25",
+          "gateway": "10.81.8.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.8.0/25",
+          "gateway": "10.82.8.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.8.0/27",
+          "gateway": "10.80.8.1"
+        }
+      }
+    },
+    {
+      "id": "s09",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.9.0/25",
+          "gateway": "10.70.9.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.73.0/25",
+          "gateway": "10.70.73.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.105.0/26",
+          "gateway": "10.70.105.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.9.0/25",
+          "gateway": "10.81.9.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.9.0/25",
+          "gateway": "10.82.9.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.9.0/27",
+          "gateway": "10.80.9.1"
+        }
+      }
+    },
+    {
+      "id": "s10",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.10.0/25",
+          "gateway": "10.70.10.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.74.0/25",
+          "gateway": "10.70.74.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.106.0/26",
+          "gateway": "10.70.106.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.10.0/25",
+          "gateway": "10.81.10.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.10.0/25",
+          "gateway": "10.82.10.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.10.0/27",
+          "gateway": "10.80.10.1"
+        }
+      }
+    },
+    {
+      "id": "s11",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.11.0/25",
+          "gateway": "10.70.11.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.75.0/25",
+          "gateway": "10.70.75.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.107.0/26",
+          "gateway": "10.70.107.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.11.0/25",
+          "gateway": "10.81.11.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.11.0/25",
+          "gateway": "10.82.11.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.11.0/27",
+          "gateway": "10.80.11.1"
+        }
+      }
+    },
+    {
+      "id": "s12",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.12.0/25",
+          "gateway": "10.70.12.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.76.0/25",
+          "gateway": "10.70.76.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.108.0/26",
+          "gateway": "10.70.108.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.12.0/25",
+          "gateway": "10.81.12.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.12.0/25",
+          "gateway": "10.82.12.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.12.0/27",
+          "gateway": "10.80.12.1"
+        }
+      }
+    },
+    {
+      "id": "s13",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.13.0/25",
+          "gateway": "10.70.13.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.77.0/25",
+          "gateway": "10.70.77.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.109.0/26",
+          "gateway": "10.70.109.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.13.0/25",
+          "gateway": "10.81.13.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.13.0/25",
+          "gateway": "10.82.13.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.13.0/27",
+          "gateway": "10.80.13.1"
+        }
+      }
+    },
+    {
+      "id": "s14",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.14.0/25",
+          "gateway": "10.70.14.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.78.0/25",
+          "gateway": "10.70.78.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.110.0/26",
+          "gateway": "10.70.110.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.14.0/25",
+          "gateway": "10.81.14.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.14.0/25",
+          "gateway": "10.82.14.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.14.0/27",
+          "gateway": "10.80.14.1"
+        }
+      }
+    },
+    {
+      "id": "s15",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.15.0/25",
+          "gateway": "10.70.15.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.79.0/25",
+          "gateway": "10.70.79.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.111.0/26",
+          "gateway": "10.70.111.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.15.0/25",
+          "gateway": "10.81.15.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.15.0/25",
+          "gateway": "10.82.15.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.15.0/27",
+          "gateway": "10.80.15.1"
+        }
+      }
+    },
+    {
+      "id": "s16",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.16.0/25",
+          "gateway": "10.70.16.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.80.0/25",
+          "gateway": "10.70.80.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.112.0/26",
+          "gateway": "10.70.112.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.16.0/25",
+          "gateway": "10.81.16.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.16.0/25",
+          "gateway": "10.82.16.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.16.0/27",
+          "gateway": "10.80.16.1"
+        }
+      }
+    },
+    {
+      "id": "s17",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.17.0/25",
+          "gateway": "10.70.17.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.81.0/25",
+          "gateway": "10.70.81.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.113.0/26",
+          "gateway": "10.70.113.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.17.0/25",
+          "gateway": "10.81.17.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.17.0/25",
+          "gateway": "10.82.17.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.17.0/27",
+          "gateway": "10.80.17.1"
+        }
+      }
+    },
+    {
+      "id": "s18",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.18.0/25",
+          "gateway": "10.70.18.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.82.0/25",
+          "gateway": "10.70.82.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.114.0/26",
+          "gateway": "10.70.114.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.18.0/25",
+          "gateway": "10.81.18.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.18.0/25",
+          "gateway": "10.82.18.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.18.0/27",
+          "gateway": "10.80.18.1"
+        }
+      }
+    },
+    {
+      "id": "s19",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.19.0/25",
+          "gateway": "10.70.19.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.83.0/25",
+          "gateway": "10.70.83.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.115.0/26",
+          "gateway": "10.70.115.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.19.0/25",
+          "gateway": "10.81.19.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.19.0/25",
+          "gateway": "10.82.19.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.19.0/27",
+          "gateway": "10.80.19.1"
+        }
+      }
+    },
+    {
+      "id": "s20",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.20.0/25",
+          "gateway": "10.70.20.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.84.0/25",
+          "gateway": "10.70.84.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.116.0/26",
+          "gateway": "10.70.116.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.20.0/25",
+          "gateway": "10.81.20.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.20.0/25",
+          "gateway": "10.82.20.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.20.0/27",
+          "gateway": "10.80.20.1"
+        }
+      }
+    },
+    {
+      "id": "s21",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.21.0/25",
+          "gateway": "10.70.21.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.85.0/25",
+          "gateway": "10.70.85.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.117.0/26",
+          "gateway": "10.70.117.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.21.0/25",
+          "gateway": "10.81.21.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.21.0/25",
+          "gateway": "10.82.21.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.21.0/27",
+          "gateway": "10.80.21.1"
+        }
+      }
+    },
+    {
+      "id": "s22",
+      "addressing": {
+        "users": {
+          "vlan": 10,
+          "network": "10.70.22.0/25",
+          "gateway": "10.70.22.1"
+        },
+        "voice": {
+          "vlan": 20,
+          "network": "10.70.86.0/25",
+          "gateway": "10.70.86.1"
+        },
+        "guests": {
+          "vlan": 40,
+          "network": "10.70.118.0/26",
+          "gateway": "10.70.118.1"
+        },
+        "wifi_users": {
+          "vlan": 110,
+          "network": "10.81.22.0/25",
+          "gateway": "10.81.22.1"
+        },
+        "wifi_voice": {
+          "vlan": 120,
+          "network": "10.82.22.0/25",
+          "gateway": "10.82.22.1"
+        },
+        "management": {
+          "vlan": 130,
+          "network": "10.80.22.0/27",
+          "gateway": "10.80.22.1"
+        }
+      }
+    }
+  ],
+  "implementation": {
+    "access": "ACL entrantes en SVI de usuarios, voz, invitados, Wi-Fi y gestión. La política de VLAN 110/120 replica la de 10/20.",
+    "central": "Permisos equivalentes en el par de firewalls, full tunnel y NAT de Internet solo en central.",
+    "database": "Filtro en los hosts APP y BD. Comparten VLAN50, por lo que su tráfico local no atraviesa automáticamente el firewall central.",
+    "return": "Firewall central con estado. Las ACL L3 de acceso deben incluir los retornos de los servicios autorizados y ICMP de diagnóstico. No añadir un permit ip any any de cierre."
+  }
+}
