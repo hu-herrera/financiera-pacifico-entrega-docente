@@ -91,12 +91,12 @@ Si fallan ambos hosts no queda cómputo local para ejecutar los servicios. Una c
 
 Cada ejercicio o incidente registra: identificador, responsables, versión del perfil, fallo y hora, host destino, votos, aislamiento, último punto completado, antigüedad, resultados de APP/BD/voz, operaciones por conciliar, autorización, hora de reapertura y retorno. Conservar tanto resultados esperados como desviaciones. Una lista marcada no sustituye las salidas o evidencias que la respaldan.
 
-Para la entrega académica se aportan el modelo, los eventos y resultados reproducibles del modelo y el procedimiento. No se exige montar otro laboratorio ni presentar certificaciones físicas para considerar completo este complemento. La eventual implantación productiva requiere adaptar el perfil a la plataforma real y aceptar sus pruebas.
+Para la entrega académica se aportan el modelo, sus eventos y resultados reproducibles y el procedimiento. No se exige montar otro laboratorio ni presentar certificaciones físicas para considerar completo este complemento. La eventual implantación productiva requiere adaptar el perfil a la plataforma real y aceptar sus pruebas.
 
 ## Referencias y trazabilidad
 
-- Perfil vigente: `docs/entradas-diseno-c5.json`, sección `datacenter_ha` y equipos existentes; fichas A/B C5.
-- Resultados del ejercicio: `docs/ejercicios-recuperacion-c5.json`; motor compartido `network/c5-model.js`.
+- Perfil vigente: datos públicos `network/c5-data.js`, sección `datacenter_ha` y equipos existentes; fichas A/B C5.
+- Resultados del ejercicio: [Ejercicios_Recuperacion_C5.json](Ejercicios_Recuperacion_C5.json); motor público `network/c5-protocols.js` y `network/c5-model.js`.
 - Proxmox VE, réplica y pérdida potencial desde el último punto: https://github.com/proxmox/pve-docs/blob/master/pvesr.adoc
 - Proxmox VE, gestión HA y aislamiento: https://github.com/proxmox/pve-docs/blob/master/ha-manager.adoc
 - Proxmox VE, clúster y qdevice: https://github.com/proxmox/pve-docs/blob/master/pvecm.adoc
