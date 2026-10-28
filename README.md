@@ -31,7 +31,9 @@ El paquete presenta el estado del proyecto al corte indicado, con resultados del
    - [Entregable 6](02_Entregables/Entregable_6.pdf).
    - [Entregable 7](02_Entregables/Entregable_7.pdf).
 
-4. [Bitácora de evolución y cierre](03_Bitacora.pdf).
+## Aporte personal complementario
+
+[Bitácora personal de desarrollo del proyecto](03_Bitacora.pdf), incorporada por iniciativa del estudiante para registrar decisiones, correcciones y verificaciones por hitos de trabajo. Complementa los entregables solicitados.
 
 ## Video de demostración
 

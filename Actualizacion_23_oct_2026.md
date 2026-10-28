@@ -9,7 +9,7 @@ La entrega del **viernes 30 de octubre de 2026** comprende un **video y una pres
 
 | Contenido solicitado | Evidencia disponible |
 |---|---|
-| Estado actual y avances | PPT, láminas 2–4; informe y bitácora |
+| Estado actual y avances | PPT, láminas 2–4; informe y bitácora personal complementaria |
 | Arquitectura y solución técnica | PPT, láminas 5–8; entregables 2–4 y topologías |
 | Demostración del funcionamiento | Simulador publicado, entregables 5–6 y láminas 9–10; grabación pendiente |
 | Planificación y actividades pendientes | PPT, láminas 13–14; entregable 7 |
@@ -18,7 +18,7 @@ La entrega del **viernes 30 de octubre de 2026** comprende un **video y una pres
 ## Estado y pendientes al corte
 
 - El simulador ANTES/A/B y su documentación técnica cuentan con pruebas registradas. Los resultados describen el modelo de software.
-- El paquete incluye caso original, diagnóstico y propuesta corregidos, entregables 1–7, bitácora y anexos.
+- El paquete incluye caso original, diagnóstico y propuesta corregidos, entregables 1–7 y anexos. La bitácora personal se agrega por iniciativa del estudiante como registro complementario del desarrollo.
 - **Cerrado el 25/10/2026, WAN-3:** todas las sedes, incluida Casa Matriz, tienen cuatro transportes. A/B conservan los distribuidores MikroTik. A queda en CLP 793.126.897 iniciales y 1.503.734.277 a 60 meses. [Detalle de continuidad y costos](Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).
 - Cerrado el 25/10: política de hasta 30 terminales remotos y tres centrales con video. El perfil cabe en el principal simulado; se suspende video en contingencia y se recalcula antes de crecer. Es política de diseño, sin control automático de reuniones.
 - Las condiciones de Leo, cobertura extrema, caudales y descuentos son supuestos del caso ficticio. No corresponden a contratos obtenidos.

@@ -1,8 +1,12 @@
-# Bitácora académica de evolución del proyecto
+# Bitácora personal de desarrollo del proyecto
 
 **Hugo Eduardo Herrera Inostroza - Proyecto de Título APT - Financiera Pacífico**
 
+**Anexo complementario aportado por el estudiante**
+
 ## 1. Alcance del registro
+
+Incorporé esta bitácora por iniciativa propia para mostrar cómo fue evolucionando el proyecto: los problemas identificados, las decisiones tomadas, las correcciones y las verificaciones realizadas. Complementa los entregables solicitados y conserva el proceso de trabajo por hitos, sin pretender un registro diario exhaustivo.
 
 Esta síntesis conserva la secuencia de las entradas 001–042 de la bitácora de trabajo del 17 al 23 de octubre de 2026. Los hitos 43 y 44 resumen el cierre técnico y la preparación de la carpeta docente. La primera entrega y la retroalimentación preceden a estos registros, sin asignarles una fecha de revisión no comprobada.
 

@@ -129,7 +129,7 @@ Se comprueban inventario/IPAM, ACL, caminos de ida/retorno, fallas individuales 
 
 La propuesta transforma un conjunto de dependencias únicas en una arquitectura con alternativas y límites explícitos. Conserva inventario útil, compara dos plataformas y presenta un costo trazable. El prototipo demuestra la lógica de continuidad y seguridad del diseño; no convierte objetivos en resultados medidos de una red real.
 
-La carpeta reúne caso oficial/original, este diagnóstico y propuesta, siete entregables, bitácora y anexos técnicos. El enlace al simulador permite verificar el comportamiento que describen los documentos. Los estados históricos de la bitácora no sustituyen el cierre C5 A/B.
+La carpeta reúne caso oficial/original, este diagnóstico y propuesta, siete entregables y anexos técnicos. Se agrega una bitácora personal de desarrollo como aporte complementario del estudiante, para registrar decisiones, correcciones y verificaciones. El enlace al simulador permite verificar el comportamiento que describen los documentos. Los estados históricos de la bitácora no sustituyen el cierre C5 A/B.
 
 **Fuentes:** caso original del Capstone, retroalimentación docente, fichas C5 A/B, presupuestos y pruebas. Las referencias de fabricante y de precios se detallan en Anexos/Fuentes_Tecnicas_y_Precios.md.
 
