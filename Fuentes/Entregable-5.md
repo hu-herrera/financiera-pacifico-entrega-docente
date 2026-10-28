@@ -55,4 +55,4 @@ La presentación web tiene 13 escenas: la escena 12 conserva crecimiento y QoS, 
 
 La recuperación usa eventos con reloj virtual. Para el caso base, el fallo en t=157 s conserva la copia de t=120 s completada en t=124 s: 12 de 15 operaciones están presentes y 3 requieren conciliación. El RTO observado es 50 s y el RPO observado 30 s de tiempo virtual. Cambiar el instante del fallo o el intervalo de réplica cambia los registros recuperables.
 
-La [matriz de protocolos y comandos](../Anexos/Matriz_Protocolos_Comandos.md) y el [guion de 13 escenas](../Video/Guion_13_Escenas.md) fijan el recorrido de defensa de esta versión.
+La [matriz de protocolos y comandos](../Anexos/Matriz_Protocolos_Comandos.md) documenta las operaciones y pruebas disponibles en esta versión.

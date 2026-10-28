@@ -28,9 +28,8 @@ Los cambios de interfaces y OSPF modifican vecinos, rutas y el camino. Identidad
 
 El caso base ejecuta operaciones cada 10 s y réplicas cada 60 s, con 4 s para completarlas. Al fallar en t=157 s se selecciona la copia de t=120 s terminada en t=124 s. Conserva 12 de 15 operaciones y deja 3 por conciliar. El RPO observado es 30 s y el RTO observado 50 s del reloj virtual. Son resultados de los eventos y parámetros del modelo. Los objetivos del diseño siguen siendo 60 s y 300 s, respectivamente.
 
-## Material para grabar
+## Referencias de verificación
 
-- [Guion de las 13 escenas](../Video/Guion_13_Escenas.md).
 - [Matriz de protocolos y comandos](Matriz_Protocolos_Comandos.md).
 - [Resultados completos de recuperación](Ejercicios_Recuperacion_C5.json).
 - [Simulador](https://hu-herrera.github.io/fina/).

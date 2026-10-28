@@ -79,7 +79,6 @@ El ZIP contiene los mismos archivos que el manifiesto publicado. El manifiesto s
 
 La presentación web agrega la escena 13 «Para finalizar». Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
 
-- [Guion de grabación de las 13 escenas](Video/Guion_13_Escenas.md).
 - [Matriz de protocolos, comandos y efectos](Anexos/Matriz_Protocolos_Comandos.md).
 - [Evidencia vigente del cierre operativo](Anexos/Cierre_Operativo_28_oct_2026.md).
 
