@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-28",
+  "revision": "C5-OPERACION-2",
+  "simulator_commit": "3598d23fdc38b5a1a3f3c426eb6a380ca3c2682e",
+  "tested_source_commit": "2dc515935398727d7bb0b6bca74e2a2a811c4609",
+  "source_tree": "0ee37564af2674aa653d0a6b31426bc0896a93aa",
+  "node": {
+    "passed": 60,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 52,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tour": {
+    "variants": [
+      "A",
+      "B"
+    ],
+    "scenes_per_variant": 13,
+    "passed": true,
+    "javascript_errors": 0
+  },
+  "recovery_default": {
+    "failure_second": 157,
+    "replica_data_second": 120,
+    "replica_completed_second": 124,
+    "operations": 15,
+    "in_replica": 12,
+    "to_reconcile": 3,
+    "rto_virtual_seconds": 50,
+    "rpo_virtual_seconds": 30
+  },
+  "scope": "Resultados del modelo y de la interfaz; no mediciones de firmware ni de servidores físicos."
+}

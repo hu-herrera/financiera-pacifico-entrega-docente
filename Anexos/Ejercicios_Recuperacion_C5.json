@@ -1,7 +1,7 @@
 {
-  "revision": "C5-RECUPERACION-1",
-  "asOf": "2026-10-26",
-  "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+  "revision": "C5-OPERACION-2",
+  "asOf": "2026-10-28",
+  "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
   "newHardware": 0,
   "budgetChanged": false,
   "bankingApplicationDeployed": false,
@@ -20,19 +20,23 @@
       "rpoTargetSeconds": 60,
       "scenarios": [
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "host",
           "faults": [
             "dc1"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": true,
@@ -62,7 +66,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -74,100 +78,238 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 162,
+              "type": "FAILURE_DETECTED"
+            },
+            {
+              "second": 167,
+              "type": "FENCING_CONFIRMED"
+            },
+            {
+              "second": 197,
+              "type": "VM_STARTED"
+            },
+            {
+              "second": 207,
+              "type": "HTTPS_OPERATION_OK"
+            }
+          ],
+          "rtoSimulatedSeconds": 50,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": 207,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -175,20 +317,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "stale",
           "faults": [
             "dc1",
             "storage:stale"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 0,
+            "second": 60,
+            "completedSecond": 64,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 120,
+          "replicaAgeSeconds": 97,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": false,
           "eligible": false,
@@ -218,7 +364,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -230,59 +376,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
+              "id": "OP-0001",
+              "second": 10
+            },
+            {
+              "id": "OP-0002",
+              "second": 20
+            },
+            {
+              "id": "OP-0003",
+              "second": 30
+            },
+            {
+              "id": "OP-0004",
+              "second": 40
+            },
+            {
+              "id": "OP-0005",
+              "second": 50
+            },
+            {
+              "id": "OP-0006",
+              "second": 60
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-002",
-              "second": 10
-            },
-            {
-              "id": "DEMO-003",
-              "second": 20
-            },
-            {
-              "id": "DEMO-004",
-              "second": 30
-            },
-            {
-              "id": "DEMO-005",
-              "second": 40
-            },
-            {
-              "id": "DEMO-006",
-              "second": 50
-            },
-            {
-              "id": "DEMO-007",
-              "second": 60
-            },
-            {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
             },
             {
-              "id": "DEMO-011",
+              "id": "OP-0010",
               "second": 100
             },
             {
-              "id": "DEMO-012",
+              "id": "OP-0011",
               "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
+            },
+            {
+              "id": "OP-0013",
+              "second": 130
+            },
+            {
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "replica",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 90,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -290,20 +558,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "quorum",
           "faults": [
             "dc1",
             "backup"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -333,7 +605,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -345,59 +617,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "quorum",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -405,20 +799,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "fencing",
           "faults": [
             "dc1",
             "cluster:fencing"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -448,7 +846,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -460,59 +858,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "fencing",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -520,20 +1040,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "corrupt",
           "faults": [
             "dc1",
             "storage:inconsistent"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": false,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -563,7 +1087,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": false
             },
             {
@@ -576,8 +1100,118 @@
           "inReplica": [],
           "reconcile": [],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "integrity",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": null,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -585,20 +1219,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "application",
           "faults": [
             "dc1",
             "vm:application"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -628,7 +1266,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -640,59 +1278,180 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -700,20 +1459,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "both",
           "faults": [
             "dc1",
             "dc2"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -743,7 +1506,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -755,59 +1518,182 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "host",
+                "quorum",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -828,19 +1714,23 @@
       "rpoTargetSeconds": 60,
       "scenarios": [
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "host",
           "faults": [
             "dc1"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": true,
@@ -870,7 +1760,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -882,100 +1772,238 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 162,
+              "type": "FAILURE_DETECTED"
+            },
+            {
+              "second": 167,
+              "type": "FENCING_CONFIRMED"
+            },
+            {
+              "second": 197,
+              "type": "VM_STARTED"
+            },
+            {
+              "second": 207,
+              "type": "HTTPS_OPERATION_OK"
+            }
+          ],
+          "rtoSimulatedSeconds": 50,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": 207,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -983,20 +2011,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "stale",
           "faults": [
             "dc1",
             "storage:stale"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 0,
+            "second": 60,
+            "completedSecond": 64,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 120,
+          "replicaAgeSeconds": 97,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": false,
           "eligible": false,
@@ -1026,7 +2058,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -1038,59 +2070,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
+              "id": "OP-0001",
+              "second": 10
+            },
+            {
+              "id": "OP-0002",
+              "second": 20
+            },
+            {
+              "id": "OP-0003",
+              "second": 30
+            },
+            {
+              "id": "OP-0004",
+              "second": 40
+            },
+            {
+              "id": "OP-0005",
+              "second": 50
+            },
+            {
+              "id": "OP-0006",
+              "second": 60
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-002",
-              "second": 10
-            },
-            {
-              "id": "DEMO-003",
-              "second": 20
-            },
-            {
-              "id": "DEMO-004",
-              "second": 30
-            },
-            {
-              "id": "DEMO-005",
-              "second": 40
-            },
-            {
-              "id": "DEMO-006",
-              "second": 50
-            },
-            {
-              "id": "DEMO-007",
-              "second": 60
-            },
-            {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
             },
             {
-              "id": "DEMO-011",
+              "id": "OP-0010",
               "second": 100
             },
             {
-              "id": "DEMO-012",
+              "id": "OP-0011",
               "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
+            },
+            {
+              "id": "OP-0013",
+              "second": 130
+            },
+            {
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "replica",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 90,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -1098,20 +2252,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "quorum",
           "faults": [
             "dc1",
             "backup"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -1141,7 +2299,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -1153,59 +2311,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "quorum",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -1213,20 +2493,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "fencing",
           "faults": [
             "dc1",
             "cluster:fencing"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -1256,7 +2540,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -1268,59 +2552,181 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "fencing",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -1328,20 +2734,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "corrupt",
           "faults": [
             "dc1",
             "storage:inconsistent"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": false,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -1371,7 +2781,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": false
             },
             {
@@ -1384,8 +2794,118 @@
           "inReplica": [],
           "reconcile": [],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "integrity",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": null,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -1393,20 +2913,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "application",
           "faults": [
             "dc1",
             "vm:application"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -1436,7 +2960,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -1448,59 +2972,180 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,
@@ -1508,20 +3153,24 @@
           "hardwareVerified": false
         },
         {
-          "scope": "EJERCICIO_DIDACTICO_DATOS_SINTETICOS",
+          "scope": "EJECUCION_EVENTOS_TIEMPO_VIRTUAL",
           "scenario": "both",
           "faults": [
             "dc1",
             "dc2"
           ],
-          "failureSecond": 120,
+          "failureSecond": 157,
+          "replicationInterval": 60,
+          "replicationDuration": 4,
+          "operationInterval": 10,
           "selectedReplica": {
-            "second": 90,
+            "second": 120,
+            "completedSecond": 124,
             "status": "complete",
             "integrity": true,
             "applicationConsistent": true
           },
-          "replicaAgeSeconds": 30,
+          "replicaAgeSeconds": 37,
           "rpoTargetSeconds": 60,
           "rpoWithinTarget": true,
           "eligible": false,
@@ -1551,7 +3200,7 @@
             },
             {
               "id": "integrity",
-              "label": "Copia íntegra y consistencia de aplicación comprobada",
+              "label": "Copia íntegra y consistente",
               "ok": true
             },
             {
@@ -1563,59 +3212,182 @@
           "dataStateKnown": true,
           "inReplica": [
             {
-              "id": "DEMO-001",
-              "second": 0
-            },
-            {
-              "id": "DEMO-002",
+              "id": "OP-0001",
               "second": 10
             },
             {
-              "id": "DEMO-003",
+              "id": "OP-0002",
               "second": 20
             },
             {
-              "id": "DEMO-004",
+              "id": "OP-0003",
               "second": 30
             },
             {
-              "id": "DEMO-005",
+              "id": "OP-0004",
               "second": 40
             },
             {
-              "id": "DEMO-006",
+              "id": "OP-0005",
               "second": 50
             },
             {
-              "id": "DEMO-007",
+              "id": "OP-0006",
               "second": 60
             },
             {
-              "id": "DEMO-008",
+              "id": "OP-0007",
               "second": 70
             },
             {
-              "id": "DEMO-009",
+              "id": "OP-0008",
               "second": 80
             },
             {
-              "id": "DEMO-010",
+              "id": "OP-0009",
               "second": 90
+            },
+            {
+              "id": "OP-0010",
+              "second": 100
+            },
+            {
+              "id": "OP-0011",
+              "second": 110
+            },
+            {
+              "id": "OP-0012",
+              "second": 120
             }
           ],
           "reconcile": [
             {
-              "id": "DEMO-011",
-              "second": 100
+              "id": "OP-0013",
+              "second": 130
             },
             {
-              "id": "DEMO-012",
-              "second": 110
+              "id": "OP-0014",
+              "second": 140
+            },
+            {
+              "id": "OP-0015",
+              "second": 150
             }
           ],
           "servedOperations": [],
-          "operationCount": 12,
-          "reconciliation": "Revisar identificadores y estado con el sistema de registro autorizado antes de reintentar; no duplicar operaciones.",
+          "operationCount": 15,
+          "reconciliation": "Conciliar el estado de las operaciones posteriores a la copia antes de reintentarlas.",
+          "events": [
+            {
+              "second": 10,
+              "type": "COMMIT",
+              "id": "OP-0001"
+            },
+            {
+              "second": 20,
+              "type": "COMMIT",
+              "id": "OP-0002"
+            },
+            {
+              "second": 30,
+              "type": "COMMIT",
+              "id": "OP-0003"
+            },
+            {
+              "second": 40,
+              "type": "COMMIT",
+              "id": "OP-0004"
+            },
+            {
+              "second": 50,
+              "type": "COMMIT",
+              "id": "OP-0005"
+            },
+            {
+              "second": 60,
+              "type": "COMMIT",
+              "id": "OP-0006"
+            },
+            {
+              "second": 60,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 64,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 60
+            },
+            {
+              "second": 70,
+              "type": "COMMIT",
+              "id": "OP-0007"
+            },
+            {
+              "second": 80,
+              "type": "COMMIT",
+              "id": "OP-0008"
+            },
+            {
+              "second": 90,
+              "type": "COMMIT",
+              "id": "OP-0009"
+            },
+            {
+              "second": 100,
+              "type": "COMMIT",
+              "id": "OP-0010"
+            },
+            {
+              "second": 110,
+              "type": "COMMIT",
+              "id": "OP-0011"
+            },
+            {
+              "second": 120,
+              "type": "COMMIT",
+              "id": "OP-0012"
+            },
+            {
+              "second": 120,
+              "type": "REPLICA_START"
+            },
+            {
+              "second": 124,
+              "type": "REPLICA_COMPLETE",
+              "dataSecond": 120
+            },
+            {
+              "second": 130,
+              "type": "COMMIT",
+              "id": "OP-0013"
+            },
+            {
+              "second": 140,
+              "type": "COMMIT",
+              "id": "OP-0014"
+            },
+            {
+              "second": 150,
+              "type": "COMMIT",
+              "id": "OP-0015"
+            },
+            {
+              "second": 157,
+              "type": "HOST_FAILURE"
+            },
+            {
+              "second": 157,
+              "type": "RECOVERY_BLOCKED",
+              "checks": [
+                "host",
+                "quorum",
+                "application"
+              ]
+            }
+          ],
+          "rtoSimulatedSeconds": null,
+          "rpoSimulatedSeconds": 30,
+          "recoverySecond": null,
           "backupRestoreExecuted": false,
           "rtoMeasuredSeconds": null,
           "rpoMeasuredSeconds": null,

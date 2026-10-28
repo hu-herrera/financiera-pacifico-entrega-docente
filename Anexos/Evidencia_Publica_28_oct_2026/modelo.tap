@@ -1,0 +1,370 @@
+TAP version 13
+# Subtest: A: alcance e inventario vigente
+ok 1 - A: alcance e inventario vigente
+  ---
+  duration_ms: 1.503469
+  type: 'test'
+  ...
+# Subtest: A: presupuesto de presentación conciliado con el JSON público
+ok 2 - A: presupuesto de presentación conciliado con el JSON público
+  ---
+  duration_ms: 1.928771
+  type: 'test'
+  ...
+# Subtest: A: IPAM conserva direcciones de todos los puestos
+ok 3 - A: IPAM conserva direcciones de todos los puestos
+  ---
+  duration_ms: 158.169565
+  type: 'test'
+  ...
+# Subtest: A: 4950 combinaciones WAN no vacías conservan overlay candidato
+ok 4 - A: 4950 combinaciones WAN no vacías conservan overlay candidato
+  ---
+  duration_ms: 350.522534
+  type: 'test'
+  ...
+# Subtest: A: sin acceso utilizable no se anuncia overlay
+ok 5 - A: sin acceso utilizable no se anuncia overlay
+  ---
+  duration_ms: 0.668348
+  type: 'test'
+  ...
+# Subtest: A: sin candidato coincidente se rechaza el camino
+ok 6 - A: sin candidato coincidente se rechaza el camino
+  ---
+  duration_ms: 1.298991
+  type: 'test'
+  ...
+# Subtest: A: caída de sitio elimina LAN, equipos y aplicación remota
+ok 7 - A: caída de sitio elimina LAN, equipos y aplicación remota
+  ---
+  duration_ms: 0.7756
+  type: 'test'
+  ...
+# Subtest: A: ocho comprobaciones HA aisladas cumplen su resultado esperado
+ok 8 - A: ocho comprobaciones HA aisladas cumplen su resultado esperado
+  ---
+  duration_ms: 1.641773
+  type: 'test'
+  ...
+# Subtest: A: recuperación host coincide con el anexo publicado
+ok 9 - A: recuperación host coincide con el anexo publicado
+  ---
+  duration_ms: 1.121563
+  type: 'test'
+  ...
+# Subtest: A: recuperación stale coincide con el anexo publicado
+ok 10 - A: recuperación stale coincide con el anexo publicado
+  ---
+  duration_ms: 0.423309
+  type: 'test'
+  ...
+# Subtest: A: recuperación quorum coincide con el anexo publicado
+ok 11 - A: recuperación quorum coincide con el anexo publicado
+  ---
+  duration_ms: 0.404751
+  type: 'test'
+  ...
+# Subtest: A: recuperación fencing coincide con el anexo publicado
+ok 12 - A: recuperación fencing coincide con el anexo publicado
+  ---
+  duration_ms: 0.31799
+  type: 'test'
+  ...
+# Subtest: A: recuperación corrupt coincide con el anexo publicado
+ok 13 - A: recuperación corrupt coincide con el anexo publicado
+  ---
+  duration_ms: 0.240102
+  type: 'test'
+  ...
+# Subtest: A: recuperación application coincide con el anexo publicado
+ok 14 - A: recuperación application coincide con el anexo publicado
+  ---
+  duration_ms: 0.279972
+  type: 'test'
+  ...
+# Subtest: A: recuperación both coincide con el anexo publicado
+ok 15 - A: recuperación both coincide con el anexo publicado
+  ---
+  duration_ms: 0.188886
+  type: 'test'
+  ...
+# Subtest: B: alcance e inventario vigente
+ok 16 - B: alcance e inventario vigente
+  ---
+  duration_ms: 0.069805
+  type: 'test'
+  ...
+# Subtest: B: presupuesto de presentación conciliado con el JSON público
+ok 17 - B: presupuesto de presentación conciliado con el JSON público
+  ---
+  duration_ms: 0.520936
+  type: 'test'
+  ...
+# Subtest: B: IPAM conserva direcciones de todos los puestos
+ok 18 - B: IPAM conserva direcciones de todos los puestos
+  ---
+  duration_ms: 146.335941
+  type: 'test'
+  ...
+# Subtest: B: 4950 combinaciones WAN no vacías conservan overlay candidato
+ok 19 - B: 4950 combinaciones WAN no vacías conservan overlay candidato
+  ---
+  duration_ms: 391.247672
+  type: 'test'
+  ...
+# Subtest: B: sin acceso utilizable no se anuncia overlay
+ok 20 - B: sin acceso utilizable no se anuncia overlay
+  ---
+  duration_ms: 0.281555
+  type: 'test'
+  ...
+# Subtest: B: sin candidato coincidente se rechaza el camino
+ok 21 - B: sin candidato coincidente se rechaza el camino
+  ---
+  duration_ms: 0.560757
+  type: 'test'
+  ...
+# Subtest: B: caída de sitio elimina LAN, equipos y aplicación remota
+ok 22 - B: caída de sitio elimina LAN, equipos y aplicación remota
+  ---
+  duration_ms: 0.174403
+  type: 'test'
+  ...
+# Subtest: B: ocho comprobaciones HA aisladas cumplen su resultado esperado
+ok 23 - B: ocho comprobaciones HA aisladas cumplen su resultado esperado
+  ---
+  duration_ms: 0.522618
+  type: 'test'
+  ...
+# Subtest: B: recuperación host coincide con el anexo publicado
+ok 24 - B: recuperación host coincide con el anexo publicado
+  ---
+  duration_ms: 0.327345
+  type: 'test'
+  ...
+# Subtest: B: recuperación stale coincide con el anexo publicado
+ok 25 - B: recuperación stale coincide con el anexo publicado
+  ---
+  duration_ms: 0.406353
+  type: 'test'
+  ...
+# Subtest: B: recuperación quorum coincide con el anexo publicado
+ok 26 - B: recuperación quorum coincide con el anexo publicado
+  ---
+  duration_ms: 0.227112
+  type: 'test'
+  ...
+# Subtest: B: recuperación fencing coincide con el anexo publicado
+ok 27 - B: recuperación fencing coincide con el anexo publicado
+  ---
+  duration_ms: 0.203437
+  type: 'test'
+  ...
+# Subtest: B: recuperación corrupt coincide con el anexo publicado
+ok 28 - B: recuperación corrupt coincide con el anexo publicado
+  ---
+  duration_ms: 0.175926
+  type: 'test'
+  ...
+# Subtest: B: recuperación application coincide con el anexo publicado
+ok 29 - B: recuperación application coincide con el anexo publicado
+  ---
+  duration_ms: 0.296106
+  type: 'test'
+  ...
+# Subtest: B: recuperación both coincide con el anexo publicado
+ok 30 - B: recuperación both coincide con el anexo publicado
+  ---
+  duration_ms: 0.225
+  type: 'test'
+  ...
+# Subtest: A: una identidad alterada ya no permite overlay
+ok 31 - A: una identidad alterada ya no permite overlay
+  ---
+  duration_ms: 4.896951
+  type: 'test'
+  ...
+# Subtest: A: OSPF incompatible usa el router superviviente
+ok 32 - A: OSPF incompatible usa el router superviviente
+  ---
+  duration_ms: 0.922642
+  type: 'test'
+  ...
+# Subtest: A: OSPF deshabilitado en ambos routers retira el camino
+ok 33 - A: OSPF deshabilitado en ambos routers retira el camino
+  ---
+  duration_ms: 0.671824
+  type: 'test'
+  ...
+# Subtest: A: certificado inválido retira un borde de la selección
+ok 34 - A: certificado inválido retira un borde de la selección
+  ---
+  duration_ms: 4.137104
+  type: 'test'
+  ...
+# Subtest: A: confianza inválida en toda central bloquea el overlay
+ok 35 - A: confianza inválida en toda central bloquea el overlay
+  ---
+  duration_ms: 0.476008
+  type: 'test'
+  ...
+# Subtest: A: la ventana de reconvergencia depende del reloj
+ok 36 - A: la ventana de reconvergencia depende del reloj
+  ---
+  duration_ms: 0.655449
+  type: 'test'
+  ...
+# Subtest: A: VLAN de datos apagada no concede acceso de red al PC
+ok 37 - A: VLAN de datos apagada no concede acceso de red al PC
+  ---
+  duration_ms: 0.842491
+  type: 'test'
+  ...
+# Subtest: A: liberar la dirección impide acceso sin apagar el enlace
+ok 38 - A: liberar la dirección impide acceso sin apagar el enlace
+  ---
+  duration_ms: 0.397971
+  type: 'test'
+  ...
+# Subtest: A: SA espejo invierte SPI y contadores crecen por transmisión
+ok 39 - A: SA espejo invierte SPI y contadores crecen por transmisión
+  ---
+  duration_ms: 0.739296
+  type: 'test'
+  ...
+# Subtest: A: vencimiento renueva la asociación y sus SPI
+ok 40 - A: vencimiento renueva la asociación y sus SPI
+  ---
+  duration_ms: 0.873559
+  type: 'test'
+  ...
+# Subtest: A: un host recién caído espera el reinicio antes de servir APP
+ok 41 - A: un host recién caído espera el reinicio antes de servir APP
+  ---
+  duration_ms: 0.413314
+  type: 'test'
+  ...
+# Subtest: A: el ejercicio genera operaciones y RTO/RPO a partir de eventos
+ok 42 - A: el ejercicio genera operaciones y RTO/RPO a partir de eventos
+  ---
+  duration_ms: 0.829211
+  type: 'test'
+  ...
+# Subtest: A: una réplica en curso no sustituye la última completada
+ok 43 - A: una réplica en curso no sustituye la última completada
+  ---
+  duration_ms: 0.330218
+  type: 'test'
+  ...
+# Subtest: A: ausencia de mayoría no publica tiempo de recuperación exitoso
+ok 44 - A: ausencia de mayoría no publica tiempo de recuperación exitoso
+  ---
+  duration_ms: 0.335747
+  type: 'test'
+  ...
+# Subtest: A: escenario con copia inconsistente no inventa operaciones recuperadas
+ok 45 - A: escenario con copia inconsistente no inventa operaciones recuperadas
+  ---
+  duration_ms: 0.977545
+  type: 'test'
+  ...
+# Subtest: B: una identidad alterada ya no permite overlay
+ok 46 - B: una identidad alterada ya no permite overlay
+  ---
+  duration_ms: 0.701499
+  type: 'test'
+  ...
+# Subtest: B: OSPF incompatible usa el router superviviente
+ok 47 - B: OSPF incompatible usa el router superviviente
+  ---
+  duration_ms: 0.19895
+  type: 'test'
+  ...
+# Subtest: B: OSPF deshabilitado en ambos routers retira el camino
+ok 48 - B: OSPF deshabilitado en ambos routers retira el camino
+  ---
+  duration_ms: 0.208364
+  type: 'test'
+  ...
+# Subtest: B: certificado inválido retira un borde de la selección
+ok 49 - B: certificado inválido retira un borde de la selección
+  ---
+  duration_ms: 3.795639
+  type: 'test'
+  ...
+# Subtest: B: confianza inválida en toda central bloquea el overlay
+ok 50 - B: confianza inválida en toda central bloquea el overlay
+  ---
+  duration_ms: 0.282306
+  type: 'test'
+  ...
+# Subtest: B: la ventana de reconvergencia depende del reloj
+ok 51 - B: la ventana de reconvergencia depende del reloj
+  ---
+  duration_ms: 0.228605
+  type: 'test'
+  ...
+# Subtest: B: VLAN de datos apagada no concede acceso de red al PC
+ok 52 - B: VLAN de datos apagada no concede acceso de red al PC
+  ---
+  duration_ms: 0.220693
+  type: 'test'
+  ...
+# Subtest: B: liberar la dirección impide acceso sin apagar el enlace
+ok 53 - B: liberar la dirección impide acceso sin apagar el enlace
+  ---
+  duration_ms: 0.188164
+  type: 'test'
+  ...
+# Subtest: B: SA espejo invierte SPI y contadores crecen por transmisión
+ok 54 - B: SA espejo invierte SPI y contadores crecen por transmisión
+  ---
+  duration_ms: 1.506684
+  type: 'test'
+  ...
+# Subtest: B: vencimiento renueva la asociación y sus SPI
+ok 55 - B: vencimiento renueva la asociación y sus SPI
+  ---
+  duration_ms: 1.344479
+  type: 'test'
+  ...
+# Subtest: B: un host recién caído espera el reinicio antes de servir APP
+ok 56 - B: un host recién caído espera el reinicio antes de servir APP
+  ---
+  duration_ms: 0.23196
+  type: 'test'
+  ...
+# Subtest: B: el ejercicio genera operaciones y RTO/RPO a partir de eventos
+ok 57 - B: el ejercicio genera operaciones y RTO/RPO a partir de eventos
+  ---
+  duration_ms: 0.268375
+  type: 'test'
+  ...
+# Subtest: B: una réplica en curso no sustituye la última completada
+ok 58 - B: una réplica en curso no sustituye la última completada
+  ---
+  duration_ms: 0.173351
+  type: 'test'
+  ...
+# Subtest: B: ausencia de mayoría no publica tiempo de recuperación exitoso
+ok 59 - B: ausencia de mayoría no publica tiempo de recuperación exitoso
+  ---
+  duration_ms: 0.149305
+  type: 'test'
+  ...
+# Subtest: B: escenario con copia inconsistente no inventa operaciones recuperadas
+ok 60 - B: escenario con copia inconsistente no inventa operaciones recuperadas
+  ---
+  duration_ms: 0.14616
+  type: 'test'
+  ...
+1..60
+# tests 60
+# suites 0
+# pass 60
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1240.4805

@@ -1,6 +1,6 @@
 # Entregable 6 — Pruebas y criterios de aceptación
 
-**Financiera Pacífico · edición C5 A/B, revisión WAN-3 · cierre documental 27 de octubre de 2026**
+**Financiera Pacífico · edición C5 A/B, revisión WAN-3 · cierre operativo 28 de octubre de 2026**
 
 ## Registro histórico del 25 de octubre
 
@@ -112,3 +112,11 @@ Revisión WAN-3 del 25/10: [cuatro accesos en central y continuidad extremo a ex
 ## 8. Verificación pública del cierre del 27 de octubre
 
 El anexo [Evidencia de pruebas](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/blob/main/Anexos/Evidencia_Pruebas_27_oct_2026.md) identifica SHA, comandos, alcance y resultado. La carpeta [Verificacion](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/tree/main/Verificacion) permite ejecutar las comprobaciones públicas de modelo, documentos e interfaz contra un corte explícito de `fina`. Los logs nuevos se consultan en [GitHub Actions](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/workflows/verificacion-publica.yml). Estas comprobaciones no se suman a las pasadas históricas ni acreditan los 71/161 mencionados en el mensaje de 5779eeb.
+
+## 10. Verificación operativa vigente - 28 de octubre
+
+El cierre C5-OPERACION-2 sustituye el ejercicio con doce registros prefijados por una ejecución de eventos y añade simulación funcional de OSPF, autenticación VPN, asociaciones, servicios y comandos. Se ejecutan 60 pruebas de modelo y 52 de navegador en A/B. Las pruebas nuevas comprueban cambios libres fuera del recorrido: OSPF incompatible, certificado/identidad/confianza/ESP inválidos, ausencia de ruta, contadores por tráfico permitido, renovación de SPI, configuración guardada, DHCP/DNS, aplicación, llamadas autorizadas, operaciones idempotentes y reinicio de servidor con tiempo virtual.
+
+El ejercicio base genera 15 operaciones, de las cuales 12 están en la copia completada y 3 se concilian. Su RTO observado de 50 s y RPO observado de 30 s pertenecen al reloj virtual. Los objetivos de diseño de 300 s y 60 s se mantienen separados de estos resultados. Ante copia inconsistente o falta de mayoría no se publica una recuperación exitosa.
+
+La escena 13 queda visible al terminar el recorrido automático. Salir restaura los estados y configuraciones previos. La evidencia vigente y el SHA de la versión se registran en el anexo de cierre del 28 de octubre; los conteos anteriores conservan su condición histórica.

@@ -3,7 +3,7 @@
 **Estudiante:** Hugo Eduardo Herrera Inostroza\
 **Curso:** Proyecto de Título APT\
 **Caso:** 6 - Financiera Pacífico\
-**Fecha de actualización:** 27 de octubre de 2026\
+**Fecha de actualización:** 28 de octubre de 2026\
 **Horizonte:** cinco años\
 **Versión:** C5 A/B, consolidación para revisión docente
 
@@ -143,3 +143,11 @@ Se agregan Entel y WOM también en Casa Matriz, con dos CPE y 32 túneles candid
 Se concilian flujo anual, WAN a 60 meses y diferencia sobre la referencia presupuestaria. E4 representa la caída completa de una sucursal; E6 conserva acceso móvil también en central. La escena 10 incorpora recuperación de datos y conciliación sin modificar las compras. La evidencia histórica y las verificaciones públicas nuevas se presentan con sus alcances separados.
 
 [Registro de evidencia y reproducción pública](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/blob/main/Anexos/Evidencia_Pruebas_27_oct_2026.md).
+
+## 14. Cierre operativo para la defensa - 28 de octubre de 2026
+
+El prototipo integra estados de OSPF y VPN en la elegibilidad de caminos, además de consultas/configuración, reglas de acceso y servicios. El PC permite comprobar DHCP, DNS, HTTPS y telefonía simulada y registrar operaciones sin duplicarlas. Los comandos cambian el mismo estado utilizado por el tráfico.
+
+La presentación web contiene 13 escenas, con QoS y crecimiento antes de una conclusión independiente «Para finalizar». La ejecución de recuperación genera operaciones y réplicas con tiempo virtual. El escenario base produce 15 operaciones, 12 conservadas y 3 por conciliar, RTO observado 50 s y RPO observado 30 s del modelo. Se conservan los objetivos 300 s y 60 s y el presupuesto WAN-3.
+
+La matriz de pruebas vigente distingue simulación funcional de protocolos de ejecución de firmware. La grabación y el envío de video/PPT por AVA continúan pendientes de ejecución por el estudiante.

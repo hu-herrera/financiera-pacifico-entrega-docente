@@ -28,11 +28,25 @@ for p in (R/'Fuentes').glob('*.md'):
 summary=json.loads((R/'Anexos/Resultado_Verificacion_Publica_27_oct_2026.json').read_text())
 report=json.loads((R/'Anexos/Evidencia_Publica_27_oct_2026/interfaz.json').read_text())
 cut=json.loads((R/'Verificacion/corte.json').read_text())
-assert summary['simulator_commit']==cut['simulator_commit']
+assert summary['simulator_commit']  # corte histórico del 27 de octubre
 assert report['stats']['expected']==summary['browser']['passed']==16
 assert report['stats']['unexpected']==summary['browser']['failed']==0
 assert report['stats']['skipped']==0 and report['stats']['flaky']==0
 tap=(R/'Anexos/Evidencia_Publica_27_oct_2026/modelo.tap').read_text()
 for line in ['# tests 30','# pass 30','# fail 0']:assert line in tap,line
 assert summary['node']['passed']==30 and summary['node']['failed']==0
-print(json.dumps({'scope':'DOCUMENTOS_Y_PAQUETE','manifest_entries':len(rows),'archive':'PASS','workbook':'PASS','annual_economics':'PASS','public_links':'PASS'},ensure_ascii=False))
+current=json.loads((R/'Anexos/Resultado_Verificacion_Publica_28_oct_2026.json').read_text())
+assert current['simulator_commit']==cut['simulator_commit']
+report=json.loads((R/'Anexos/Evidencia_Publica_28_oct_2026/interfaz.json').read_text())
+assert report['stats']['expected']==current['browser']['passed']==52
+assert report['stats']['unexpected']==report['stats']['skipped']==report['stats']['flaky']==0
+log=(R/'Anexos/Evidencia_Publica_28_oct_2026/modelo.tap').read_text()
+for line in ['# tests 60','# pass 60','# fail 0']:assert line in log,line
+assert current['node']['passed']==60 and current['node']['failed']==0
+for run in json.loads((R/'Anexos/Evidencia_Publica_28_oct_2026/recorrido.json').read_text()):
+ assert run['scenes']==list(range(1,14)) and run['status']=='PASS' and not run['errors']
+with zipfile.ZipFile(R/'Presentacion/Avance_Financiera_Pacifico_30_oct_2026.pptx') as z:
+ slides=[n for n in z.namelist() if __import__('re').fullmatch(r'ppt/slides/slide\d+\.xml',n)]
+ assert len(slides)==15
+ assert 'Para finalizar' in z.read('ppt/slides/slide15.xml').decode()
+print(json.dumps({'scope':'DOCUMENTOS_Y_PAQUETE','manifest_entries':len(rows),'archive':'PASS','workbook':'PASS','annual_economics':'PASS','public_links':'PASS','current_model':60,'current_browser':52,'web_scenes':13,'ppt_slides':15},ensure_ascii=False))

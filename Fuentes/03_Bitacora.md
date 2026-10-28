@@ -227,3 +227,9 @@ La escena 10 y el anexo C5-RECUPERACION-1 muestran réplica completada, dos oper
 ## 9. Consolidación de la entrega (27-10-2026)
 
 Se corrigen cifras antiguas del informe y del flujo anual, se actualiza E6 y se completa E4 como caída de sitio. Los enlaces de consulta académica apuntan a material público. Se añade reproducción pública de alcance explícito y se regeneran PDF, paquete y manifiesto. Las cifras históricas de pruebas se conservan como registros declarados; no sustituyen una ejecución verificable sobre el nuevo corte.
+
+## 28 de octubre de 2026 - C5-OPERACION-2
+
+Se añaden estados funcionales OSPF/IKE/IPsec, consultas y cambios de consola conectados al tráfico, servicios DHCP/DNS/HTTPS/SIP, asociaciones con contadores y renovación, y operaciones con identificador idempotente. Las configuraciones de protocolos se guardan por alternativa. La recuperación pasa a eventos en tiempo virtual, con resultados calculados y parámetros de fallo/réplica ajustables.
+
+La presentación conserva sus doce escenas de contenido y agrega la escena 13 «Para finalizar». QoS permanece antes del cierre. El cierre se publica junto con una matriz de comandos, un guion de grabación y evidencia reproducible; los datos del presupuesto no cambian. Los registros de los días anteriores son históricos.

@@ -1,6 +1,6 @@
 # Operación y recuperación del datacenter C5
 
-Financiera Pacífico · 26-10-2026 · Revisión C5-RECUPERACION-1
+Financiera Pacífico · 28-10-2026 · Revisión C5-OPERACION-2
 
 ## 1. Qué entregamos y quién lo opera
 
@@ -32,21 +32,15 @@ Los 1600 GB replicados y el margen de 20 % caben aritméticamente en el host men
 
 Réplica de VM y respaldo tienen funciones distintas. La réplica permite reiniciar desde un punto reciente; también puede propagar corrupción o borrados. Una copia de seguridad conserva puntos anteriores bajo su política. Su verificación de integridad no reemplaza probar el arranque y la consistencia de aplicación/BD. No se da por instalado Proxmox Backup Server: su documentación se usa como referencia de verificación, sin cambiar la herramienta de backup existente de la financiera.
 
-## 3. Qué demuestra el ejemplo automático
+## 3. Ejecución de recuperación con tiempo virtual
 
-El simulador usa un registro sintético de 12 operaciones, DEMO-001 a DEMO-012, generadas en t=0, 10, ..., 110 s. El host falla en t=120 s. La última réplica completada contiene el punto t=90 s; una tarea fallida en t=110 s no lo reemplaza.
+El motor genera operaciones y tareas de réplica durante la ejecución. En el caso base inicia una operación cada 10 s y una réplica cada 60 s; cada réplica tarda 4 s en completarse. El host falla en t=157 s. La copia con datos hasta t=120 s se completó en t=124 s y contiene 12 de 15 operaciones. OP-0013, OP-0014 y OP-0015 requieren conciliación. Una tarea en curso o fallida no sustituye la última completada.
 
-| Resultado calculado | Interpretación |
-|---|---|
-| DEMO-001 a DEMO-010 presentes | Diez registros dentro del punto de réplica del ejercicio |
-| DEMO-011 y DEMO-012 posteriores | Su estado requiere conciliación; no se reenvían automáticamente |
-| Antigüedad del punto: 30 s | Ventana potencial sin replicar del ejemplo; dentro del objetivo de 60 s |
-| Réplica de t=0 con fallo en t=120 | 120 s de antigüedad: el procedimiento exige revisión y bloquea el reinicio en el modelo |
-| Copia inconsistente o sin aislamiento/mayoría | No anunciar recuperación automática exitosa |
+El RPO observado es 150-120=30 s. La recuperación simula detección 5 s, aislamiento 5 s, arranque de VM 30 s y comprobación HTTPS 10 s, para un RTO observado de 50 s virtuales. Estos resultados cambian con los parámetros y con las condiciones del escenario; no son tiempos obtenidos de firmware o servidores físicos.
 
-La decisión de bloquear una copia demasiado antigua es una regla del procedimiento de este proyecto; no se atribuye como comportamiento automático nativo del hipervisor. Los indicadores de integridad y consistencia son entradas sintéticas del ejemplo, no verificaciones ejecutadas contra ZFS ni PostgreSQL.
+Ante réplica antigua, falta de mayoría, aislamiento no confirmado, copia inconsistente, aplicación fallida o pérdida de ambos hosts, no se anuncia recuperación exitosa. La falta de integridad impide afirmar qué operaciones están conservadas. Los indicadores de integridad son estados del modelo, no resultados de una verificación ZFS/PostgreSQL externa.
 
-La interfaz consulta también el permiso y la disponibilidad HTTPS mediante el motor C5. Puede haber camino de red y aplicación detenida. Las demostraciones conservan el estado previo al salir; el explorador de escenarios utiliza estados aislados. Se comprueban 14 escenarios reproducibles, siete en cada alternativa, con `node scripts/build-datacenter-recovery.cjs --check` y `node --test tests/c5-recovery.test.cjs`.
+La interfaz comprueba por separado red, permisos y aplicación. El explorador permite variar el instante del fallo y el intervalo de réplica. Los 14 escenarios A/B están publicados en el JSON de recuperación y se reproducen con `node --test entrega/Verificacion/modelo.test.cjs entrega/Verificacion/protocolos.test.cjs`.
 
 ## 4. Procedimiento ante pérdida de un host
 
@@ -97,7 +91,7 @@ Si fallan ambos hosts no queda cómputo local para ejecutar los servicios. Una c
 
 Cada ejercicio o incidente registra: identificador, responsables, versión del perfil, fallo y hora, host destino, votos, aislamiento, último punto completado, antigüedad, resultados de APP/BD/voz, operaciones por conciliar, autorización, hora de reapertura y retorno. Conservar tanto resultados esperados como desviaciones. Una lista marcada no sustituye las salidas o evidencias que la respaldan.
 
-Para la entrega académica se aportan el modelo, los datos sintéticos reproducibles y el procedimiento. No se exige montar otro laboratorio ni presentar certificaciones físicas para considerar completo este complemento. La eventual implantación productiva requiere adaptar el perfil a la plataforma real y aceptar sus pruebas.
+Para la entrega académica se aportan el modelo, los eventos y resultados reproducibles del modelo y el procedimiento. No se exige montar otro laboratorio ni presentar certificaciones físicas para considerar completo este complemento. La eventual implantación productiva requiere adaptar el perfil a la plataforma real y aceptar sus pruebas.
 
 ## Referencias y trazabilidad
 

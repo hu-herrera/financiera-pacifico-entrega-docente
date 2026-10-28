@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 27 de octubre de 2026 - C5 A/B, WAN-3 y C5-RECUPERACION-1; cierre documental y verificación pública
+**Corte:** 28 de octubre de 2026 - C5 A/B, WAN-3 y C5-OPERACION-2; versión de defensa con 13 escenas
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -74,3 +74,13 @@ Se concilian el flujo anual, los importes WAN del informe, el cierre de la bitá
 - [Verificación pública automatizada](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/actions/workflows/verificacion-publica.yml).
 
 El ZIP contiene los mismos archivos que el manifiesto publicado. El manifiesto se regenera después de cualquier modificación de los documentos o anexos.
+
+## Versión de defensa del 28 de octubre
+
+La presentación web agrega la escena 13 «Para finalizar». Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
+
+- [Guion de grabación de las 13 escenas](Video/Guion_13_Escenas.md).
+- [Matriz de protocolos, comandos y efectos](Anexos/Matriz_Protocolos_Comandos.md).
+- [Evidencia vigente del cierre operativo](Anexos/Cierre_Operativo_28_oct_2026.md).
+
+Las pruebas anteriores conservan sus cortes históricos. El ZIP y el manifiesto reflejan el cierre vigente. Pendientes: grabar, revisar y enviar video/PPT por AVA.

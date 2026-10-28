@@ -35,7 +35,7 @@ jobs:
           SIMULATOR_DIR: ${{ github.workspace }}/simulador
         run: |
           mkdir -p resultados
-          node --test --test-reporter=tap entrega/Verificacion/modelo.test.cjs | tee resultados/modelo.tap
+          node --test --test-reporter=tap entrega/Verificacion/modelo.test.cjs entrega/Verificacion/protocolos.test.cjs | tee resultados/modelo.tap
       - name: Instalar Playwright y Chromium
         run: |
           npm install --prefix entrega/Verificacion --no-save @playwright/test@1.62.1

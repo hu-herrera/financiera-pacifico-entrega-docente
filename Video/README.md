@@ -1,9 +1,5 @@
-# Video de avance
+# Video de defensa
 
-**Estado al 25/10/2026:** grabación pendiente.
+[Guion y pruebas de las 13 escenas](Guion_13_Escenas.md).
 
-El docente solicita entregar video y PowerPoint por AVA **a más tardar el viernes 30 de octubre de 2026**. El video de avance acompañará la presentación PowerPoint del hito académico.
-
-El video mostrará los avances, la arquitectura propuesta y el funcionamiento del simulador, junto con las actividades pendientes, dificultades y próximos pasos. No se ha realizado el envío de esta entrega.
-
-[Capacidad y evidencia del prototipo](../Anexos/Cierre_25_oct_2026.md).
+Abrir el simulador, pulsar Presentar, elegir alternativa y ensayar el recorrido. La escena 13 «Para finalizar» permanece visible para preguntas. La página no graba voz ni video. El estudiante debe grabar y revisar el archivo, enviarlo junto con el PPT por AVA y comprobar la recepción antes del viernes 30 de octubre de 2026.

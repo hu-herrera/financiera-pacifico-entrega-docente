@@ -16,7 +16,7 @@ for(const variant of ['A','B']){
   await setup(page,variant);const errors=[];page.on('pageerror',e=>errors.push(e.message));const before=await page.evaluate(()=>JSON.stringify(C5App.state('cm')));
   await page.click('#presentation-launch');await page.uncheck('#story-autoplay');await page.evaluate(()=>ClientPresentation.go(9));await expect(page.locator('#stage-title')).toHaveText('Firewall y recuperación del datacenter');await page.click('#story-replay');await page.click('#story-pause');
   async function advance(label){for(let i=0;i<16;i++){if((await page.locator('#story-phase').innerText()).includes(label))return;await page.click('#story-step');}throw Error('Etapa no alcanzada: '+label);}
-  await advance('Qué datos vuelven');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(2);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['DEMO-011','DEMO-012']);
+  await advance('Qué datos vuelven');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(3);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['OP-0013','OP-0014','OP-0015']);
   await advance('Antes de reabrir');await expect(page.locator('.story-recovery-checks>li')).toHaveCount(6);
   await advance('Réplica antigua');expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);
   await advance('Copia inconsistente');expect(await page.evaluate(()=>ClientPresentation.report.recovery.dataStateKnown)).toBe(false);expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);

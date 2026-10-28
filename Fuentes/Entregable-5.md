@@ -1,6 +1,6 @@
 # Entregable 5 - Prototipo y demostración de la WAN
 
-**Financiera Pacífico - C5 A/B - cierre documental 27 de octubre de 2026**
+**Financiera Pacífico - C5 A/B - cierre operativo 28 de octubre de 2026**
 
 ## 1. Objetivo
 
@@ -16,7 +16,7 @@ Demostrar la coherencia de una red WAN de 23 sedes y 650 puestos mediante un sim
 | Ficha de dispositivo | Estado, interfaces, VLAN, IP, puerto local y vecino |
 | Motor de caminos | Ruta de ida/retorno, dependencias y política del flujo |
 | Fallas | Puerto, enlace, proveedor/upstream, router, switch, distribuidor, firewall, AP y hosts |
-| VPN lógica | Elegibilidad de candidatos y extremos centrales por transporte |
+| VPN simulada | Autenticación, estados IKE/Child SA, contadores, renovación y extremos por transporte |
 | Seguridad | APP, BD, voz, DNS/NTP, AAA, invitados y gestión con mínimo privilegio |
 | Acceso de contingencia | Wi-Fi independiente de PC y teléfono, condicionado por AP/AAA |
 | HA central | Relevo de firewall y sincronización diferenciados por A/B |
@@ -41,10 +41,18 @@ La conexión teléfono-PC comparte un puerto de acceso. Las reservas IP Wi-Fi se
 
 La barra muestra conectividad simulada del escenario. No equivale a disponibilidad anual medida. Los diagnósticos registran camino, regla y falla. Las fichas permiten consultar configuración educativa TXT y exportación técnica, separadas del resumen operativo; el JSON de datos no se presenta como configuración nativa de fabricante.
 
-Los comandos de consulta y de control del simulador usan su propio entorno educativo. No se ejecutan imágenes de firmware, protocolos OSPF/IPsec reales, aplicaciones financieras ni llamadas SIP.
+Los comandos consultan o modifican el estado que utiliza el motor de tráfico. OSPF incorpora adyacencias y áreas; la VPN incorpora autenticación y asociaciones simuladas, contadores y renovación. DHCP, DNS, HTTPS, SIP/RTP y operaciones idempotentes se comprueban desde el PC. El motor simula sus estados y dependencias; no ejecuta firmware ni intercambios de paquetes de un sistema operativo de red.
 
 ## 6. Resultado académico
 
 Se entrega un prototipo operativo con fuentes versionadas y pruebas automatizadas. La validación acredita el comportamiento del modelo y su interfaz; tiempos físicos, rendimiento inspeccionado, conservación de llamadas/sesiones y cumplimiento normativo no se inventan a partir de una animación. La homologación física no forma parte de los entregables pendientes del caso ficticio.
 
 Revisión WAN-3 del 25/10: [cuatro accesos en central y continuidad extremo a extremo](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/blob/main/Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).
+
+## 7. Cierre operativo del 28 de octubre
+
+La presentación web tiene 13 escenas: la escena 12 conserva crecimiento y QoS, y la 13 añade «Para finalizar», conclusión y preguntas. Las consolas permiten modificar interfaces, procesos OSPF, validación VPN, reglas y servicios; los resultados afectan el acceso a la aplicación. Las configuraciones guardadas incluyen protocolos y permanecen aisladas por alternativa.
+
+La recuperación usa eventos con reloj virtual. Para el caso base, el fallo en t=157 s conserva la copia de t=120 s completada en t=124 s: 12 de 15 operaciones están presentes y 3 requieren conciliación. El RTO observado es 50 s y el RPO observado 30 s de tiempo virtual. Cambiar el instante del fallo o el intervalo de réplica cambia los registros recuperables.
+
+La [matriz de protocolos y comandos](../Anexos/Matriz_Protocolos_Comandos.md) y el [guion de 13 escenas](../Video/Guion_13_Escenas.md) fijan el recorrido de defensa de esta versión.
