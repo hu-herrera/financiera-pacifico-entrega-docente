@@ -1,0 +1,129 @@
+{
+  "revision": "C5-GRABACION-20261029",
+  "scenes": [
+    {
+      "number": 1,
+      "id": "context",
+      "title": "Continuidad operativa",
+      "phases": []
+    },
+    {
+      "number": 2,
+      "id": "before-ok",
+      "title": "La red anterior en operación",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Qué aprendemos"
+      ]
+    },
+    {
+      "number": 3,
+      "id": "before-cut",
+      "title": "El corte de una conexión",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Fallo y respuesta",
+        "Qué aprendemos"
+      ]
+    },
+    {
+      "number": 4,
+      "id": "diagnosis",
+      "title": "Dependencias del acceso",
+      "phases": []
+    },
+    {
+      "number": 5,
+      "id": "proposal",
+      "title": "La red propuesta",
+      "phases": []
+    },
+    {
+      "number": 6,
+      "id": "wan",
+      "title": "Una conexión alternativa",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Fallo y respuesta",
+        "Satelitales caídos",
+        "Último respaldo",
+        "Sin ningún acceso",
+        "Qué aprendemos"
+      ]
+    },
+    {
+      "number": 7,
+      "id": "router",
+      "title": "Un router alternativo",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Fallo y respuesta",
+        "Qué aprendemos"
+      ]
+    },
+    {
+      "number": 8,
+      "id": "switch",
+      "title": "Respaldo Wi-Fi del puesto",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Fallo y respuesta",
+        "Qué aprendemos"
+      ]
+    },
+    {
+      "number": 9,
+      "id": "security",
+      "title": "Control de acceso con ACL",
+      "phases": [
+        "Trabajo autorizado",
+        "Acceso restringido",
+        "Invitado aislado"
+      ]
+    },
+    {
+      "number": 10,
+      "id": "firewall",
+      "title": "Firewall y recuperación del datacenter",
+      "phases": [
+        "Situación",
+        "Camino inicial",
+        "Fallo y respuesta",
+        "Qué aprendemos",
+        "Servidor alternativo",
+        "Qué datos vuelven",
+        "Antes de reabrir",
+        "Réplica antigua",
+        "Copia inconsistente",
+        "Límite del sitio"
+      ]
+    },
+    {
+      "number": 11,
+      "id": "investment",
+      "title": "Inversión y alternativas",
+      "phases": []
+    },
+    {
+      "number": 12,
+      "id": "close",
+      "title": "Crecimiento y operación",
+      "phases": [
+        "Demanda concurrente",
+        "Reparto por prioridad",
+        "Operación degradada"
+      ]
+    },
+    {
+      "number": 13,
+      "id": "finale",
+      "title": "Para finalizar",
+      "phases": []
+    }
+  ]
+}

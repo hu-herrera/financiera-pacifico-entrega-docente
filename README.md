@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 28 de octubre de 2026 - C5 A/B, WAN-3 y C5-OPERACION-2; versión de defensa con 13 escenas
+**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-GRABACION-20261029; web y PowerPoint con las mismas 13 escenas
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -85,3 +85,11 @@ La presentación web agrega la escena 13 «Para finalizar». Protocolos, comando
 - [Evidencia vigente del cierre operativo](Anexos/Cierre_Operativo_28_oct_2026.md).
 
 Las pruebas anteriores conservan sus cortes históricos. El ZIP y el manifiesto reflejan el cierre vigente. Pendientes: grabar, revisar y enviar video/PPT por AVA.
+
+## Recorrido unificado del 29 de octubre
+
+La web y el PowerPoint presentan las mismas 13 escenas, con el mismo orden, títulos y resultados. Las etapas internas de un ejemplo se mantienen dentro de su escena. El corte actual sustituye el PowerPoint anterior de 15 láminas.
+
+- [Correspondencia de escenas y ejemplos](Anexos/Coherencia_Presentacion_29_oct_2026.md).
+- [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_13_Escenas.json).
+- [Verificación vigente del 29 de octubre](Anexos/Resultado_Verificacion_Publica_29_oct_2026.json).

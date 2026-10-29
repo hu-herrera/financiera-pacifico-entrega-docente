@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-29",
+  "revision": "C5-GRABACION-20261029",
+  "simulator_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
+  "tested_source_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
+  "node": {
+    "passed": 60,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 52,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tour": {
+    "variants": [
+      "A",
+      "B"
+    ],
+    "scenes_per_variant": 13,
+    "passed": true,
+    "javascript_errors": 0
+  },
+  "recovery_default": {
+    "failure_second": 157,
+    "replica_data_second": 120,
+    "replica_completed_second": 124,
+    "operations": 15,
+    "in_replica": 12,
+    "to_reconcile": 3,
+    "rto_virtual_seconds": 50,
+    "rpo_virtual_seconds": 30
+  },
+  "scope": "Resultados del modelo y de la interfaz; no mediciones de firmware ni de servidores físicos.",
+  "presentation": {
+    "web_scenes": 13,
+    "ppt_slides": 13,
+    "matching_titles": true,
+    "matching_example_phases": true,
+    "unique_titles": true,
+    "manual_and_automatic_tour": "PASS"
+  }
+}

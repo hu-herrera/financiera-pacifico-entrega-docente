@@ -9,11 +9,11 @@ La entrega del **viernes 30 de octubre de 2026** comprende un **video y una pres
 
 | Contenido solicitado | Evidencia disponible |
 |---|---|
-| Estado actual y avances | PPT, láminas 2–4; informe y bitácora personal complementaria |
-| Arquitectura y solución técnica | PPT, láminas 5–8; entregables 2–4 y topologías |
-| Demostración del funcionamiento | Simulador publicado, entregables 5–6 y láminas 9–10; grabación pendiente |
-| Planificación y actividades pendientes | PPT, láminas 13–14; entregable 7 |
-| Dificultades y próximos pasos | PPT, lámina 12; pendientes de esta actualización |
+| Estado actual y avances | PPT y web, escenas 1 y 13; informe y bitácora personal complementaria |
+| Arquitectura y solución técnica | PPT y web, escenas 4–5 y 9–10; entregables 2–4 y topologías |
+| Demostración del funcionamiento | Web, escenas 2–3 y 6–10; PPT con el mismo orden y resultados; entregables 5–6; grabación pendiente |
+| Planificación y actividades pendientes | PPT y web, escena 12; entregable 7 y pendientes de esta actualización |
+| Dificultades y próximos pasos | Escena 13 y evidencia de coherencia del 29 de octubre; cierre documental y pendientes de esta actualización |
 
 ## Estado y pendientes al corte
 

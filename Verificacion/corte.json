@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "simulator_repository": "hu-herrera/fina",
-  "simulator_commit": "3598d23fdc38b5a1a3f3c426eb6a380ca3c2682e",
-  "scope": "C5-OPERACION-2: protocolos funcionales, comandos, servicios y presentación de 13 escenas; resultados de tiempo virtual, sin ejecución de firmware."
+  "simulator_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
+  "scope": "C5-GRABACION-20261029: recorrido único de 13 escenas, ejemplos y títulos concordantes; simulación funcional con tiempo virtual."
 }
