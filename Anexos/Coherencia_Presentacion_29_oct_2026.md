@@ -15,7 +15,7 @@ El resultado del ejemplo permanece visible mientras se explica la idea. El trazo
 
 La tabla A/B muestra las plataformas y reúne inversión inicial, WAN mensual y total a cinco años. La referencia de 160 millones y la exclusión de aperturas futuras se conservan.
 
-El cierre describe el avance y pide observaciones sobre el alcance, las prioridades y la elección de la alternativa. El objetivo es apoyar la revisión docente de la propuesta.
+El cierre resume el diseño y el prototipo desarrollados, con un agradecimiento al profesor.
 
 Normal se planifica para siete minutos con lectura cercana a 120 palabras por minuto. El cierre permanece visible. Los tiempos son fijos y no escuchan al expositor. El guion personal queda separado de la entrega.
 

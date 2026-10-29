@@ -9,8 +9,8 @@
       5,
       6
     ],
-    "final_arrival_ms": 359000,
-    "including_closing_ms": 409000,
+    "final_arrival_ms": 365000,
+    "including_closing_ms": 415000,
     "status": "PASS",
     "errors": []
   },
@@ -24,8 +24,8 @@
       5,
       6
     ],
-    "final_arrival_ms": 364000,
-    "including_closing_ms": 414000,
+    "final_arrival_ms": 367000,
+    "including_closing_ms": 417000,
     "status": "PASS",
     "errors": []
   }

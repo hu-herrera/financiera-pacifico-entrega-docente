@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
   "revision": "C5-AVANCE-SIMPLE-20261029",
-  "simulator_commit": "70a04a7689e060ef357de4b358fbeefca4da9bc5",
-  "tested_source_commit": "70a04a7689e060ef357de4b358fbeefca4da9bc5",
+  "simulator_commit": "3b16b1d89017ca884f14ed1952b0bc1642d04654",
+  "tested_source_commit": "3b16b1d89017ca884f14ed1952b0bc1642d04654",
   "node": {
     "passed": 60,
     "failed": 0
@@ -21,8 +21,8 @@
     "passed": true,
     "javascript_errors": 0,
     "including_closing_seconds": {
-      "A": 409.0,
-      "B": 414.0
+      "A": 415.0,
+      "B": 417.0
     }
   },
   "recovery_default": {
