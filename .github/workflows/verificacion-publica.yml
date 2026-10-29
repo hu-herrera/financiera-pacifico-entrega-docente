@@ -40,7 +40,7 @@ jobs:
         run: |
           npm install --prefix entrega/Verificacion --no-save @playwright/test@1.62.1
           entrega/Verificacion/node_modules/.bin/playwright install --with-deps chromium
-      - name: Verificar interfaz, recorrido breve y paquetes con anclas móviles en A/B
+      - name: Verificar interfaz, avance de seis diapositivas y paquetes con anclas móviles en A/B
         env:
           SIMULATOR_DIR: ${{ github.workspace }}/simulador
         run: entrega/Verificacion/node_modules/.bin/playwright test --config entrega/Verificacion/playwright.config.cjs

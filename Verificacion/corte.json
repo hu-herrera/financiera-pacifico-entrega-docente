@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
   "simulator_repository": "hu-herrera/fina",
-  "simulator_commit": "cec22ade14c7bf4dda336595fb05ca183e955eb7",
-  "scope": "C5-BREVE-20261029: nueve diapositivas, cuatro ejemplos automáticos de dos momentos, lectura continua de 8 min 50 s y geometría de paquetes vinculada a satélites en movimiento."
+  "simulator_commit": "70a04a7689e060ef357de4b358fbeefca4da9bc5",
+  "scope": "C5-AVANCE-SIMPLE-20261029: estado actual, problema, solución, un ejemplo automático, comparación A/B con costos y cierre para observaciones."
 }

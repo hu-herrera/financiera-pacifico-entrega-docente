@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
-  "revision": "C5-BREVE-20261029",
-  "simulator_commit": "cec22ade14c7bf4dda336595fb05ca183e955eb7",
-  "tested_source_commit": "cec22ade14c7bf4dda336595fb05ca183e955eb7",
+  "revision": "C5-AVANCE-SIMPLE-20261029",
+  "simulator_commit": "70a04a7689e060ef357de4b358fbeefca4da9bc5",
+  "tested_source_commit": "70a04a7689e060ef357de4b358fbeefca4da9bc5",
   "node": {
     "passed": 60,
     "failed": 0
@@ -17,12 +17,12 @@
       "A",
       "B"
     ],
-    "scenes_per_variant": 9,
+    "scenes_per_variant": 6,
     "passed": true,
     "javascript_errors": 0,
     "including_closing_seconds": {
-      "A": 527.0,
-      "B": 526.0
+      "A": 409.0,
+      "B": 414.0
     }
   },
   "recovery_default": {
@@ -37,15 +37,19 @@
   },
   "scope": "Resultados del modelo y de la interfaz; no mediciones de firmware ni de servidores físicos.",
   "presentation": {
-    "web_scenes": 9,
-    "ppt_slides": 9,
+    "web_scenes": 6,
+    "ppt_slides": 6,
     "matching_titles": true,
     "matching_example_phases": true,
     "unique_titles": true,
     "manual_and_automatic_tour": "PASS",
-    "automatic_reading_wpm": 135,
-    "estimated_reading_seconds": 530,
+    "automatic_reading_wpm": 120,
+    "estimated_reading_seconds": 420,
     "pause_resume": "PASS",
-    "moving_satellite_anchors": "PASS"
+    "moving_satellite_anchors": "PASS",
+    "animated_slides": [
+      4
+    ],
+    "maximum_examples_per_slide": 1
   }
 }

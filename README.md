@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-BREVE-20261029; web y PowerPoint con las mismas nueve diapositivas
+**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-AVANCE-SIMPLE-20261029; web y PowerPoint con las mismas seis diapositivas
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -79,7 +79,7 @@ El ZIP contiene los mismos archivos que el manifiesto publicado. El manifiesto s
 
 ## Versión de defensa del 28 de octubre
 
-La versión del 28 de octubre incorporó un cierre «Para finalizar»; la versión breve actual lo conserva en su novena diapositiva. Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
+La versión del 28 de octubre incorporó un cierre «Para finalizar»; la versión breve actual lo conserva en su última diapositiva. Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
 
 - [Matriz de protocolos, comandos y efectos](Anexos/Matriz_Protocolos_Comandos.md).
 - [Evidencia vigente del cierre operativo](Anexos/Cierre_Operativo_28_oct_2026.md).
@@ -88,14 +88,14 @@ Las pruebas anteriores conservan sus cortes históricos. El ZIP y el manifiesto 
 
 ## Recorrido unificado del 29 de octubre
 
-La web y el PowerPoint presentan las mismas nueve diapositivas, con el mismo orden, títulos y resultados. El corte breve sustituye las versiones anteriores de 15 y 13 láminas. Solo cuatro ejemplos se animan, con dos momentos por ejemplo.
+La web y el PowerPoint presentan las mismas seis diapositivas, con el mismo orden, títulos y resultados. El corte breve sustituye las versiones anteriores de 15 y 13 láminas. Una sola prueba de respaldo se ejecuta en la cuarta diapositiva y conserva su resultado. El resto explica el estado actual, el problema, la solución, la comparación A/B y el estado del avance.
 
 - [Correspondencia de escenas y ejemplos](Anexos/Coherencia_Presentacion_29_oct_2026.md).
-- [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_9_Escenas.json).
+- [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_6_Escenas.json).
 - [Verificación vigente del 29 de octubre](Anexos/Resultado_Verificacion_Publica_29_oct_2026.json).
 
 ## Recorrido automático completo
 
-Reproducir recorrido inicia las nueve diapositivas y ejecuta los cuatro ejemplos automáticamente. El expositor lee un relato seguido por diapositiva, sin operar los ejemplos. Ritmo permite elegir Normal, Pausado o Ágil. El cierre permanece visible. El modo manual y las herramientas de inspección continúan disponibles.
+Reproducir recorrido inicia las seis diapositivas y ejecuta un único ejemplo automáticamente. El expositor lee un relato seguido por diapositiva, sin operar los ejemplos. Ritmo permite elegir Normal, Pausado o Ágil. El cierre permanece visible. El modo manual y las herramientas de inspección continúan disponibles.
 
-Los [tiempos del recorrido](Anexos/Tiempos_Recorrido_Automatico.json) reservan lectura y pausas visuales. Normal tiene una duración orientativa de 8 minutos y 50 segundos, incluida la lectura final. La narración procede del expositor; la página no escucha su voz.
+Los [tiempos del recorrido](Anexos/Tiempos_Recorrido_Automatico.json) reservan lectura y pausas visuales. Normal tiene una duración orientativa de 7 minutos, incluida la lectura final. La narración procede del expositor; la página no escucha su voz.

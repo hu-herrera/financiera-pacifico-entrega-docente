@@ -21,13 +21,11 @@ for(const variant of ['A','B']){
   expect(await page.evaluate(()=>{const a=ANTENAS[0],h={id:'ant:'+a.id,point:[0,0]};return JSON.stringify(packetHopPoint(h))===JSON.stringify([a.x,a.y]);})).toBe(true);
   await page.click('#stage-close');expect(await page.evaluate(()=>Boolean(PACKET_ANIMATION.updateGeometry))).toBe(false);
  });
- test(variant+': escena 6 muestra conciliación, comprobaciones y restaura el estado',async({page})=>{
-  await setup(page,variant);const errors=[];page.on('pageerror',e=>errors.push(e.message));const before=await page.evaluate(()=>JSON.stringify(C5App.state('cm')));
-  await page.click('#presentation-launch');await page.uncheck('#story-autoplay');await page.evaluate(()=>ClientPresentation.go(5));await expect(page.locator('#stage-title')).toHaveText('Recuperación de la aplicación');await page.click('#story-replay');await page.click('#story-pause');
-  async function advance(label){for(let i=0;i<16;i++){if((await page.locator('#story-phase').innerText()).includes(label))return;await page.click('#story-step');}throw Error('Etapa no alcanzada: '+label);}
-  await advance('Datos recuperados');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(3);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['OP-0013','OP-0014','OP-0015']);
-  await advance('Comprobaciones de recuperación');await expect(page.locator('.story-recovery-checks>li')).toHaveCount(6);
-  for(const scenario of ['stale','corrupt','both']){const r=await page.evaluate(scenario=>C5App.recoveryExercise({scenario}),scenario);expect(r.eligible).toBe(false);}
-  await page.screenshot({path:test.info().outputPath('escena6-'+variant+'.png'),fullPage:true});await page.click('#stage-close');expect(await page.evaluate(()=>JSON.stringify(C5App.state('cm')))).toBe(before);expect(errors).toEqual([]);
+ test(variant+': un solo ejemplo conserva el resultado sin cambiar de caso',async({page})=>{
+  await setup(page,variant);const before=await page.evaluate(()=>JSON.stringify(C5App.state('s06')));await page.clock.install();await page.click('#presentation-launch');await page.evaluate(()=>ClientPresentation.go(3));await page.click('#story-replay');
+  expect(await page.evaluate(()=>ClientPresentation.example.total)).toBe(1);expect(await page.evaluate(()=>C5App.status('s06').activeWan)).toBe('leo');
+  const proof=await page.locator('#story-evidence').innerText();await page.clock.fastForward(35000);expect(await page.locator('#story-evidence').innerText()).toBe(proof);expect(await page.evaluate(()=>ClientPresentation.example.results.length)).toBe(1);expect(await page.evaluate(()=>ClientPresentation.index)).toBe(3);
+  await expect(page.locator('#story-step')).toBeHidden();await expect(page.locator('#story-timeline')).toBeHidden();
+  await page.click('#stage-close');expect(await page.evaluate(()=>JSON.stringify(C5App.state('s06')))).toBe(before);
  });
 }
