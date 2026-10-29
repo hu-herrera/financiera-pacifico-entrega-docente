@@ -2,361 +2,361 @@ TAP version 13
 # Subtest: A: alcance e inventario vigente
 ok 1 - A: alcance e inventario vigente
   ---
-  duration_ms: 1.187666
+  duration_ms: 1.55026
   type: 'test'
   ...
 # Subtest: A: presupuesto de presentación conciliado con el JSON público
 ok 2 - A: presupuesto de presentación conciliado con el JSON público
   ---
-  duration_ms: 1.758826
+  duration_ms: 1.599604
   type: 'test'
   ...
 # Subtest: A: IPAM conserva direcciones de todos los puestos
 ok 3 - A: IPAM conserva direcciones de todos los puestos
   ---
-  duration_ms: 150.095221
+  duration_ms: 141.280793
   type: 'test'
   ...
 # Subtest: A: 4950 combinaciones WAN no vacías conservan overlay candidato
 ok 4 - A: 4950 combinaciones WAN no vacías conservan overlay candidato
   ---
-  duration_ms: 485.261808
+  duration_ms: 265.969946
   type: 'test'
   ...
 # Subtest: A: sin acceso utilizable no se anuncia overlay
 ok 5 - A: sin acceso utilizable no se anuncia overlay
   ---
-  duration_ms: 0.516486
+  duration_ms: 0.60338
   type: 'test'
   ...
 # Subtest: A: sin candidato coincidente se rechaza el camino
 ok 6 - A: sin candidato coincidente se rechaza el camino
   ---
-  duration_ms: 1.075076
+  duration_ms: 1.081442
   type: 'test'
   ...
 # Subtest: A: caída de sitio elimina LAN, equipos y aplicación remota
 ok 7 - A: caída de sitio elimina LAN, equipos y aplicación remota
   ---
-  duration_ms: 0.775266
+  duration_ms: 0.822381
   type: 'test'
   ...
 # Subtest: A: ocho comprobaciones HA aisladas cumplen su resultado esperado
 ok 8 - A: ocho comprobaciones HA aisladas cumplen su resultado esperado
   ---
-  duration_ms: 1.068147
+  duration_ms: 0.800569
   type: 'test'
   ...
 # Subtest: A: recuperación host coincide con el anexo publicado
 ok 9 - A: recuperación host coincide con el anexo publicado
   ---
-  duration_ms: 1.38337
+  duration_ms: 1.221684
   type: 'test'
   ...
 # Subtest: A: recuperación stale coincide con el anexo publicado
 ok 10 - A: recuperación stale coincide con el anexo publicado
   ---
-  duration_ms: 0.578671
+  duration_ms: 0.507887
   type: 'test'
   ...
 # Subtest: A: recuperación quorum coincide con el anexo publicado
 ok 11 - A: recuperación quorum coincide con el anexo publicado
   ---
-  duration_ms: 9.888804
+  duration_ms: 0.347335
   type: 'test'
   ...
 # Subtest: A: recuperación fencing coincide con el anexo publicado
 ok 12 - A: recuperación fencing coincide con el anexo publicado
   ---
-  duration_ms: 0.448024
+  duration_ms: 0.559154
   type: 'test'
   ...
 # Subtest: A: recuperación corrupt coincide con el anexo publicado
 ok 13 - A: recuperación corrupt coincide con el anexo publicado
   ---
-  duration_ms: 0.344759
+  duration_ms: 0.356789
   type: 'test'
   ...
 # Subtest: A: recuperación application coincide con el anexo publicado
 ok 14 - A: recuperación application coincide con el anexo publicado
   ---
-  duration_ms: 0.344658
+  duration_ms: 0.274274
   type: 'test'
   ...
 # Subtest: A: recuperación both coincide con el anexo publicado
 ok 15 - A: recuperación both coincide con el anexo publicado
   ---
-  duration_ms: 0.269685
+  duration_ms: 0.246262
   type: 'test'
   ...
 # Subtest: B: alcance e inventario vigente
 ok 16 - B: alcance e inventario vigente
   ---
-  duration_ms: 0.09311
+  duration_ms: 0.067993
   type: 'test'
   ...
 # Subtest: B: presupuesto de presentación conciliado con el JSON público
 ok 17 - B: presupuesto de presentación conciliado con el JSON público
   ---
-  duration_ms: 1.40287
+  duration_ms: 0.451011
   type: 'test'
   ...
 # Subtest: B: IPAM conserva direcciones de todos los puestos
 ok 18 - B: IPAM conserva direcciones de todos los puestos
   ---
-  duration_ms: 138.673276
+  duration_ms: 146.445763
   type: 'test'
   ...
 # Subtest: B: 4950 combinaciones WAN no vacías conservan overlay candidato
 ok 19 - B: 4950 combinaciones WAN no vacías conservan overlay candidato
   ---
-  duration_ms: 397.537169
+  duration_ms: 298.309321
   type: 'test'
   ...
 # Subtest: B: sin acceso utilizable no se anuncia overlay
 ok 20 - B: sin acceso utilizable no se anuncia overlay
   ---
-  duration_ms: 0.285019
+  duration_ms: 0.276707
   type: 'test'
   ...
 # Subtest: B: sin candidato coincidente se rechaza el camino
 ok 21 - B: sin candidato coincidente se rechaza el camino
   ---
-  duration_ms: 0.610117
+  duration_ms: 0.657022
   type: 'test'
   ...
 # Subtest: B: caída de sitio elimina LAN, equipos y aplicación remota
 ok 22 - B: caída de sitio elimina LAN, equipos y aplicación remota
   ---
-  duration_ms: 0.244588
+  duration_ms: 0.20527
   type: 'test'
   ...
 # Subtest: B: ocho comprobaciones HA aisladas cumplen su resultado esperado
 ok 23 - B: ocho comprobaciones HA aisladas cumplen su resultado esperado
   ---
-  duration_ms: 0.550568
+  duration_ms: 0.595669
   type: 'test'
   ...
 # Subtest: B: recuperación host coincide con el anexo publicado
 ok 24 - B: recuperación host coincide con el anexo publicado
   ---
-  duration_ms: 0.289626
+  duration_ms: 0.251139
   type: 'test'
   ...
 # Subtest: B: recuperación stale coincide con el anexo publicado
 ok 25 - B: recuperación stale coincide con el anexo publicado
   ---
-  duration_ms: 0.250537
+  duration_ms: 0.290399
   type: 'test'
   ...
 # Subtest: B: recuperación quorum coincide con el anexo publicado
 ok 26 - B: recuperación quorum coincide con el anexo publicado
   ---
-  duration_ms: 0.268434
+  duration_ms: 0.221724
   type: 'test'
   ...
 # Subtest: B: recuperación fencing coincide con el anexo publicado
 ok 27 - B: recuperación fencing coincide con el anexo publicado
   ---
-  duration_ms: 0.203206
+  duration_ms: 0.210577
   type: 'test'
   ...
 # Subtest: B: recuperación corrupt coincide con el anexo publicado
 ok 28 - B: recuperación corrupt coincide con el anexo publicado
   ---
-  duration_ms: 0.191828
+  duration_ms: 0.206832
   type: 'test'
   ...
 # Subtest: B: recuperación application coincide con el anexo publicado
 ok 29 - B: recuperación application coincide con el anexo publicado
   ---
-  duration_ms: 0.337498
+  duration_ms: 0.298941
   type: 'test'
   ...
 # Subtest: B: recuperación both coincide con el anexo publicado
 ok 30 - B: recuperación both coincide con el anexo publicado
   ---
-  duration_ms: 0.264998
+  duration_ms: 0.239121
   type: 'test'
   ...
 # Subtest: A: una identidad alterada ya no permite overlay
 ok 31 - A: una identidad alterada ya no permite overlay
   ---
-  duration_ms: 5.363738
+  duration_ms: 3.541195
   type: 'test'
   ...
 # Subtest: A: OSPF incompatible usa el router superviviente
 ok 32 - A: OSPF incompatible usa el router superviviente
   ---
-  duration_ms: 0.632321
+  duration_ms: 0.580927
   type: 'test'
   ...
 # Subtest: A: OSPF deshabilitado en ambos routers retira el camino
 ok 33 - A: OSPF deshabilitado en ambos routers retira el camino
   ---
-  duration_ms: 0.375164
+  duration_ms: 0.393334
   type: 'test'
   ...
 # Subtest: A: certificado inválido retira un borde de la selección
 ok 34 - A: certificado inválido retira un borde de la selección
   ---
-  duration_ms: 0.490768
+  duration_ms: 3.800276
   type: 'test'
   ...
 # Subtest: A: confianza inválida en toda central bloquea el overlay
 ok 35 - A: confianza inválida en toda central bloquea el overlay
   ---
-  duration_ms: 0.375264
+  duration_ms: 0.482919
   type: 'test'
   ...
 # Subtest: A: la ventana de reconvergencia depende del reloj
 ok 36 - A: la ventana de reconvergencia depende del reloj
   ---
-  duration_ms: 0.499852
+  duration_ms: 0.623331
   type: 'test'
   ...
 # Subtest: A: VLAN de datos apagada no concede acceso de red al PC
 ok 37 - A: VLAN de datos apagada no concede acceso de red al PC
   ---
-  duration_ms: 0.688206
+  duration_ms: 0.703182
   type: 'test'
   ...
 # Subtest: A: liberar la dirección impide acceso sin apagar el enlace
 ok 38 - A: liberar la dirección impide acceso sin apagar el enlace
   ---
-  duration_ms: 0.284198
+  duration_ms: 0.304159
   type: 'test'
   ...
 # Subtest: A: SA espejo invierte SPI y contadores crecen por transmisión
 ok 39 - A: SA espejo invierte SPI y contadores crecen por transmisión
   ---
-  duration_ms: 0.583668
+  duration_ms: 0.748209
   type: 'test'
   ...
 # Subtest: A: vencimiento renueva la asociación y sus SPI
 ok 40 - A: vencimiento renueva la asociación y sus SPI
   ---
-  duration_ms: 0.610879
+  duration_ms: 0.816943
   type: 'test'
   ...
 # Subtest: A: un host recién caído espera el reinicio antes de servir APP
 ok 41 - A: un host recién caído espera el reinicio antes de servir APP
   ---
-  duration_ms: 0.315044
+  duration_ms: 0.372943
   type: 'test'
   ...
 # Subtest: A: el ejercicio genera operaciones y RTO/RPO a partir de eventos
 ok 42 - A: el ejercicio genera operaciones y RTO/RPO a partir de eventos
   ---
-  duration_ms: 0.624279
+  duration_ms: 0.705054
   type: 'test'
   ...
 # Subtest: A: una réplica en curso no sustituye la última completada
 ok 43 - A: una réplica en curso no sustituye la última completada
   ---
-  duration_ms: 0.31292
+  duration_ms: 0.356869
   type: 'test'
   ...
 # Subtest: A: ausencia de mayoría no publica tiempo de recuperación exitoso
 ok 44 - A: ausencia de mayoría no publica tiempo de recuperación exitoso
   ---
-  duration_ms: 0.242324
+  duration_ms: 0.332101
   type: 'test'
   ...
 # Subtest: A: escenario con copia inconsistente no inventa operaciones recuperadas
 ok 45 - A: escenario con copia inconsistente no inventa operaciones recuperadas
   ---
-  duration_ms: 1.022639
+  duration_ms: 0.78119
   type: 'test'
   ...
 # Subtest: B: una identidad alterada ya no permite overlay
 ok 46 - B: una identidad alterada ya no permite overlay
   ---
-  duration_ms: 0.635966
+  duration_ms: 0.53692
   type: 'test'
   ...
 # Subtest: B: OSPF incompatible usa el router superviviente
 ok 47 - B: OSPF incompatible usa el router superviviente
   ---
-  duration_ms: 0.291348
+  duration_ms: 0.248285
   type: 'test'
   ...
 # Subtest: B: OSPF deshabilitado en ambos routers retira el camino
 ok 48 - B: OSPF deshabilitado en ambos routers retira el camino
   ---
-  duration_ms: 0.150767
+  duration_ms: 0.181955
   type: 'test'
   ...
 # Subtest: B: certificado inválido retira un borde de la selección
 ok 49 - B: certificado inválido retira un borde de la selección
   ---
-  duration_ms: 0.230086
+  duration_ms: 0.329517
   type: 'test'
   ...
 # Subtest: B: confianza inválida en toda central bloquea el overlay
 ok 50 - B: confianza inválida en toda central bloquea el overlay
   ---
-  duration_ms: 0.187632
+  duration_ms: 0.157467
   type: 'test'
   ...
 # Subtest: B: la ventana de reconvergencia depende del reloj
 ok 51 - B: la ventana de reconvergencia depende del reloj
   ---
-  duration_ms: 0.202124
+  duration_ms: 0.217398
   type: 'test'
   ...
 # Subtest: B: VLAN de datos apagada no concede acceso de red al PC
 ok 52 - B: VLAN de datos apagada no concede acceso de red al PC
   ---
-  duration_ms: 0.196956
+  duration_ms: 0.282016
   type: 'test'
   ...
 # Subtest: B: liberar la dirección impide acceso sin apagar el enlace
 ok 53 - B: liberar la dirección impide acceso sin apagar el enlace
   ---
-  duration_ms: 0.181162
+  duration_ms: 0.158499
   type: 'test'
   ...
 # Subtest: B: SA espejo invierte SPI y contadores crecen por transmisión
 ok 54 - B: SA espejo invierte SPI y contadores crecen por transmisión
   ---
-  duration_ms: 1.432033
+  duration_ms: 1.425452
   type: 'test'
   ...
 # Subtest: B: vencimiento renueva la asociación y sus SPI
 ok 55 - B: vencimiento renueva la asociación y sus SPI
   ---
-  duration_ms: 1.364121
+  duration_ms: 0.381195
   type: 'test'
   ...
 # Subtest: B: un host recién caído espera el reinicio antes de servir APP
 ok 56 - B: un host recién caído espera el reinicio antes de servir APP
   ---
-  duration_ms: 0.154192
+  duration_ms: 0.138289
   type: 'test'
   ...
 # Subtest: B: el ejercicio genera operaciones y RTO/RPO a partir de eventos
 ok 57 - B: el ejercicio genera operaciones y RTO/RPO a partir de eventos
   ---
-  duration_ms: 0.220421
+  duration_ms: 0.198199
   type: 'test'
   ...
 # Subtest: B: una réplica en curso no sustituye la última completada
 ok 58 - B: una réplica en curso no sustituye la última completada
   ---
-  duration_ms: 0.145809
+  duration_ms: 0.133512
   type: 'test'
   ...
 # Subtest: B: ausencia de mayoría no publica tiempo de recuperación exitoso
 ok 59 - B: ausencia de mayoría no publica tiempo de recuperación exitoso
   ---
-  duration_ms: 0.115003
+  duration_ms: 0.113632
   type: 'test'
   ...
 # Subtest: B: escenario con copia inconsistente no inventa operaciones recuperadas
 ok 60 - B: escenario con copia inconsistente no inventa operaciones recuperadas
   ---
-  duration_ms: 0.106871
+  duration_ms: 0.142314
   type: 'test'
   ...
 1..60
@@ -367,4 +367,4 @@ ok 60 - B: escenario con copia inconsistente no inventa operaciones recuperadas
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 1356.081626
+# duration_ms 1029.978014

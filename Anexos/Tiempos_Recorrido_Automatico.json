@@ -1,157 +1,91 @@
 {
-  "revision": "C5-AUTO-20261029",
-  "reading_wpm": 115,
-  "estimated_seconds": 1302,
+  "revision": "C5-BREVE-20261029",
+  "reading_wpm": 135,
+  "estimated_seconds": 530,
   "scenes": [
     {
       "number": 1,
       "id": "context",
-      "title": "Continuidad operativa",
-      "introSeconds": 60,
+      "title": "El avance del proyecto",
+      "introSeconds": 45,
       "steps": {},
-      "outroSeconds": 3
+      "outroSeconds": 1
     },
     {
       "number": 2,
-      "id": "before-ok",
-      "title": "La red anterior en operación",
-      "introSeconds": 4,
+      "id": "before-cut",
+      "title": "El problema de la red actual",
+      "introSeconds": 2,
       "steps": {
-        "Situación": 30,
-        "Camino inicial": 30,
-        "Qué aprendemos": 10
+        "Conexión disponible": 26,
+        "Enlace interrumpido": 30
       },
-      "outroSeconds": 3
+      "outroSeconds": 2
     },
     {
       "number": 3,
-      "id": "before-cut",
-      "title": "El corte de una conexión",
-      "introSeconds": 4,
-      "steps": {
-        "Situación": 20,
-        "Camino inicial": 20,
-        "Fallo y respuesta": 30,
-        "Qué aprendemos": 10
-      },
-      "outroSeconds": 3
+      "id": "proposal",
+      "title": "La solución propuesta",
+      "introSeconds": 70,
+      "steps": {},
+      "outroSeconds": 1
     },
     {
       "number": 4,
-      "id": "diagnosis",
-      "title": "Dependencias del acceso",
-      "introSeconds": 70,
-      "steps": {},
-      "outroSeconds": 3
+      "id": "wan",
+      "title": "Una falla con respaldo",
+      "introSeconds": 2,
+      "steps": {
+        "Conexión principal": 26,
+        "Salida por Leo": 30
+      },
+      "outroSeconds": 2
     },
     {
       "number": 5,
-      "id": "proposal",
-      "title": "La red propuesta",
-      "introSeconds": 85,
-      "steps": {},
-      "outroSeconds": 3
+      "id": "security",
+      "title": "Acceso seguro a los servicios",
+      "introSeconds": 1,
+      "steps": {
+        "Aplicación permitida": 24,
+        "Base de datos bloqueada": 24
+      },
+      "outroSeconds": 1
     },
     {
       "number": 6,
-      "id": "wan",
-      "title": "Una conexión alternativa",
-      "introSeconds": 4,
+      "id": "firewall",
+      "title": "Recuperación de la aplicación",
+      "introSeconds": 2,
       "steps": {
-        "Situación": 15,
-        "Camino inicial": 20,
-        "Fallo y respuesta": 25,
-        "Satelitales caídos": 20,
-        "Último respaldo": 20,
-        "Sin ningún acceso": 20,
-        "Qué aprendemos": 20
+        "Datos recuperados": 38,
+        "Comprobaciones de recuperación": 33
       },
-      "outroSeconds": 3
+      "outroSeconds": 2
     },
     {
       "number": 7,
-      "id": "router",
-      "title": "Un router alternativo",
-      "introSeconds": 4,
-      "steps": {
-        "Situación": 10,
-        "Camino inicial": 20,
-        "Fallo y respuesta": 20,
-        "Qué aprendemos": 35
-      },
-      "outroSeconds": 3
+      "id": "close",
+      "title": "Capacidad y puesta en marcha",
+      "introSeconds": 65,
+      "steps": {},
+      "outroSeconds": 1
     },
     {
       "number": 8,
-      "id": "switch",
-      "title": "Respaldo Wi-Fi del puesto",
-      "introSeconds": 4,
-      "steps": {
-        "Situación": 10,
-        "Camino inicial": 20,
-        "Fallo y respuesta": 30,
-        "Qué aprendemos": 30
-      },
-      "outroSeconds": 3
+      "id": "investment",
+      "title": "Dos alternativas de inversión",
+      "introSeconds": 60,
+      "steps": {},
+      "outroSeconds": 1
     },
     {
       "number": 9,
-      "id": "security",
-      "title": "Control de acceso con ACL",
-      "introSeconds": 4,
-      "steps": {
-        "Trabajo autorizado": 30,
-        "Acceso restringido": 25,
-        "Invitado aislado": 30
-      },
-      "outroSeconds": 3
-    },
-    {
-      "number": 10,
-      "id": "firewall",
-      "title": "Firewall y recuperación del datacenter",
-      "introSeconds": 4,
-      "steps": {
-        "Situación": 15,
-        "Camino inicial": 20,
-        "Fallo y respuesta": 25,
-        "Qué aprendemos": 10,
-        "Servidor alternativo": 30,
-        "Qué datos vuelven": 35,
-        "Antes de reabrir": 45,
-        "Réplica antigua": 15,
-        "Copia inconsistente": 20,
-        "Límite del sitio": 20
-      },
-      "outroSeconds": 3
-    },
-    {
-      "number": 11,
-      "id": "investment",
-      "title": "Inversión y alternativas",
-      "introSeconds": 65,
-      "steps": {},
-      "outroSeconds": 3
-    },
-    {
-      "number": 12,
-      "id": "close",
-      "title": "Crecimiento y operación",
-      "introSeconds": 40,
-      "steps": {
-        "Demanda concurrente": 20,
-        "Reparto por prioridad": 25,
-        "Operación degradada": 40
-      },
-      "outroSeconds": 3
-    },
-    {
-      "number": 13,
       "id": "finale",
       "title": "Para finalizar",
-      "introSeconds": 60,
+      "introSeconds": 45,
       "steps": {},
-      "outroSeconds": 3
+      "outroSeconds": 1
     }
   ]
 }

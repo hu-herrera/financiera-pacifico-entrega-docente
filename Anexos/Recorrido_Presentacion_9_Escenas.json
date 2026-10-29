@@ -1,0 +1,71 @@
+{
+  "revision": "C5-BREVE-20261029",
+  "scenes": [
+    {
+      "number": 1,
+      "id": "context",
+      "title": "El avance del proyecto",
+      "phases": []
+    },
+    {
+      "number": 2,
+      "id": "before-cut",
+      "title": "El problema de la red actual",
+      "phases": [
+        "Conexión disponible",
+        "Enlace interrumpido"
+      ]
+    },
+    {
+      "number": 3,
+      "id": "proposal",
+      "title": "La solución propuesta",
+      "phases": []
+    },
+    {
+      "number": 4,
+      "id": "wan",
+      "title": "Una falla con respaldo",
+      "phases": [
+        "Conexión principal",
+        "Salida por Leo"
+      ]
+    },
+    {
+      "number": 5,
+      "id": "security",
+      "title": "Acceso seguro a los servicios",
+      "phases": [
+        "Aplicación permitida",
+        "Base de datos bloqueada"
+      ]
+    },
+    {
+      "number": 6,
+      "id": "firewall",
+      "title": "Recuperación de la aplicación",
+      "phases": [
+        "Datos recuperados",
+        "Comprobaciones de recuperación"
+      ]
+    },
+    {
+      "number": 7,
+      "id": "close",
+      "title": "Capacidad y puesta en marcha",
+      "phases": []
+    },
+    {
+      "number": 8,
+      "id": "investment",
+      "title": "Dos alternativas de inversión",
+      "phases": []
+    },
+    {
+      "number": 9,
+      "id": "finale",
+      "title": "Para finalizar",
+      "phases": []
+    }
+  ]
+}

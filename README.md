@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-AUTO-20261029; web y PowerPoint con las mismas 13 escenas
+**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-BREVE-20261029; web y PowerPoint con las mismas nueve diapositivas
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -59,7 +59,7 @@ La [revisión WAN-2](Anexos/Revision_WAN_24_oct_2026.md) cierra la sustitución 
 
 ## Recuperación del datacenter y entrega técnica - 26 de octubre
 
-La escena 10 de la presentación integrada muestra qué datos recupera el host alternativo, qué operaciones requieren conciliación y cuándo se bloquea un reinicio por falta de condiciones. El complemento utiliza los dos hosts y BKP-01 existentes, sin nuevas compras ni cambios de presupuesto.
+El ejemplo de recuperación del prototipo muestra qué datos recupera el host alternativo, qué operaciones requieren conciliación y cuándo se bloquea un reinicio por falta de condiciones. El complemento utiliza los dos hosts y BKP-01 existentes, sin nuevas compras ni cambios de presupuesto.
 
 - [Guía de operación y recuperación en PDF](Anexos/Operacion_Recuperacion_Datacenter_C5.pdf).
 - [Procedimiento consultable](Anexos/Operacion_Recuperacion_Datacenter_C5.md).
@@ -69,7 +69,7 @@ Se entrega preparación técnica y procedimiento; la financiera opera, mantiene,
 
 ## Cierre documental del 27 de octubre
 
-Se concilian el flujo anual, los importes WAN del informe, el cierre de la bitácora y los escenarios E4/E6. La escena 10 distingue firewall, recuperación de servicios y conciliación. El inventario y los totales WAN-3 se conservan.
+Se concilian el flujo anual, los importes WAN del informe, el cierre de la bitácora y los escenarios E4/E6. El prototipo distingue firewall, recuperación de servicios y conciliación. El inventario y los totales WAN-3 se conservan.
 
 - [Evidencia, cortes y reproducción pública](Anexos/Evidencia_Pruebas_27_oct_2026.md).
 - [Fuentes académicas editables](Fuentes/).
@@ -79,7 +79,7 @@ El ZIP contiene los mismos archivos que el manifiesto publicado. El manifiesto s
 
 ## Versión de defensa del 28 de octubre
 
-La presentación web agrega la escena 13 «Para finalizar». Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
+La versión del 28 de octubre incorporó un cierre «Para finalizar»; la versión breve actual lo conserva en su novena diapositiva. Protocolos, comandos, reglas y servicios comparten el estado de tráfico. El ejercicio de recuperación calcula resultados a partir de eventos con tiempo virtual.
 
 - [Matriz de protocolos, comandos y efectos](Anexos/Matriz_Protocolos_Comandos.md).
 - [Evidencia vigente del cierre operativo](Anexos/Cierre_Operativo_28_oct_2026.md).
@@ -88,14 +88,14 @@ Las pruebas anteriores conservan sus cortes históricos. El ZIP y el manifiesto 
 
 ## Recorrido unificado del 29 de octubre
 
-La web y el PowerPoint presentan las mismas 13 escenas, con el mismo orden, títulos y resultados. Las etapas internas de un ejemplo se mantienen dentro de su escena. El corte actual sustituye el PowerPoint anterior de 15 láminas.
+La web y el PowerPoint presentan las mismas nueve diapositivas, con el mismo orden, títulos y resultados. El corte breve sustituye las versiones anteriores de 15 y 13 láminas. Solo cuatro ejemplos se animan, con dos momentos por ejemplo.
 
 - [Correspondencia de escenas y ejemplos](Anexos/Coherencia_Presentacion_29_oct_2026.md).
-- [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_13_Escenas.json).
+- [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_9_Escenas.json).
 - [Verificación vigente del 29 de octubre](Anexos/Resultado_Verificacion_Publica_29_oct_2026.json).
 
 ## Recorrido automático completo
 
-Reproducir recorrido inicia las 13 escenas, aplica sus ejemplos y avanza sus etapas con tiempos de lectura. Ritmo permite elegir Normal, Pausado o Ágil. El cierre permanece visible. El modo manual y las herramientas de inspección continúan disponibles.
+Reproducir recorrido inicia las nueve diapositivas y ejecuta los cuatro ejemplos automáticamente. El expositor lee un relato seguido por diapositiva, sin operar los ejemplos. Ritmo permite elegir Normal, Pausado o Ágil. El cierre permanece visible. El modo manual y las herramientas de inspección continúan disponibles.
 
-Los [tiempos del recorrido](Anexos/Tiempos_Recorrido_Automatico.json) reservan lectura y pausas visuales. Normal tiene una duración orientativa de 22 minutos, incluida la lectura final. La narración procede del expositor; la página no escucha su voz.
+Los [tiempos del recorrido](Anexos/Tiempos_Recorrido_Automatico.json) reservan lectura y pausas visuales. Normal tiene una duración orientativa de 8 minutos y 50 segundos, incluida la lectura final. La narración procede del expositor; la página no escucha su voz.

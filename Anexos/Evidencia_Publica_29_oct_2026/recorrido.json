@@ -1,5 +1,7 @@
 [
   {
+    "final_arrival_ms": 482000,
+    "including_closing_ms": 527000,
     "variant": "A",
     "scenes": [
       1,
@@ -10,16 +12,14 @@
       6,
       7,
       8,
-      9,
-      10,
-      11,
-      12,
-      13
+      9
     ],
     "status": "PASS",
     "errors": []
   },
   {
+    "final_arrival_ms": 481000,
+    "including_closing_ms": 526000,
     "variant": "B",
     "scenes": [
       1,
@@ -30,11 +30,7 @@
       6,
       7,
       8,
-      9,
-      10,
-      11,
-      12,
-      13
+      9
     ],
     "status": "PASS",
     "errors": []

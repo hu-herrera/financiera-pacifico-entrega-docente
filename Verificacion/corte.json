@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
   "simulator_repository": "hu-herrera/fina",
-  "simulator_commit": "eedd3fb61ea8232c7d041d6f3b4d1b4cd2f9b15c",
-  "scope": "C5-AUTO-20261029: recorrido automático completo con tiempos de lectura por escena y etapa, pausa y ritmo ajustable; simulación funcional con tiempo virtual."
+  "simulator_commit": "cec22ade14c7bf4dda336595fb05ca183e955eb7",
+  "scope": "C5-BREVE-20261029: nueve diapositivas, cuatro ejemplos automáticos de dos momentos, lectura continua de 8 min 50 s y geometría de paquetes vinculada a satélites en movimiento."
 }

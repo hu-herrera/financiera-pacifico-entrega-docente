@@ -12,15 +12,22 @@ for(const variant of ['A','B']){
  test(variant+': E5 retira Starlink en sucursales y central',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e5()"]');expect(await page.evaluate(()=>C5Data.sites.every(s=>C5App.status(s.id).activeWan==='leo'))).toBe(true);expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(true);});
  test(variant+': E6 conserva APP y voz por móvil en ambos extremos',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e6()"]');expect(await page.evaluate(()=>C5Data.sites.every(s=>['entel5g','wom4g'].includes(C5App.status(s.id).activeWan)))).toBe(true);expect(await page.evaluate(()=>[C5App.securityTest('s06','app').ok,C5App.securityTest('s06','voice').ok])).toEqual([true,true]);});
  test(variant+': E7 espera estabilidad didáctica antes de retornar',async({page})=>{await setup(page,variant);await page.click('[onclick="sc_e1()"]');await page.click('[onclick="sc_e7()"]');expect((await status(page,'s08')).wan).toBe('leo');expect(await page.evaluate(()=>ST.links.s08.starlink)).toBe('recuperando');await expect.poll(async()=>(await status(page,'s08')).wan,{timeout:10000}).toBe('starlink');});
- test(variant+': escena 10 muestra conciliación, bloqueos y restaura el estado',async({page})=>{
+ test(variant+': paquete sigue al satélite durante tránsito, pausa y final',async({page})=>{
+  await setup(page,variant);await page.clock.install();await page.click('#presentation-launch');await page.evaluate(()=>ClientPresentation.go(3));await page.click('#story-replay');
+  async function geometry(){return page.evaluate(()=>{const st=PACKET_ANIMATION,i=st.hops.findIndex(h=>h.anchorId);if(i<0)throw Error('Falta ancla satelital');const h=st.hops[i],m=document.getElementById(h.anchorId).transform.baseVal.getItem(0).matrix,marker=document.querySelectorAll('#packet-layer circle')[i+1],p=packetHopPoint(h);return {x:m.e,y:m.f,px:p[0],py:p[1],mx:Number(marker.getAttribute('cx')),my:Number(marker.getAttribute('cy')),d:document.querySelector('.packet-route-ok').getAttribute('d'),original:h.point,route:st.hops.map(h=>h.id),totalMs:st.totalMs};});}
+  await page.clock.runFor(100);const first=await geometry();expect(first.totalMs).toBeLessThanOrEqual(20000.01);
+  for(const paused of [false,true]){if(paused)await page.evaluate(()=>pauseMapPing());await page.clock.runFor(600);const g=await geometry();expect(g.px).toBeCloseTo(g.x,4);expect(g.py).toBeCloseTo(g.y,4);expect(g.mx).toBeCloseTo(g.x,4);expect(g.my).toBeCloseTo(g.y,4);expect(g.d).not.toBe(first.d);expect(g.route).toEqual(first.route);expect(g.original).toEqual(first.original);}
+  await page.evaluate(()=>{PACKET_ANIMATION.elapsed=PACKET_ANIMATION.totalMs;PACKET_ANIMATION.frame(performance.now());});await page.clock.runFor(200);const done=await geometry();expect(done.mx).toBeCloseTo(done.x,4);expect(done.my).toBeCloseTo(done.y,4);
+  expect(await page.evaluate(()=>{const a=ANTENAS[0],h={id:'ant:'+a.id,point:[0,0]};return JSON.stringify(packetHopPoint(h))===JSON.stringify([a.x,a.y]);})).toBe(true);
+  await page.click('#stage-close');expect(await page.evaluate(()=>Boolean(PACKET_ANIMATION.updateGeometry))).toBe(false);
+ });
+ test(variant+': escena 6 muestra conciliación, comprobaciones y restaura el estado',async({page})=>{
   await setup(page,variant);const errors=[];page.on('pageerror',e=>errors.push(e.message));const before=await page.evaluate(()=>JSON.stringify(C5App.state('cm')));
-  await page.click('#presentation-launch');await page.uncheck('#story-autoplay');await page.evaluate(()=>ClientPresentation.go(9));await expect(page.locator('#stage-title')).toHaveText('Firewall y recuperación del datacenter');await page.click('#story-replay');await page.click('#story-pause');
+  await page.click('#presentation-launch');await page.uncheck('#story-autoplay');await page.evaluate(()=>ClientPresentation.go(5));await expect(page.locator('#stage-title')).toHaveText('Recuperación de la aplicación');await page.click('#story-replay');await page.click('#story-pause');
   async function advance(label){for(let i=0;i<16;i++){if((await page.locator('#story-phase').innerText()).includes(label))return;await page.click('#story-step');}throw Error('Etapa no alcanzada: '+label);}
-  await advance('Qué datos vuelven');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(3);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['OP-0013','OP-0014','OP-0015']);
-  await advance('Antes de reabrir');await expect(page.locator('.story-recovery-checks>li')).toHaveCount(6);
-  await advance('Réplica antigua');expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);
-  await advance('Copia inconsistente');expect(await page.evaluate(()=>ClientPresentation.report.recovery.dataStateKnown)).toBe(false);expect(await page.evaluate(()=>C5App.securityTest('s06','app').ok)).toBe(false);
-  await advance('Límite del sitio');expect(await page.evaluate(()=>C5App.status('cm').dc.applicationHost)).toBe(false);
-  await page.screenshot({path:test.info().outputPath('escena10-'+variant+'.png'),fullPage:true});await page.click('#stage-close');expect(await page.evaluate(()=>JSON.stringify(C5App.state('cm')))).toBe(before);expect(errors).toEqual([]);
+  await advance('Datos recuperados');await expect(page.locator('.story-ledger>.reconcile')).toHaveCount(3);expect(await page.evaluate(()=>ClientPresentation.report.recovery.reconcile.map(t=>t.id))).toEqual(['OP-0013','OP-0014','OP-0015']);
+  await advance('Comprobaciones de recuperación');await expect(page.locator('.story-recovery-checks>li')).toHaveCount(6);
+  for(const scenario of ['stale','corrupt','both']){const r=await page.evaluate(scenario=>C5App.recoveryExercise({scenario}),scenario);expect(r.eligible).toBe(false);}
+  await page.screenshot({path:test.info().outputPath('escena6-'+variant+'.png'),fullPage:true});await page.click('#stage-close');expect(await page.evaluate(()=>JSON.stringify(C5App.state('cm')))).toBe(before);expect(errors).toEqual([]);
  });
 }

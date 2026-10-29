@@ -1,35 +1,31 @@
-# Coherencia de la presentación del 29 de octubre de 2026
+# Presentación breve del avance - 29 de octubre de 2026
 
-La presentación web y el PowerPoint contienen las mismas 13 escenas. La tabla identifica las etapas internas de las demostraciones; no son láminas adicionales.
+La web, el PowerPoint y el índice público siguen las mismas nueve diapositivas. Solo cuatro contienen demostraciones: cada una compara dos momentos. El recorrido está preparado para una explicación continua de unos 8 minutos y 50 segundos.
 
-| N.º | Escena en web y PowerPoint | Etapas del ejemplo |
+| N.º | Diapositiva | Ejemplo automático |
 |---|---|---|
-| 1 | Continuidad operativa | Contenido explicativo, sin ejemplo automático |
-| 2 | La red anterior en operación | Situación; Camino inicial; Qué aprendemos |
-| 3 | El corte de una conexión | Situación; Camino inicial; Fallo y respuesta; Qué aprendemos |
-| 4 | Dependencias del acceso | Contenido explicativo, sin ejemplo automático |
-| 5 | La red propuesta | Contenido explicativo, sin ejemplo automático |
-| 6 | Una conexión alternativa | Situación; Camino inicial; Fallo y respuesta; Satelitales caídos; Último respaldo; Sin ningún acceso; Qué aprendemos |
-| 7 | Un router alternativo | Situación; Camino inicial; Fallo y respuesta; Qué aprendemos |
-| 8 | Respaldo Wi-Fi del puesto | Situación; Camino inicial; Fallo y respuesta; Qué aprendemos |
-| 9 | Control de acceso con ACL | Trabajo autorizado; Acceso restringido; Invitado aislado |
-| 10 | Firewall y recuperación del datacenter | Situación; Camino inicial; Fallo y respuesta; Qué aprendemos; Servidor alternativo; Qué datos vuelven; Antes de reabrir; Réplica antigua; Copia inconsistente; Límite del sitio |
-| 11 | Inversión y alternativas | Contenido explicativo, sin ejemplo automático |
-| 12 | Crecimiento y operación | Demanda concurrente; Reparto por prioridad; Operación degradada |
-| 13 | Para finalizar | Contenido explicativo, sin ejemplo automático |
+| 1 | El avance del proyecto | Explicación, sin ejemplo |
+| 2 | El problema de la red actual | Conexión disponible / Enlace interrumpido |
+| 3 | La solución propuesta | Explicación, sin ejemplo |
+| 4 | Una falla con respaldo | Conexión principal / Salida por Leo |
+| 5 | Acceso seguro a los servicios | Aplicación permitida / Base de datos bloqueada |
+| 6 | Recuperación de la aplicación | Datos recuperados / Comprobaciones de recuperación |
+| 7 | Capacidad y puesta en marcha | Explicación, sin ejemplo |
+| 8 | Dos alternativas de inversión | Explicación, sin ejemplo |
+| 9 | Para finalizar | Explicación, sin ejemplo |
 
-## Comportamiento revisado
+## Presentación y simulador
 
-El ejemplo WAN interrumpe transportes de S06 de forma sucesiva; los accesos centrales conservan su estado inicial. Leo se identifica como respaldo satelital. El ejemplo de recuperación reúne las comprobaciones y conserva los casos de copia antigua, inconsistente y pérdida de ambos hosts. QoS mantiene visible la asignación al pausar. Avanzar una etapa reproduce su animación de paquete aunque el relato permanezca en pausa.
+Los ejemplos de grabación se han reducido; las pruebas ampliadas y las consolas siguen disponibles en el simulador. La falla WAN afecta solo a Arica; central conserva sus accesos. Router, switch, Wi-Fi, QoS y límites de recuperación se explican sin repetir todas sus variantes.
 
-La web toma títulos, mensajes y puntos del único índice ClientStory. El PowerPoint y el índice JSON conservan esa numeración. La verificación de interfaz recorre cada escena en A/B y compara sus títulos y etapas. La verificación documental contrasta los títulos con las 13 láminas del PPT y comprueba que sus imágenes estén incorporadas.
+La línea, los marcadores y el paquete siguen las posiciones actuales de los satélites elegidos, sin modificar la ruta lógica calculada. La misma corrección se aplica al ping del simulador. Se comprueba tránsito, pausa, finalización y limpieza del recorrido. Las antenas terrestres conservan sus ubicaciones.
 
-## Alcance y resultados
+## Coherencia y verificación
 
-60 pruebas de modelo y 52 pruebas de interfaz aprobadas en el corte del 29 de octubre. Recorridos manual y automático comprobados en A/B, sin errores JavaScript. Resultados y capturas en Evidencia_Publica_29_oct_2026. Los cortes del 27 y 28 se conservan como evidencia histórica.
+60 pruebas de modelo y 54 de interfaz. Se comparan los títulos, la numeración y los ejemplos de A/B con el índice público y el PowerPoint. Los recorridos completos automáticos llegan al cierre sin errores JavaScript; con la lectura final, A suma 527 segundos y B 526 segundos en el reloj de prueba. Los cortes anteriores conservan su evidencia histórica.
 
-Los resultados describen el prototipo y sus eventos con tiempo virtual; no son mediciones de firmware ni de servidores físicos. El caso base de recuperación conserva 12 de 15 operaciones, con tres por conciliar, RTO virtual 50 s y RPO virtual 30 s. El presupuesto y el inventario no cambian.
+La recuperación conserva 12 de 15 operaciones y tres por conciliar, con RTO virtual 50 s y RPO virtual 30 s. Son resultados del simulador, no mediciones físicas. Inventario y presupuesto permanecen iguales.
 
-## Automatización del recorrido
+## Uso para grabar
 
-Las 13 escenas y sus etapas avanzan con una sola puesta en marcha. Cada escena reserva su tiempo explicativo y cada ejemplo tiene tiempos por etapa. Las animaciones de paquetes terminan antes de avanzar. Normal se planifica con una referencia de 115 palabras por minuto y pausas; Pausado y Ágil ajustan el ritmo. La escena final permanece visible. Pausar recorrido congela el avance y Continuar recorrido lo reanuda. Las pruebas A/B recorren el total de escenas y etapas con reloj controlado y verifican la pausa.
+Presentar → A → Ritmo Normal → Reproducir recorrido. Los cambios y las fallas son automáticos. Durante el recorrido se ocultan los controles de los ejemplos y la lista de etapas. El cierre permanece visible. Los tiempos son fijos y no escuchan al expositor. El guion es material personal separado de la entrega docente.

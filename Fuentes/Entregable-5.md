@@ -1,6 +1,6 @@
 # Entregable 5 - Prototipo y demostración de la WAN
 
-**Financiera Pacífico - C5 A/B - cierre operativo 28 de octubre de 2026**
+**Financiera Pacífico - C5 A/B - avance breve del 29 de octubre de 2026**
 
 ## 1. Objetivo
 
@@ -49,9 +49,9 @@ Se entrega un prototipo operativo con fuentes versionadas y pruebas automatizada
 
 Revisión WAN-3 del 25/10: [cuatro accesos en central y continuidad extremo a extremo](https://github.com/hu-herrera/financiera-pacifico-entrega-docente/blob/main/Anexos/Continuidad_Cuatro_WAN_25_oct_2026.md).
 
-## 7. Cierre operativo del 28 de octubre
+## 7. Presentación breve del 29 de octubre
 
-La presentación web tiene 13 escenas: la escena 12 conserva crecimiento y QoS, y la 13 añade «Para finalizar», conclusión y preguntas. Las consolas permiten modificar interfaces, procesos OSPF, validación VPN, reglas y servicios; los resultados afectan el acceso a la aplicación. Las configuraciones guardadas incluyen protocolos y permanecen aisladas por alternativa.
+La presentación web y el PowerPoint tienen nueve diapositivas, cuatro ejemplos automáticos de dos momentos y un cierre «Para finalizar». El recorrido de lectura continua dura unos 8 minutos y 50 segundos en Normal; no requiere operar los ejemplos. La demostración ampliada permanece en las herramientas del simulador. Las consolas permiten modificar interfaces, procesos OSPF, validación VPN, reglas y servicios; los resultados afectan el acceso a la aplicación. Las configuraciones guardadas incluyen protocolos y permanecen aisladas por alternativa.
 
 La recuperación usa eventos con reloj virtual. Para el caso base, el fallo en t=157 s conserva la copia de t=120 s completada en t=124 s: 12 de 15 operaciones están presentes y 3 requieren conciliación. El RTO observado es 50 s y el RPO observado 30 s de tiempo virtual. Cambiar el instante del fallo o el intervalo de réplica cambia los registros recuperables.
 

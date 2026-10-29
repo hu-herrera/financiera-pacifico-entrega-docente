@@ -48,40 +48,42 @@ for run in json.loads((R/'Anexos/Evidencia_Publica_28_oct_2026/recorrido.json').
 latest=json.loads((R/'Anexos/Resultado_Verificacion_Publica_29_oct_2026.json').read_text())
 assert latest['simulator_commit']==cut['simulator_commit']
 report=json.loads((R/'Anexos/Evidencia_Publica_29_oct_2026/interfaz.json').read_text())
-assert report['stats']['expected']==latest['browser']['passed']==52
+assert report['stats']['expected']==latest['browser']['passed']==54
 assert report['stats']['unexpected']==report['stats']['skipped']==report['stats']['flaky']==0
 log=(R/'Anexos/Evidencia_Publica_29_oct_2026/modelo.tap').read_text()
 for line in ['# tests 60','# pass 60','# fail 0']:assert line in log,line
-outline=json.loads((R/'Anexos/Recorrido_Presentacion_13_Escenas.json').read_text())['scenes']
-assert [s['number'] for s in outline]==list(range(1,14))
-assert len({s['id'] for s in outline})==len({s['title'] for s in outline})==13
+outline=json.loads((R/'Anexos/Recorrido_Presentacion_9_Escenas.json').read_text())['scenes']
+assert [s['number'] for s in outline]==list(range(1,10))
+assert len({s['id'] for s in outline})==len({s['title'] for s in outline})==9
 for run in json.loads((R/'Anexos/Evidencia_Publica_29_oct_2026/recorrido.json').read_text()):
- assert run['scenes']==list(range(1,14)) and run['status']=='PASS' and not run['errors']
+ assert run['scenes']==list(range(1,10)) and run['status']=='PASS' and not run['errors']
+ assert run['including_closing_ms']<=600000
 for run in json.loads((R/'Anexos/Evidencia_Publica_29_oct_2026/correspondencia.json').read_text()):
  assert not run['errors'] and run['status']=='PASS'
  assert [{k:s[k] for k in ('number','id','title','phases')} for s in run['scenes']]==outline
 timing=json.loads((R/'Anexos/Tiempos_Recorrido_Automatico.json').read_text())
-assert timing['reading_wpm']==115
+assert timing['reading_wpm']==135
 assert [s['id'] for s in timing['scenes']]==[s['id'] for s in outline]
 for t,o in zip(timing['scenes'],outline):
  assert t['title']==o['title'] and list(t['steps'])==o['phases']
  assert t['introSeconds']>0 and t['outroSeconds']>=0
  assert all(isinstance(v,int) and v>=10 for v in t['steps'].values())
+assert timing['estimated_seconds']<=600
 assert timing['estimated_seconds']==sum(t['introSeconds']+sum(t['steps'].values())+(t['outroSeconds'] if t['steps'] else 0) for t in timing['scenes'])
 with zipfile.ZipFile(R/'Presentacion/Avance_Financiera_Pacifico_30_oct_2026.pptx') as z:
  slides=[n for n in z.namelist() if __import__('re').fullmatch(r'ppt/slides/slide\d+\.xml',n)]
- assert len(slides)==13
+ assert len(slides)==9
  ppt_titles=[]
  for i,scene in enumerate(outline,1):
   root=ET.fromstring(z.read(f'ppt/slides/slide{i}.xml'))
   text=[n.text or '' for n in root.iter() if n.tag.endswith('}t')]
   assert text[0]==scene['title'],(i,text[0],scene['title'])
   ppt_titles.append(text[0])
- assert len(set(ppt_titles))==13
+ assert len(set(ppt_titles))==9
  for n in z.namelist():
   if '/media/' in n:assert len(z.read(n))>0,('empty image',n)
- assert 'Para finalizar' in z.read('ppt/slides/slide13.xml').decode()
+ assert 'Para finalizar' in z.read('ppt/slides/slide9.xml').decode()
  # La narración personal se entrega por separado.
  assert not any('guion' in n.lower() or n.startswith('Video/') for n in z.namelist())
 assert not any('guion' in name.lower() or name.startswith('Video/') for _,name in rows)
-print(json.dumps({'scope':'DOCUMENTOS_Y_PAQUETE','manifest_entries':len(rows),'archive':'PASS','workbook':'PASS','annual_economics':'PASS','public_links':'PASS','current_model':60,'current_browser':52,'web_scenes':13,'ppt_slides':13,'scene_titles':'MATCH','example_phases':'MATCH'},ensure_ascii=False))
+print(json.dumps({'scope':'DOCUMENTOS_Y_PAQUETE','manifest_entries':len(rows),'archive':'PASS','workbook':'PASS','annual_economics':'PASS','public_links':'PASS','current_model':60,'current_browser':54,'web_scenes':9,'ppt_slides':9,'scene_titles':'MATCH','example_phases':'MATCH'},ensure_ascii=False))
