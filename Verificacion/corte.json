@@ -1,6 +1,6 @@
 {
   "date": "2026-10-29",
   "simulator_repository": "hu-herrera/fina",
-  "simulator_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
-  "scope": "C5-GRABACION-20261029: recorrido único de 13 escenas, ejemplos y títulos concordantes; simulación funcional con tiempo virtual."
+  "simulator_commit": "eedd3fb61ea8232c7d041d6f3b4d1b4cd2f9b15c",
+  "scope": "C5-AUTO-20261029: recorrido automático completo con tiempos de lectura por escena y etapa, pausa y ritmo ajustable; simulación funcional con tiempo virtual."
 }

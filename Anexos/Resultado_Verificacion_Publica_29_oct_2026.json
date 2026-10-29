@@ -1,8 +1,8 @@
 {
   "date": "2026-10-29",
-  "revision": "C5-GRABACION-20261029",
-  "simulator_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
-  "tested_source_commit": "edd390cb9b5a6261f26f097b107989dc63aec190",
+  "revision": "C5-AUTO-20261029",
+  "simulator_commit": "eedd3fb61ea8232c7d041d6f3b4d1b4cd2f9b15c",
+  "tested_source_commit": "eedd3fb61ea8232c7d041d6f3b4d1b4cd2f9b15c",
   "node": {
     "passed": 60,
     "failed": 0
@@ -38,6 +38,9 @@
     "matching_titles": true,
     "matching_example_phases": true,
     "unique_titles": true,
-    "manual_and_automatic_tour": "PASS"
+    "manual_and_automatic_tour": "PASS",
+    "automatic_reading_wpm": 115,
+    "estimated_reading_seconds": 1302,
+    "pause_resume": "PASS"
   }
 }

@@ -29,3 +29,7 @@ La web toma títulos, mensajes y puntos del único índice ClientStory. El Power
 60 pruebas de modelo y 52 pruebas de interfaz aprobadas en el corte del 29 de octubre. Recorridos manual y automático comprobados en A/B, sin errores JavaScript. Resultados y capturas en Evidencia_Publica_29_oct_2026. Los cortes del 27 y 28 se conservan como evidencia histórica.
 
 Los resultados describen el prototipo y sus eventos con tiempo virtual; no son mediciones de firmware ni de servidores físicos. El caso base de recuperación conserva 12 de 15 operaciones, con tres por conciliar, RTO virtual 50 s y RPO virtual 30 s. El presupuesto y el inventario no cambian.
+
+## Automatización del recorrido
+
+Las 13 escenas y sus etapas avanzan con una sola puesta en marcha. Cada escena reserva su tiempo explicativo y cada ejemplo tiene tiempos por etapa. Las animaciones de paquetes terminan antes de avanzar. Normal se planifica con una referencia de 115 palabras por minuto y pausas; Pausado y Ágil ajustan el ritmo. La escena final permanece visible. Pausar recorrido congela el avance y Continuar recorrido lo reanuda. Las pruebas A/B recorren el total de escenas y etapas con reloj controlado y verifican la pausa.

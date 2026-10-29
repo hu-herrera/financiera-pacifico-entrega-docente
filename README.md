@@ -4,7 +4,7 @@
 
 **Curso:** Proyecto de Título APT
 
-**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-GRABACION-20261029; web y PowerPoint con las mismas 13 escenas
+**Corte:** 29 de octubre de 2026 - C5 A/B, WAN-3 y C5-AUTO-20261029; web y PowerPoint con las mismas 13 escenas
 
 [**Descargar el paquete de revisión en ZIP**](Entrega_Profesor_Financiera_Pacifico.zip)
 
@@ -93,3 +93,9 @@ La web y el PowerPoint presentan las mismas 13 escenas, con el mismo orden, tít
 - [Correspondencia de escenas y ejemplos](Anexos/Coherencia_Presentacion_29_oct_2026.md).
 - [Índice verificable del recorrido](Anexos/Recorrido_Presentacion_13_Escenas.json).
 - [Verificación vigente del 29 de octubre](Anexos/Resultado_Verificacion_Publica_29_oct_2026.json).
+
+## Recorrido automático completo
+
+Reproducir recorrido inicia las 13 escenas, aplica sus ejemplos y avanza sus etapas con tiempos de lectura. Ritmo permite elegir Normal, Pausado o Ágil. El cierre permanece visible. El modo manual y las herramientas de inspección continúan disponibles.
+
+Los [tiempos del recorrido](Anexos/Tiempos_Recorrido_Automatico.json) reservan lectura y pausas visuales. Normal tiene una duración orientativa de 22 minutos, incluida la lectura final. La narración procede del expositor; la página no escucha su voz.

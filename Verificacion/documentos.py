@@ -60,6 +60,14 @@ for run in json.loads((R/'Anexos/Evidencia_Publica_29_oct_2026/recorrido.json').
 for run in json.loads((R/'Anexos/Evidencia_Publica_29_oct_2026/correspondencia.json').read_text()):
  assert not run['errors'] and run['status']=='PASS'
  assert [{k:s[k] for k in ('number','id','title','phases')} for s in run['scenes']]==outline
+timing=json.loads((R/'Anexos/Tiempos_Recorrido_Automatico.json').read_text())
+assert timing['reading_wpm']==115
+assert [s['id'] for s in timing['scenes']]==[s['id'] for s in outline]
+for t,o in zip(timing['scenes'],outline):
+ assert t['title']==o['title'] and list(t['steps'])==o['phases']
+ assert t['introSeconds']>0 and t['outroSeconds']>=0
+ assert all(isinstance(v,int) and v>=10 for v in t['steps'].values())
+assert timing['estimated_seconds']==sum(t['introSeconds']+sum(t['steps'].values())+(t['outroSeconds'] if t['steps'] else 0) for t in timing['scenes'])
 with zipfile.ZipFile(R/'Presentacion/Avance_Financiera_Pacifico_30_oct_2026.pptx') as z:
  slides=[n for n in z.namelist() if __import__('re').fullmatch(r'ppt/slides/slide\d+\.xml',n)]
  assert len(slides)==13
